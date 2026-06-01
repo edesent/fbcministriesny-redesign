@@ -262,8 +262,17 @@ p {
 }
 
 .footer-logo {
-  width: 168px;
+  width: 228px;
   height: auto;
+}
+
+.footer-tagline {
+  margin-top: 18px;
+  color: var(--amber-soft) !important;
+  font-family: var(--font-display), Georgia, serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  letter-spacing: 0.01em;
 }
 
 .site-header nav {
@@ -619,6 +628,16 @@ p {
   letter-spacing: 0.02em;
 }
 
+.pastor-photo {
+  flex: 0 0 auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  box-shadow: 0 0 0 2px var(--amber);
+}
+
 .pastor-card strong {
   display: block;
   font-family: var(--font-display), Georgia, serif;
@@ -898,11 +917,33 @@ p {
 }
 
 .visit-panel {
-  padding: 34px;
   border-radius: 3px;
+  overflow: hidden;
   background: var(--pine);
   color: var(--cream);
   box-shadow: var(--shadow);
+}
+
+.visit-map {
+  position: relative;
+  line-height: 0;
+}
+
+.visit-map iframe {
+  display: block;
+  width: 100%;
+  height: 260px;
+  border: 0;
+  filter: grayscale(0.55) contrast(1.02);
+  transition: filter 0.4s ease;
+}
+
+.visit-map:hover iframe {
+  filter: grayscale(0) contrast(1);
+}
+
+.visit-panel-info {
+  padding: 34px;
 }
 
 .visit-panel p {
@@ -1122,6 +1163,101 @@ p {
 button.button.wide {
   grid-column: 1 / -1;
   text-transform: uppercase;
+}
+
+/* ---------- Callout band (FBA, etc.) ---------- */
+.callout {
+  padding: var(--pad-y) var(--pad-x);
+  background: var(--pine);
+  color: var(--cream);
+  text-align: center;
+}
+
+.callout-inner {
+  max-width: 56ch;
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+}
+
+.callout-inner svg {
+  color: var(--amber-soft);
+  margin-bottom: 10px;
+}
+
+.callout-inner .kicker {
+  color: var(--amber-soft);
+}
+
+.callout-inner h2 {
+  margin: 8px 0 12px;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.callout-inner p {
+  color: rgba(248, 248, 246, 0.78);
+  margin-bottom: 24px;
+}
+
+/* ---------- Counseling points (in service-panel) ---------- */
+.counsel-points {
+  display: grid;
+  gap: 13px;
+  margin: 20px 0 26px;
+}
+
+.counsel-points p {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  margin: 0;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.counsel-points svg {
+  flex: 0 0 auto;
+  color: var(--moss);
+  margin-top: 2px;
+}
+
+/* ---------- Calendar (events) ---------- */
+.calendar-embed {
+  overflow: hidden;
+  border-radius: 3px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line-light);
+}
+
+.calendar-embed iframe {
+  display: block;
+  width: 100%;
+  height: 640px;
+  border: 0;
+  background: var(--paper);
+}
+
+.calendar-placeholder {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  text-align: center;
+  padding: clamp(44px, 7vw, 84px);
+  border-radius: 3px;
+  background: var(--pine-soft);
+  border: 1px solid var(--line-light);
+  color: var(--cream);
+}
+
+.calendar-placeholder svg {
+  color: var(--amber-soft);
+}
+
+.calendar-placeholder p {
+  margin: 0 0 8px;
+  max-width: 44ch;
+  color: rgba(248, 248, 246, 0.8);
 }
 
 /* ---------- Footer ---------- */

@@ -122,7 +122,17 @@ export default function Home() {
         <div className="pastors-cards">
           {pastors.map((pastor) => (
             <article className="pastor-card" key={pastor.name}>
-              <span className="pastor-avatar" aria-hidden>{pastor.initials}</span>
+              {"photo" in pastor && pastor.photo ? (
+                <Image
+                  className="pastor-photo"
+                  src={pastor.photo}
+                  alt={pastor.name}
+                  width={64}
+                  height={64}
+                />
+              ) : (
+                <span className="pastor-avatar" aria-hidden>{pastor.initials}</span>
+              )}
               <div>
                 <strong>{pastor.name}</strong>
                 <span className="pastor-role">{pastor.role}</span>
@@ -205,12 +215,22 @@ export default function Home() {
           </p>
         </div>
         <div className="visit-panel">
-          <p><MapPin size={20} /> {site.address}</p>
-          <p><CalendarDays size={20} /> Sunday School 9:45 AM · Worship 11 AM</p>
-          <p><Clock3 size={20} /> Wednesday Ministries 7:00 PM</p>
-          <div className="panel-actions">
-            <a className="button light" href={site.mapHref}>Get Directions</a>
-            <a className="button glass" href={site.phoneHref}>Call {site.phone}</a>
+          <div className="visit-map">
+            <iframe
+              src={site.mapEmbedSrc}
+              title={`Map to ${site.name}, ${site.address}`}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <div className="visit-panel-info">
+            <p><MapPin size={20} /> {site.address}</p>
+            <p><CalendarDays size={20} /> Sunday School 9:45 AM · Worship 11 AM</p>
+            <p><Clock3 size={20} /> Wednesday Ministries 7:00 PM</p>
+            <div className="panel-actions">
+              <a className="button light" href={site.mapHref}>Get Directions</a>
+              <a className="button glass" href={site.phoneHref}>Call {site.phone}</a>
+            </div>
           </div>
         </div>
       </section>

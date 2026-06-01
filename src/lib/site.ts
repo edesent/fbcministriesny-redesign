@@ -24,7 +24,18 @@ export const site = {
   phoneHref: "tel:+15186053177",
   address: "108 Crosby Road, Sprakers, NY 12166",
   mapHref: "https://maps.google.com/?q=108+Crosby+Road,+Sprakers,+NY+12166",
+  mapEmbedSrc:
+    "https://www.google.com/maps?q=108+Crosby+Road,+Sprakers,+NY+12166&output=embed",
   facebookHref: "https://www.facebook.com/FaithBibleChurchSprakersNY12166",
+};
+
+// Google Calendar — paste the church's calendar here.
+// 1) In Google Calendar → Settings → "Integrate calendar":
+//    - embedSrc: copy the src="..." URL from the iframe "Embed code"
+//    - publicUrl: copy the "Public URL to this calendar"
+export const googleCalendar = {
+  embedSrc: "",
+  publicUrl: "",
 };
 
 export const navItems = [
@@ -50,6 +61,7 @@ export const pastors = [
     name: "Pastor Mark Kelly",
     role: "Pastor",
     initials: "MK",
+    photo: "/pastor-mark-redone.jpg",
     phone: "(518) 605-3177",
     phoneHref: "tel:+15186053177",
   },

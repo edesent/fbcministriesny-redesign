@@ -1,22 +1,23 @@
 :root {
-  /* Mohawk Valley palette — warm, rooted, upstate New York */
-  --paper: #f7f2e7;        /* oat cream */
-  --paper-deep: #efe6d3;   /* deeper sand for alternating bands */
-  --ink: #241f18;          /* warm near-black */
-  --ink-soft: #6c6052;     /* taupe body text */
-  --pine: #26402f;         /* deep Adirondack pine — primary */
-  --pine-deep: #182b1f;    /* darkest pine — footer / verse band */
-  --pine-soft: #34543e;    /* lifted pine for cards on dark */
-  --moss: #4d6b51;         /* mid green — icons, links */
-  --amber: #c0732e;        /* autumn copper — single accent */
+  /* Mohawk Valley palette — dusty teal / sage, upstate New York */
+  --paper: #f6f3ec;        /* soft cream */
+  --paper-deep: #adc8c9;   /* signature dusty teal-sage band */
+  --sage: #adc8c9;         /* the brand color */
+  --ink: #1f2e2c;          /* cool near-black */
+  --ink-soft: #586765;     /* muted teal-taupe body text */
+  --pine: #244847;         /* deep teal — primary */
+  --pine-deep: #15302f;    /* darkest teal — footer / verse band */
+  --pine-soft: #2f5957;    /* lifted teal for cards on dark */
+  --moss: #356b68;         /* mid teal — icons, links on light */
+  --amber: #c0732e;        /* warm copper — single accent */
   --amber-soft: #d99a55;   /* lifted copper on dark */
   --amber-deep: #95521e;
-  --cream: #faf6ec;        /* text on dark */
-  --line: rgba(36, 31, 24, 0.12);
-  --line-soft: rgba(36, 31, 24, 0.07);
-  --line-light: rgba(250, 246, 236, 0.18);
-  --shadow: 0 30px 70px rgba(24, 44, 32, 0.16);
-  --shadow-sm: 0 16px 40px rgba(24, 44, 32, 0.09);
+  --cream: #f7f4ee;        /* text on dark */
+  --line: rgba(31, 46, 44, 0.13);
+  --line-soft: rgba(31, 46, 44, 0.08);
+  --line-light: rgba(247, 244, 238, 0.2);
+  --shadow: 0 30px 70px rgba(18, 40, 39, 0.18);
+  --shadow-sm: 0 16px 40px rgba(18, 40, 39, 0.1);
   --pad-x: clamp(20px, 6vw, 96px);
   --pad-y: clamp(72px, 10vw, 128px);
 }
@@ -60,9 +61,10 @@ h2,
 h3 {
   margin-top: 0;
   font-family: var(--font-display), Georgia, "Times New Roman", serif;
-  line-height: 1.08;
-  font-weight: 600;
-  letter-spacing: -0.005em;
+  line-height: 1.06;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 p {
@@ -179,7 +181,7 @@ p {
   gap: 24px;
   padding: 14px var(--pad-x);
   border-bottom: 1px solid var(--line-soft);
-  background: rgba(247, 242, 231, 0.86);
+  background: rgba(246, 243, 236, 0.86);
   backdrop-filter: blur(16px) saturate(1.1);
 }
 
@@ -219,9 +221,10 @@ p {
 .brand strong,
 .footer-brand strong {
   font-family: var(--font-display), Georgia, serif;
-  font-size: 1.18rem;
-  font-weight: 560;
-  letter-spacing: -0.01em;
+  font-size: 1.04rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
   white-space: nowrap;
 }
 
@@ -307,9 +310,9 @@ p {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(8deg, rgba(16, 30, 21, 0.92) 2%, rgba(22, 40, 29, 0.55) 48%, rgba(22, 40, 29, 0.2) 82%),
-    linear-gradient(180deg, rgba(20, 36, 26, 0.55) 0%, rgba(20, 36, 26, 0.08) 42%),
-    linear-gradient(0deg, rgba(40, 66, 49, 0.34), rgba(40, 66, 49, 0.34));
+    linear-gradient(8deg, rgba(13, 30, 29, 0.92) 2%, rgba(22, 44, 43, 0.55) 48%, rgba(22, 44, 43, 0.2) 82%),
+    linear-gradient(180deg, rgba(18, 38, 37, 0.55) 0%, rgba(18, 38, 37, 0.08) 42%),
+    linear-gradient(0deg, rgba(36, 72, 71, 0.32), rgba(36, 72, 71, 0.32));
 }
 
 .hero-content {
@@ -342,9 +345,10 @@ p {
 .hero h1 {
   margin: 22px 0 20px;
   max-width: 16ch;
-  font-size: clamp(3.1rem, 7.4vw, 6.4rem);
-  font-weight: 600;
-  line-height: 1;
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: 0.02em;
   text-shadow: 0 2px 30px rgba(16, 28, 20, 0.4);
 }
 
@@ -644,7 +648,7 @@ p {
   bottom: 0;
   height: 130px;
   background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='130' viewBox='0 0 1440 130' preserveAspectRatio='none'%3E%3Cpath d='M0 130V70c120-26 230 14 360 4s250-46 380-40 240 50 360 44 230-40 340-30v82z' fill='%23223a2b'/%3E%3Cpath d='M0 130V96c150-30 260 6 410-2s260-34 420-28 250 30 360 24 180-14 250-8v46z' fill='%231a2f22'/%3E%3C/svg%3E") bottom / cover no-repeat;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='130' viewBox='0 0 1440 130' preserveAspectRatio='none'%3E%3Cpath d='M0 130V70c120-26 230 14 360 4s250-46 380-40 240 50 360 44 230-40 340-30v82z' fill='%231d3a39'/%3E%3Cpath d='M0 130V96c150-30 260 6 410-2s260-34 420-28 250 30 360 24 180-14 250-8v46z' fill='%23142b2a'/%3E%3C/svg%3E") bottom / cover no-repeat;
   pointer-events: none;
 }
 
@@ -785,7 +789,7 @@ p {
 }
 
 .page-hero > img {
-  filter: saturate(0.55) sepia(0.35) brightness(0.92) hue-rotate(40deg);
+  filter: saturate(0.85) brightness(0.92);
 }
 
 .page-hero-overlay {
@@ -793,7 +797,7 @@ p {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(8deg, rgba(20, 34, 24, 0.92), rgba(24, 43, 31, 0.55) 60%, rgba(24, 43, 31, 0.3));
+    linear-gradient(8deg, rgba(15, 32, 31, 0.92), rgba(22, 44, 43, 0.55) 60%, rgba(22, 44, 43, 0.32));
 }
 
 .page-hero-content {

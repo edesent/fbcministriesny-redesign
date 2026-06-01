@@ -9,7 +9,7 @@ const display = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  weight: ["500", "600", "700"],
+  weight: ["300", "400", "500", "600"],
 });
 
 const sans = Inter({

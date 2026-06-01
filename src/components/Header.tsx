@@ -7,7 +7,7 @@ export function Header() {
   return (
     <header className="site-header">
       <Link className="brand" href="/" aria-label={`${site.name} home`}>
-        <Image src="/logo.jpg" alt="Faith Bible Church logo" width={56} height={56} priority />
+        <Image src="/logo.jpg" alt="Faith Bible Church logo" width={56} height={56} preload />
         <span>
           <strong>Faith Bible</strong>
           <small>Church</small>

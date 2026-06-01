@@ -1,18 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Instrument_Sans } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const display = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  axes: ["SOFT", "WONK", "opsz"],
+  weight: ["500", "600", "700"],
 });
 
-const instrumentSans = Instrument_Sans({
+const sans = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
@@ -74,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${instrumentSans.variable}`}>
+    <html lang="en" className={`${display.variable} ${sans.variable}`}>
       <body>
         <Header />
         <main>{children}</main>

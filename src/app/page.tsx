@@ -2,14 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
+  BookOpen,
   CalendarDays,
   CheckCircle2,
+  Church,
   Clock3,
   MapPin,
   PlayCircle,
   Sunrise,
+  Sunset,
+  Users,
 } from "lucide-react";
 import { ministryCards, quickLinks, serviceTimes, site } from "@/lib/site";
+
+const stripIcons = [BookOpen, Church, Sunset, Users];
 
 export default function Home() {
   return (
@@ -46,28 +52,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="hero-strip" aria-label="Church details">
-        <div>
-          <Clock3 size={26} strokeWidth={1.6} />
-          <div>
-            <span>Sunday Worship</span>
-            <strong>11:00 AM</strong>
-          </div>
-        </div>
-        <div>
-          <CalendarDays size={26} strokeWidth={1.6} />
-          <div>
-            <span>Sunday School</span>
-            <strong>9:45 AM</strong>
-          </div>
-        </div>
-        <div>
-          <MapPin size={26} strokeWidth={1.6} />
-          <div>
-            <span>Find Us</span>
-            <strong>108 Crosby Road</strong>
-          </div>
-        </div>
+      <section className="hero-strip" aria-label="Service times">
+        {serviceTimes.map((service, i) => {
+          const Icon = stripIcons[i] ?? Clock3;
+          return (
+            <div className="strip-item" key={service.label}>
+              <span className="strip-icon">
+                <Icon size={22} strokeWidth={1.6} />
+              </span>
+              <div>
+                <span className="strip-label">{service.label}</span>
+                <strong className="strip-time">{service.time}</strong>
+                <small className="strip-detail">{service.detail}</small>
+              </div>
+            </div>
+          );
+        })}
       </section>
 
       <section className="welcome-section">

@@ -390,48 +390,65 @@ p {
   margin-top: 30px;
 }
 
-/* hero foot strip — service facts integrated at base of hero */
+/* hero foot strip — service times band */
 .hero-strip {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  background: var(--pine-deep);
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--pine);
   color: var(--cream);
+  border-top: 2px solid var(--amber);
 }
 
-.hero-strip div {
+.strip-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
-  padding: 26px var(--pad-x);
-  border-right: 1px solid var(--line-light);
+  padding: 30px clamp(18px, 2.6vw, 38px);
+  border-left: 1px solid var(--line-light);
 }
 
-.hero-strip div:last-child {
-  border-right: 0;
+.strip-item:first-child {
+  border-left: 0;
 }
 
-.hero-strip svg {
+.strip-icon {
+  display: grid;
+  place-items: center;
   flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(184, 154, 90, 0.14);
+  border: 1px solid rgba(184, 154, 90, 0.4);
   color: var(--amber-soft);
 }
 
-.hero-strip span {
+.strip-label {
   display: block;
   color: var(--amber-soft);
-  font-size: 0.66rem;
+  font-size: 0.64rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-.hero-strip strong {
+.strip-time {
   display: block;
-  margin-top: 3px;
+  margin: 5px 0 4px;
   font-family: var(--font-display), Georgia, serif;
-  font-size: 1.15rem;
-  font-weight: 500;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.strip-detail {
+  display: block;
+  color: rgba(248, 248, 246, 0.62);
+  font-size: 0.84rem;
+  line-height: 1.35;
 }
 
 /* ---------- Welcome / split sections ---------- */
@@ -1114,6 +1131,18 @@ button.button.wide {
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .hero-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .strip-item:nth-child(2n + 1) {
+    border-left: 0;
+  }
+
+  .strip-item:nth-child(n + 3) {
+    border-top: 1px solid var(--line-light);
+  }
 }
 
 @media (max-width: 860px) {
@@ -1122,7 +1151,6 @@ button.button.wide {
     padding-top: 110px;
   }
 
-  .hero-strip,
   .welcome-section,
   .split-section,
   .contact-page,
@@ -1130,11 +1158,6 @@ button.button.wide {
   .visit-section,
   .ministry-grid {
     grid-template-columns: 1fr;
-  }
-
-  .hero-strip div {
-    border-right: 0;
-    border-bottom: 1px solid var(--line-light);
   }
 
   .image-feature {
@@ -1158,6 +1181,19 @@ button.button.wide {
 
   .brand-logo {
     width: 92px;
+  }
+
+  .hero-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .strip-item {
+    border-left: 0;
+    border-top: 1px solid var(--line-light);
+  }
+
+  .strip-item:first-child {
+    border-top: 0;
   }
 
   .site-header nav {

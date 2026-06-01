@@ -64,19 +64,19 @@ export default function AboutPage() {
           <p className="signature">— {pastorMessage.from}</p>
         </div>
         <div className="pastors-cards">
+          {site.pastorPhoto && (
+            <figure className="pastor-portrait">
+              <Image
+                src={site.pastorPhoto}
+                alt="Pastor Mark Kelly"
+                fill
+                sizes="(max-width: 900px) 100vw, 40vw"
+              />
+            </figure>
+          )}
           {pastors.map((pastor) => (
             <article className="pastor-card" key={pastor.name}>
-              {"photo" in pastor && pastor.photo ? (
-                <Image
-                  className="pastor-photo"
-                  src={pastor.photo}
-                  alt={pastor.name}
-                  width={64}
-                  height={64}
-                />
-              ) : (
-                <span className="pastor-avatar" aria-hidden>{pastor.initials}</span>
-              )}
+              <span className="pastor-avatar" aria-hidden>{pastor.initials}</span>
               <div>
                 <strong>{pastor.name}</strong>
                 <span className="pastor-role">{pastor.role}</span>

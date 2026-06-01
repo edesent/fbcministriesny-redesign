@@ -27,6 +27,7 @@ export const site = {
   mapEmbedSrc:
     "https://www.google.com/maps?q=108+Crosby+Road,+Sprakers,+NY+12166&output=embed",
   facebookHref: "https://www.facebook.com/FaithBibleChurchSprakersNY12166",
+  pastorPhoto: "/pastor-mark-redone.jpg",
 };
 
 // Google Calendar — paste the church's calendar here.
@@ -61,7 +62,6 @@ export const pastors = [
     name: "Pastor Mark Kelly",
     role: "Pastor",
     initials: "MK",
-    photo: "/pastor-mark-redone.jpg",
     phone: "(518) 605-3177",
     phoneHref: "tel:+15186053177",
   },

@@ -47,7 +47,7 @@ export default function MissionsPage() {
             learn more about the missionaries we support and how you can pray for them.
           </p>
         </div>
-        <div className="ministry-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+        <div className="ministry-grid">
           {pillars.map((p) => {
             const Icon = p.icon;
             return (

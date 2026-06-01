@@ -24,7 +24,7 @@ export default function GivePage() {
           <h2>Two simple ways to give</h2>
           <p>Faithful giving supports the ministry of the church, local outreach, discipleship, and worldwide gospel work.</p>
         </div>
-        <div className="ministry-grid" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
+        <div className="ministry-grid duo">
           <article className="service-card">
             <HandCoins size={26} strokeWidth={1.6} />
             <span>In Person</span>

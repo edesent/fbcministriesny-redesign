@@ -1,16 +1,17 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, TreePine } from "lucide-react";
 import { navItems, site } from "@/lib/site";
 
 export function Header() {
   return (
     <header className="site-header">
       <Link className="brand" href="/" aria-label={`${site.name} home`}>
-        <Image src="/logo.jpg" alt="Faith Bible Church logo" width={56} height={56} preload />
+        <span className="brand-mark" aria-hidden>
+          <TreePine size={24} strokeWidth={1.6} />
+        </span>
         <span>
-          <strong>Faith Bible</strong>
-          <small>Church</small>
+          <strong>Faith Bible Church</strong>
+          <small>Sprakers, New York</small>
         </span>
       </Link>
       <nav aria-label="Primary navigation">

@@ -1,22 +1,24 @@
-import Image from "next/image";
 import Link from "next/link";
+import { TreePine } from "lucide-react";
 import { contactMethods, navItems, serviceTimes, site } from "@/lib/site";
 
 export function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-grid">
-        <div>
-          <Link className="footer-brand" href="/">
-            <Image src="/logo.jpg" alt="" width={52} height={52} />
+        <div className="footer-brand">
+          <Link className="lockup" href="/">
+            <span className="brand-mark" aria-hidden>
+              <TreePine size={24} strokeWidth={1.6} />
+            </span>
             <span>
               <strong>{site.name}</strong>
               <small>{site.tagline}</small>
             </span>
           </Link>
           <p>
-            A Christ-centered community in Sprakers, New York, seeking to glorify God
-            through worship, discipleship, care, and gospel proclamation.
+            A Christ-centered community in Sprakers, New York, gathering in the
+            Mohawk Valley to worship, grow, serve, and proclaim God&apos;s saving grace.
           </p>
         </div>
         <div>

@@ -29,7 +29,7 @@ export default function Home() {
           <span className="hero-tag">
             <Sunrise size={14} /> Sprakers, New York · Mohawk Valley
           </span>
-          <h1>Loving Jesus by loving others.</h1>
+          <h1>Loving Jesus by Loving Others.</h1>
           <p>
             A Christ-centered country church on Crosby Road, forty-five minutes
             west of Albany, gathering to worship, grow, serve, and proclaim

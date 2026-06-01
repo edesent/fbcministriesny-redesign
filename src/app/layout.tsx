@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description:
-    "Faith Bible Church in Sprakers, NY is a Christ-centered church family loving Jesus by loving others.",
+    "Faith Bible Church in Sprakers, NY is a Christ-centered church family Loving Jesus by Loving Others.",
   applicationName: site.name,
   keywords: [
     "Faith Bible Church",

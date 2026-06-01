@@ -17,7 +17,7 @@ import {
 
 export const site = {
   name: "Faith Bible Church",
-  tagline: "Loving Jesus by loving others",
+  tagline: "Loving Jesus by Loving Others",
   url: "https://www.fbcministriesny.org",
   email: "fbcministriesny@yahoo.com",
   phone: "(518) 605-3177",

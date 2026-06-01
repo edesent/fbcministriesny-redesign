@@ -17,7 +17,6 @@ import {
   ministryCards,
   pastorMessage,
   pastors,
-  quickLinks,
   serviceTimes,
   site,
 } from "@/lib/site";
@@ -146,24 +145,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="service-section" id="services">
-        <div className="section-heading">
-          <span className="kicker">Gather With Us</span>
-          <h2>Weekly gatherings</h2>
-          <p>Simple, steady rhythms for worship, prayer, discipleship, and encouragement.</p>
-        </div>
-        <div className="service-grid">
-          {serviceTimes.map((service) => (
-            <article key={service.label} className="service-card">
-              <Clock3 size={26} strokeWidth={1.6} />
-              <span>{service.label}</span>
-              <strong>{service.time}</strong>
-              <p>{service.detail}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section className="ministries-section">
         <div className="section-heading">
           <span className="kicker">Discover Ministries</span>
@@ -190,20 +171,6 @@ export default function Home() {
           &ldquo;For God so loved the world, that he gave his only begotten Son.&rdquo;
         </blockquote>
         <cite>John 3:16</cite>
-      </section>
-
-      <section className="quick-section">
-        {quickLinks.map((link) => {
-          const Icon = link.icon;
-          return (
-            <Link className="quick-card" href={link.href} key={link.title}>
-              <Icon size={28} strokeWidth={1.6} />
-              <span>{link.title}</span>
-              <p>{link.text}</p>
-              <ArrowRight size={20} />
-            </Link>
-          );
-        })}
       </section>
 
       <section className="visit-section">

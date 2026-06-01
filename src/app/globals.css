@@ -1,23 +1,23 @@
 :root {
-  /* Mohawk Valley palette — dusty teal / sage, upstate New York */
-  --paper: #f6f3ec;        /* soft cream */
-  --paper-deep: #adc8c9;   /* signature dusty teal-sage band */
-  --sage: #adc8c9;         /* the brand color */
-  --ink: #1f2e2c;          /* cool near-black */
-  --ink-soft: #586765;     /* muted teal-taupe body text */
-  --pine: #244847;         /* deep teal — primary */
-  --pine-deep: #15302f;    /* darkest teal — footer / verse band */
-  --pine-soft: #2f5957;    /* lifted teal for cards on dark */
-  --moss: #356b68;         /* mid teal — icons, links on light */
-  --amber: #c0732e;        /* warm copper — single accent */
-  --amber-soft: #d99a55;   /* lifted copper on dark */
-  --amber-deep: #95521e;
-  --cream: #f7f4ee;        /* text on dark */
-  --line: rgba(31, 46, 44, 0.13);
-  --line-soft: rgba(31, 46, 44, 0.08);
-  --line-light: rgba(247, 244, 238, 0.2);
-  --shadow: 0 30px 70px rgba(18, 40, 39, 0.18);
-  --shadow-sm: 0 16px 40px rgba(18, 40, 39, 0.1);
+  /* Mohawk Valley palette — burgundy / wine, traditional & warm */
+  --paper: #f7f1ea;        /* warm ivory */
+  --paper-deep: #ecd6d0;   /* signature dusty-rose band */
+  --sage: #ecd6d0;         /* soft blush — light expression of burgundy */
+  --ink: #2a1c1d;          /* warm near-black */
+  --ink-soft: #6f5a59;     /* warm taupe body text */
+  --pine: #6e2230;         /* deep burgundy — primary */
+  --pine-deep: #411019;    /* darkest wine — footer / verse band */
+  --pine-soft: #84323f;    /* lifted burgundy for cards on dark */
+  --moss: #8c2a38;         /* deep red — icons, links on light */
+  --amber: #b1843a;        /* antique gold — single accent */
+  --amber-soft: #d3ab63;   /* lifted gold on dark */
+  --amber-deep: #8a6326;
+  --cream: #f8f2ec;        /* text on dark */
+  --line: rgba(42, 28, 29, 0.13);
+  --line-soft: rgba(42, 28, 29, 0.08);
+  --line-light: rgba(248, 242, 236, 0.2);
+  --shadow: 0 30px 70px rgba(58, 18, 27, 0.18);
+  --shadow-sm: 0 16px 40px rgba(58, 18, 27, 0.1);
   --pad-x: clamp(20px, 6vw, 96px);
   --pad-y: clamp(72px, 10vw, 128px);
 }
@@ -181,7 +181,7 @@ p {
   gap: 24px;
   padding: 14px var(--pad-x);
   border-bottom: 1px solid var(--line-soft);
-  background: rgba(246, 243, 236, 0.86);
+  background: rgba(247, 241, 234, 0.86);
   backdrop-filter: blur(16px) saturate(1.1);
 }
 
@@ -305,14 +305,18 @@ p {
   object-fit: cover;
 }
 
+.hero > img {
+  filter: grayscale(0.55) brightness(0.9) contrast(1.03);
+}
+
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(8deg, rgba(13, 30, 29, 0.92) 2%, rgba(22, 44, 43, 0.55) 48%, rgba(22, 44, 43, 0.2) 82%),
-    linear-gradient(180deg, rgba(18, 38, 37, 0.55) 0%, rgba(18, 38, 37, 0.08) 42%),
-    linear-gradient(0deg, rgba(36, 72, 71, 0.32), rgba(36, 72, 71, 0.32));
+    linear-gradient(8deg, rgba(48, 11, 19, 0.93) 2%, rgba(96, 27, 41, 0.6) 46%, rgba(96, 27, 41, 0.24) 82%),
+    linear-gradient(180deg, rgba(60, 15, 24, 0.5) 0%, rgba(60, 15, 24, 0.08) 42%),
+    linear-gradient(0deg, rgba(110, 34, 48, 0.44), rgba(110, 34, 48, 0.44));
 }
 
 .hero-content {
@@ -648,7 +652,7 @@ p {
   bottom: 0;
   height: 130px;
   background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='130' viewBox='0 0 1440 130' preserveAspectRatio='none'%3E%3Cpath d='M0 130V70c120-26 230 14 360 4s250-46 380-40 240 50 360 44 230-40 340-30v82z' fill='%231d3a39'/%3E%3Cpath d='M0 130V96c150-30 260 6 410-2s260-34 420-28 250 30 360 24 180-14 250-8v46z' fill='%23142b2a'/%3E%3C/svg%3E") bottom / cover no-repeat;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='130' viewBox='0 0 1440 130' preserveAspectRatio='none'%3E%3Cpath d='M0 130V70c120-26 230 14 360 4s250-46 380-40 240 50 360 44 230-40 340-30v82z' fill='%23581622'/%3E%3Cpath d='M0 130V96c150-30 260 6 410-2s260-34 420-28 250 30 360 24 180-14 250-8v46z' fill='%23390e16'/%3E%3C/svg%3E") bottom / cover no-repeat;
   pointer-events: none;
 }
 
@@ -789,7 +793,7 @@ p {
 }
 
 .page-hero > img {
-  filter: saturate(0.85) brightness(0.92);
+  filter: grayscale(0.75) brightness(0.9) contrast(1.03);
 }
 
 .page-hero-overlay {
@@ -797,7 +801,7 @@ p {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(8deg, rgba(15, 32, 31, 0.92), rgba(22, 44, 43, 0.55) 60%, rgba(22, 44, 43, 0.32));
+    linear-gradient(8deg, rgba(48, 11, 19, 0.93), rgba(96, 27, 41, 0.6) 60%, rgba(110, 34, 48, 0.42));
 }
 
 .page-hero-content {

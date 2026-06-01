@@ -13,7 +13,14 @@ import {
   Sunset,
   Users,
 } from "lucide-react";
-import { ministryCards, quickLinks, serviceTimes, site } from "@/lib/site";
+import {
+  ministryCards,
+  pastorMessage,
+  pastors,
+  quickLinks,
+  serviceTimes,
+  site,
+} from "@/lib/site";
 
 const stripIcons = [BookOpen, Church, Sunset, Users];
 
@@ -99,6 +106,33 @@ export default function Home() {
           />
           <figcaption>A country church for the valley.</figcaption>
         </figure>
+      </section>
+
+      <section className="pastors-section" id="pastors">
+        <div className="pastors-message">
+          <span className="kicker">Our Pastors</span>
+          <h2>A word from our pastor</h2>
+          <div className="message-body">
+            {pastorMessage.paragraphs.map((para) => (
+              <p key={para.slice(0, 24)}>{para}</p>
+            ))}
+          </div>
+          <p className="signature">— {pastorMessage.from}</p>
+        </div>
+        <div className="pastors-cards">
+          {pastors.map((pastor) => (
+            <article className="pastor-card" key={pastor.name}>
+              <span className="pastor-avatar" aria-hidden>{pastor.initials}</span>
+              <div>
+                <strong>{pastor.name}</strong>
+                <span className="pastor-role">{pastor.role}</span>
+                {pastor.phone && (
+                  <a href={pastor.phoneHref}>{pastor.phone}</a>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="service-section" id="services">

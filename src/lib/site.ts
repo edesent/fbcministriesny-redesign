@@ -45,6 +45,31 @@ export const serviceTimes = [
   { label: "Wednesday Ministries", time: "7:00 PM", detail: "Adult, teen, and children's ministries" },
 ];
 
+export const pastors = [
+  {
+    name: "Pastor Mark Kelly",
+    role: "Pastor",
+    initials: "MK",
+    phone: "(518) 605-3177",
+    phoneHref: "tel:+15186053177",
+  },
+  {
+    name: "Pastor Dave White",
+    role: "Assistant Pastor · FBA Administrator",
+    initials: "DW",
+  },
+];
+
+export const pastorMessage = {
+  from: "Pastor Mark Kelly",
+  paragraphs: [
+    "It is my privilege to serve as the Pastor of Faith Bible Church. My heart-felt prayer is for people to come to know Jesus Christ as their personal Saviour and Lord. It is also my desire to teach the Word of God in such a way that will motivate Christians to grow into strong soldiers of Jesus Christ.",
+    "As a preacher of God's Holy Word, I desire to preach the whole counsel of God, knowing that His Word does not return void. As a Pastor of God's Church, I desire to place people into various ministries that will both strengthen them and the brethren.",
+    "If you are looking for a Church to attend this Sunday, I would love to have you be a part of one of our services.",
+    "May God bless you as you seek His will for your life!",
+  ],
+};
+
 export const ministryCards = [
   {
     title: "Men",

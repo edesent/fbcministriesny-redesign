@@ -9,10 +9,10 @@ export function Header() {
       <Link className="brand" href="/" aria-label={`${site.name} home`}>
         <Image
           className="brand-logo"
-          src="/logo-full.png"
+          src="/logo-horizontal.png"
           alt={site.name}
-          width={1224}
-          height={597}
+          width={1254}
+          height={229}
           priority
         />
       </Link>

@@ -1,23 +1,23 @@
 :root {
-  /* Mohawk Valley palette — burgundy / wine, traditional & warm */
-  --paper: #f7f1ea;        /* warm ivory */
-  --paper-deep: #ecd6d0;   /* signature dusty-rose band */
-  --sage: #ecd6d0;         /* soft blush — light expression of burgundy */
-  --ink: #2a1c1d;          /* warm near-black */
-  --ink-soft: #6f5a59;     /* warm taupe body text */
-  --pine: #6e2230;         /* deep burgundy — primary */
-  --pine-deep: #411019;    /* darkest wine — footer / verse band */
-  --pine-soft: #84323f;    /* lifted burgundy for cards on dark */
-  --moss: #8c2a38;         /* deep red — icons, links on light */
-  --amber: #b1843a;        /* antique gold — single accent */
-  --amber-soft: #d3ab63;   /* lifted gold on dark */
-  --amber-deep: #8a6326;
-  --cream: #f8f2ec;        /* text on dark */
-  --line: rgba(42, 28, 29, 0.13);
-  --line-soft: rgba(42, 28, 29, 0.08);
-  --line-light: rgba(248, 242, 236, 0.2);
-  --shadow: 0 30px 70px rgba(58, 18, 27, 0.18);
-  --shadow-sm: 0 16px 40px rgba(58, 18, 27, 0.1);
+  /* Brand palette — navy / teal / gold */
+  --paper: #f8f8f6;        /* off white */
+  --paper-deep: #adc8c9;   /* secondary teal — signature band */
+  --sage: #adc8c9;         /* secondary teal */
+  --ink: #2f3542;          /* dark charcoal — text */
+  --ink-soft: #5d6470;     /* muted charcoal body text */
+  --pine: #062a53;         /* primary navy */
+  --pine-deep: #041d3a;    /* deepest navy — footer / verse band */
+  --pine-soft: #143c68;    /* lifted navy for cards on dark */
+  --moss: #0e3c6e;         /* navy — icons, links on light */
+  --amber: #b89a5a;        /* accent gold — single accent */
+  --amber-soft: #cdb27a;   /* lifted gold on dark */
+  --amber-deep: #8f7637;
+  --cream: #f8f8f6;        /* off white text on dark */
+  --line: rgba(47, 53, 66, 0.13);
+  --line-soft: rgba(47, 53, 66, 0.08);
+  --line-light: rgba(248, 248, 246, 0.2);
+  --shadow: 0 30px 70px rgba(6, 26, 53, 0.18);
+  --shadow-sm: 0 16px 40px rgba(6, 26, 53, 0.1);
   --pad-x: clamp(20px, 6vw, 96px);
   --pad-y: clamp(72px, 10vw, 128px);
 }
@@ -181,7 +181,7 @@ p {
   gap: 24px;
   padding: 14px var(--pad-x);
   border-bottom: 1px solid var(--line-soft);
-  background: rgba(247, 241, 234, 0.86);
+  background: rgba(248, 248, 246, 0.86);
   backdrop-filter: blur(16px) saturate(1.1);
 }
 
@@ -314,9 +314,9 @@ p {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(8deg, rgba(48, 11, 19, 0.93) 2%, rgba(96, 27, 41, 0.6) 46%, rgba(96, 27, 41, 0.24) 82%),
-    linear-gradient(180deg, rgba(60, 15, 24, 0.5) 0%, rgba(60, 15, 24, 0.08) 42%),
-    linear-gradient(0deg, rgba(110, 34, 48, 0.44), rgba(110, 34, 48, 0.44));
+    linear-gradient(8deg, rgba(3, 16, 34, 0.93) 2%, rgba(6, 38, 75, 0.6) 46%, rgba(6, 42, 83, 0.24) 82%),
+    linear-gradient(180deg, rgba(5, 28, 56, 0.5) 0%, rgba(5, 28, 56, 0.08) 42%),
+    linear-gradient(0deg, rgba(6, 42, 83, 0.46), rgba(6, 42, 83, 0.46));
 }
 
 .hero-content {
@@ -652,7 +652,7 @@ p {
   bottom: 0;
   height: 130px;
   background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='130' viewBox='0 0 1440 130' preserveAspectRatio='none'%3E%3Cpath d='M0 130V70c120-26 230 14 360 4s250-46 380-40 240 50 360 44 230-40 340-30v82z' fill='%23581622'/%3E%3Cpath d='M0 130V96c150-30 260 6 410-2s260-34 420-28 250 30 360 24 180-14 250-8v46z' fill='%23390e16'/%3E%3C/svg%3E") bottom / cover no-repeat;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='130' viewBox='0 0 1440 130' preserveAspectRatio='none'%3E%3Cpath d='M0 130V70c120-26 230 14 360 4s250-46 380-40 240 50 360 44 230-40 340-30v82z' fill='%23062a53'/%3E%3Cpath d='M0 130V96c150-30 260 6 410-2s260-34 420-28 250 30 360 24 180-14 250-8v46z' fill='%23041d3a'/%3E%3C/svg%3E") bottom / cover no-repeat;
   pointer-events: none;
 }
 
@@ -801,7 +801,7 @@ p {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(8deg, rgba(48, 11, 19, 0.93), rgba(96, 27, 41, 0.6) 60%, rgba(110, 34, 48, 0.42));
+    linear-gradient(8deg, rgba(3, 16, 34, 0.93), rgba(6, 38, 75, 0.6) 60%, rgba(6, 42, 83, 0.42));
 }
 
 .page-hero-content {

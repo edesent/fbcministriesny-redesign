@@ -267,7 +267,7 @@ p {
 }
 
 .footer-tagline {
-  margin-top: 18px;
+  margin: 0;
   color: var(--amber-soft) !important;
   font-family: var(--font-display), Georgia, serif;
   font-style: italic;
@@ -1274,7 +1274,7 @@ button.button.wide {
 }
 
 .site-footer .footer-brand p {
-  margin-top: 18px;
+  margin-top: 0;
   color: rgba(250, 246, 236, 0.66);
   max-width: 40ch;
 }
@@ -1282,7 +1282,7 @@ button.button.wide {
 .footer-brand {
   align-items: flex-start;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .footer-brand > a,

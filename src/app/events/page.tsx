@@ -42,7 +42,7 @@ export default function EventsPage() {
         </aside>
       </section>
 
-      <section className="service-section">
+      <section className="calendar-section">
         <div className="section-heading">
           <span className="kicker">Church Calendar</span>
           <h2>Upcoming events</h2>
@@ -63,14 +63,14 @@ export default function EventsPage() {
           <div className="calendar-placeholder">
             <CalendarDays size={40} strokeWidth={1.4} />
             <p>Our church calendar is on its way. In the meantime, call the office for the latest schedule.</p>
-            <a className="button light" href={site.phoneHref}>
+            <a className="button primary" href={site.phoneHref}>
               Call {site.phone} <ArrowRight size={18} />
             </a>
           </div>
         )}
         {googleCalendar.publicUrl && (
           <div className="band-actions" style={{ justifyContent: "center", marginTop: 28 }}>
-            <a className="button glass" href={googleCalendar.publicUrl} target="_blank" rel="noopener noreferrer">
+            <a className="button outline" href={googleCalendar.publicUrl} target="_blank" rel="noopener noreferrer">
               <Clock3 size={18} /> Open the full calendar
             </a>
           </div>

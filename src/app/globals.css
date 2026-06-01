@@ -1456,11 +1456,16 @@ button.button.wide {
 }
 
 /* ---------- Calendar (events) ---------- */
+.calendar-section {
+  padding: var(--pad-y) var(--pad-x);
+  background: var(--paper);
+}
+
 .calendar-embed {
   overflow: hidden;
   border-radius: 3px;
   box-shadow: var(--shadow);
-  border: 1px solid var(--line-light);
+  border: 1px solid var(--line);
 }
 
 .calendar-embed iframe {

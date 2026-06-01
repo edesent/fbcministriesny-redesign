@@ -36,7 +36,7 @@ export const site = {
 //    - publicUrl: copy the "Public URL to this calendar"
 export const googleCalendar = {
   embedSrc:
-    "https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&showTitle=0&mode=MONTH&src=bWFya19rMzQ5OUB5YWhvby5jb20&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23062a53&color=%23b89a5a",
+    "https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&showTitle=0&showNav=1&showTabs=0&showCalendars=0&mode=AGENDA&src=bWFya19rMzQ5OUB5YWhvby5jb20&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23062a53&color=%23b89a5a",
   publicUrl:
     "https://calendar.google.com/calendar/embed?src=mark_k3499%40yahoo.com&ctz=America%2FNew_York",
 };

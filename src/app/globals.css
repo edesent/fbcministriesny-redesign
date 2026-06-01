@@ -113,16 +113,25 @@ p {
   transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease, color 200ms ease;
 }
 
-.header-action,
 .button.primary {
   background: var(--pine);
   color: var(--cream);
-  box-shadow: 0 14px 30px rgba(38, 64, 47, 0.28);
+  box-shadow: 0 14px 30px rgba(6, 26, 53, 0.28);
 }
 
-.header-action:hover,
 .button.primary:hover {
   background: var(--pine-deep);
+  transform: translateY(-2px);
+}
+
+.header-action {
+  background: var(--sage);
+  color: var(--pine);
+  box-shadow: 0 14px 30px rgba(6, 26, 53, 0.16);
+}
+
+.header-action:hover {
+  background: #9bbcbd;
   transform: translateY(-2px);
 }
 
@@ -359,7 +368,11 @@ p {
   font-weight: 400;
   line-height: 1.02;
   letter-spacing: 0.02em;
-  color: var(--pine);
+  color: var(--ink);
+}
+
+.hero h1 .gold {
+  color: var(--amber);
 }
 
 .hero p {

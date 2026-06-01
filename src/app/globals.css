@@ -193,6 +193,12 @@ p {
   min-width: 0;
 }
 
+.brand-logo {
+  flex: 0 0 auto;
+  width: 108px;
+  height: auto;
+}
+
 .brand-mark {
   display: grid;
   place-items: center;
@@ -221,9 +227,9 @@ p {
 .brand strong,
 .footer-brand strong {
   font-family: var(--font-display), Georgia, serif;
-  font-size: 1.04rem;
+  font-size: 0.96rem;
   font-weight: 600;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -243,8 +249,8 @@ p {
 
 .site-header nav {
   display: flex;
-  justify-content: center;
-  gap: clamp(12px, 1.8vw, 28px);
+  justify-content: flex-end;
+  gap: clamp(10px, 1.5vw, 22px);
   min-width: 0;
   max-width: 100%;
   overflow-x: auto;
@@ -306,7 +312,7 @@ p {
 }
 
 .hero > img {
-  filter: grayscale(0.55) brightness(0.9) contrast(1.03);
+  filter: saturate(0.96) brightness(1.04);
 }
 
 .hero-overlay {
@@ -314,9 +320,8 @@ p {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(8deg, rgba(3, 16, 34, 0.93) 2%, rgba(6, 38, 75, 0.6) 46%, rgba(6, 42, 83, 0.24) 82%),
-    linear-gradient(180deg, rgba(5, 28, 56, 0.5) 0%, rgba(5, 28, 56, 0.08) 42%),
-    linear-gradient(0deg, rgba(6, 42, 83, 0.46), rgba(6, 42, 83, 0.46));
+    linear-gradient(0deg, rgba(221, 232, 232, 0.94) 1%, rgba(221, 232, 232, 0.52) 28%, rgba(221, 232, 232, 0) 56%),
+    linear-gradient(0deg, rgba(173, 200, 201, 0.42), rgba(173, 200, 201, 0.42));
 }
 
 .hero-content {
@@ -325,7 +330,7 @@ p {
   max-width: 1240px;
   margin: 0 auto;
   padding-bottom: clamp(48px, 7vw, 96px);
-  color: var(--cream);
+  color: var(--ink);
 }
 
 .hero-tag {
@@ -333,9 +338,10 @@ p {
   align-items: center;
   gap: 9px;
   padding: 7px 15px;
-  border: 1px solid rgba(250, 246, 236, 0.34);
+  border: 1px solid rgba(6, 42, 83, 0.28);
   border-radius: 999px;
-  color: rgba(250, 246, 236, 0.92);
+  background: rgba(248, 248, 246, 0.72);
+  color: var(--pine);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -343,7 +349,7 @@ p {
 }
 
 .hero-tag svg {
-  color: var(--amber-soft);
+  color: var(--amber-deep);
 }
 
 .hero h1 {
@@ -353,12 +359,12 @@ p {
   font-weight: 400;
   line-height: 1.02;
   letter-spacing: 0.02em;
-  text-shadow: 0 2px 30px rgba(16, 28, 20, 0.4);
+  color: var(--pine);
 }
 
 .hero p {
   max-width: 56ch;
-  color: rgba(250, 246, 236, 0.9);
+  color: var(--ink);
   font-size: clamp(1.05rem, 1.6vw, 1.22rem);
 }
 
@@ -1130,12 +1136,15 @@ button.button.wide {
 
 @media (max-width: 620px) {
   .site-header {
-    gap: 12px;
-    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 16px;
   }
 
-  .brand strong {
-    font-size: 1.04rem;
+  .brand-logo {
+    width: 92px;
   }
 
   .site-header nav {
@@ -1143,8 +1152,13 @@ button.button.wide {
   }
 
   .header-action {
-    padding: 0 16px;
-    font-size: 0.72rem;
+    padding: 0 14px;
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+  }
+
+  .header-action svg {
+    display: none;
   }
 
   .hero h1 {

@@ -36,10 +36,10 @@ export default function Home() {
             God&apos;s saving grace.
           </p>
           <div className="hero-actions">
-            <Link className="button light" href="/contact">
+            <Link className="button primary" href="/contact">
               Plan a Visit <ArrowRight size={18} />
             </Link>
-            <Link className="button glass" href="/events">
+            <Link className="button outline" href="/events">
               <PlayCircle size={18} /> Watch Online
             </Link>
           </div>

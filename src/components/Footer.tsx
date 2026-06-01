@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { TreePine } from "lucide-react";
+import { MountainSnow } from "lucide-react";
 import { contactMethods, navItems, serviceTimes, site } from "@/lib/site";
 
 export function Footer() {
@@ -9,7 +9,7 @@ export function Footer() {
         <div className="footer-brand">
           <Link className="lockup" href="/">
             <span className="brand-mark" aria-hidden>
-              <TreePine size={24} strokeWidth={1.6} />
+              <MountainSnow size={23} strokeWidth={1.7} />
             </span>
             <span>
               <strong>{site.name}</strong>

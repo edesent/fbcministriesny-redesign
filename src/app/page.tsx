@@ -18,7 +18,8 @@ export default function Home() {
           src="/mountains.jpg"
           alt="Mountain landscape in New York"
           fill
-          preload
+          loading="eager"
+          fetchPriority="high"
           sizes="100vw"
         />
         <div className="hero-overlay" />

@@ -543,12 +543,10 @@ p {
   z-index: 1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin: 0 var(--pad-x);
+  padding: 0 var(--pad-x);
   background: var(--pine);
   color: var(--cream);
   border-top: 2px solid var(--amber);
-  border-radius: 3px;
-  overflow: hidden;
 }
 
 .strip-item {

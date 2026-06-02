@@ -141,20 +141,6 @@ export const pastorMessage = {
   ],
 };
 
-export const pastorBio = {
-  name: "Pastor Wayne Thomas",
-  role: "Pastor",
-  paragraphs: [
-    "Pastor Wayne Thomas has a passion for preaching the gospel and seeing lives changed and people getting saved. A graduate of Omega Theological Seminary in Monroe, Louisiana, he holds a Doctor of Theology (2019), a Master of Theology (2017), and a Bachelor of Theology (2014), along with an Associate of Arts from Upper Iowa University.",
-    "He has hosted a radio ministry on 88.1 FM KAYT in Alexandria and the television segment “The Encouraging Word” on Fox 48. With 18 years of preaching and 14 years of pastoring, his heart is to see people come to know Christ — to God be all the glory for the wonderful things He has done.",
-  ],
-  highlights: [
-    "Doctor of Theology, 2019",
-    "18 years preaching · 14 years pastoring",
-    "Radio & TV ministry — “The Encouraging Word”",
-  ],
-};
-
 export const ministryCards = [
   {
     title: "Men",

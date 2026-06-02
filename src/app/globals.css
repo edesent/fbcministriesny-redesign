@@ -408,7 +408,7 @@ p {
 
 .legal-body {
   max-width: var(--content-width);
-  margin: 0 auto;
+  margin: 0; /* left-aligned so the text lines up with the page title / logo */
 }
 
 .legal-body h2 {

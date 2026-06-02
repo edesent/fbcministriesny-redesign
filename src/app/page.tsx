@@ -11,7 +11,7 @@ import {
   Sunset,
   Users,
 } from "lucide-react";
-import { serviceTimes } from "@/lib/site";
+import { pastorBio, serviceTimes } from "@/lib/site";
 
 const stripIcons = [BookOpen, Church, Sunset, Users];
 
@@ -99,6 +99,18 @@ export default function Home() {
         </figure>
       </section>
 
+      <section className="pastor-bio">
+        <span className="kicker">Meet Our Pastor</span>
+        <h2>{pastorBio.name}</h2>
+        {pastorBio.paragraphs.map((para) => (
+          <p key={para.slice(0, 24)}>{para}</p>
+        ))}
+        <ul className="pastor-bio-highlights">
+          {pastorBio.highlights.map((h) => (
+            <li key={h}>{h}</li>
+          ))}
+        </ul>
+      </section>
     </>
   );
 }

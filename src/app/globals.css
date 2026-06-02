@@ -629,6 +629,51 @@ p {
   max-width: 60ch;
 }
 
+/* ---------- Pastor bio (homepage) ---------- */
+.pastor-bio {
+  padding: var(--pad-y) var(--pad-x);
+  background: var(--paper-deep);
+  text-align: center;
+}
+
+.pastor-bio .kicker {
+  justify-content: center;
+}
+
+.pastor-bio h2 {
+  margin: 14px 0 26px;
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+}
+
+.pastor-bio p {
+  max-width: 64ch;
+  margin: 0 auto 18px;
+  color: var(--ink);
+  line-height: 1.85;
+}
+
+.pastor-bio-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 820px;
+  margin: 32px auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pastor-bio-highlights li {
+  padding: 10px 18px;
+  border: 1px solid rgba(6, 26, 53, 0.18);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--pine);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
 .check-list {
   display: grid;
   gap: 15px;

@@ -51,10 +51,46 @@ export async function fetchSermons(): Promise<Sermon[]> {
         });
       }
     }
-    return entries;
+
+    // Drop placeholder "test" uploads, then order by the date written in the
+    // title, newest first — the YouTube upload date is meaningless here because
+    // the videos were all uploaded together. Same-day videos keep their trailing
+    // part number order (e.g. "... 2025 04 13 1", "... 2", "... 3").
+    return entries
+      .filter((e) => e.title.trim().toLowerCase() !== "test")
+      .sort((a, b) => titleDate(b) - titleDate(a) || titlePart(a) - titlePart(b));
   } catch {
     return [];
   }
+}
+
+// Sortable timestamp from the date written in the title. Handles year-first
+// ("2025 04 13", any of space/-/./_ separators) and month-first ("5-24-20" /
+// "5/24/2020"); falls back to the upload date when no title date is present.
+function titleDate(s: Sermon): number {
+  const ymd = s.title.match(/\b(20\d{2})[\s._\-/]+(\d{1,2})[\s._\-/]+(\d{1,2})\b/);
+  if (ymd) {
+    const [, y, mo, d] = ymd.map(Number);
+    if (mo >= 1 && mo <= 12 && d >= 1 && d <= 31) return Date.UTC(y, mo - 1, d);
+  }
+  const mdy = s.title.match(/\b(\d{1,2})[-/](\d{1,2})[-/](\d{2,4})\b/);
+  if (mdy) {
+    const mo = Number(mdy[1]);
+    const d = Number(mdy[2]);
+    let y = Number(mdy[3]);
+    if (y < 100) y += 2000;
+    if (mo >= 1 && mo <= 12 && d >= 1 && d <= 31) return Date.UTC(y, mo - 1, d);
+  }
+  return Date.parse(s.published) || 0;
+}
+
+// Trailing part number on same-day services ("... 2025 04 13 2" → 2), else 0.
+// Only consulted for year-first dated titles, where a number after the day is
+// the service/part index.
+function titlePart(s: Sermon): number {
+  if (!/\b20\d{2}[\s._\-/]+\d{1,2}[\s._\-/]+\d{1,2}/.test(s.title)) return 0;
+  const m = s.title.trim().match(/(\d{1,2})\s*$/);
+  return m ? Number(m[1]) : 0;
 }
 
 export function formatSermonDate(iso: string): string {

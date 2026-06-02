@@ -1,50 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Baby,
-  BookOpen,
-  GraduationCap,
-  HeartHandshake,
-  Music,
-  Users,
-} from "lucide-react";
+import { ArrowRight, GraduationCap } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import { site } from "@/lib/site";
+import { ministries, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Ministries",
   description:
     "Ministries for men, women, adults, teens, and children at Faith Bible Church in Sprakers, NY.",
 };
-
-const ministries = [
-  {
-    title: "Men's Ministry",
-    icon: Users,
-    text: "Fellowship, Bible study, prayer, and accountability that encourage men to grow as strong soldiers of Jesus Christ.",
-  },
-  {
-    title: "Women's Ministry",
-    icon: HeartHandshake,
-    text: "Encouragement, prayer, and spiritual growth as women study God's Word and build lasting friendships.",
-  },
-  {
-    title: "Adult's Ministry",
-    icon: BookOpen,
-    text: "Bible-centered teaching and discipleship that care for believers in every season of life.",
-  },
-  {
-    title: "Teen's Ministry",
-    icon: Music,
-    text: "A place for 7th–12th grade students to enjoy games, worship, and solid Bible teaching on Wednesday nights.",
-  },
-  {
-    title: "Kid's Ministry",
-    icon: Baby,
-    text: "Sunday School, Children's Church, Wednesday clubs, and nursery care that point children to Jesus.",
-  },
-];
 
 export default function MinistriesPage() {
   return (
@@ -60,11 +24,18 @@ export default function MinistriesPage() {
           {ministries.map((ministry) => {
             const Icon = ministry.icon;
             return (
-              <article className="ministry-card" key={ministry.title}>
+              <Link
+                className="ministry-card ministry-card-link"
+                key={ministry.slug}
+                href={`/ministries/${ministry.slug}`}
+              >
                 <Icon size={26} strokeWidth={1.6} />
                 <h3>{ministry.title}</h3>
-                <p>{ministry.text}</p>
-              </article>
+                <p>{ministry.blurb}</p>
+                <span className="ministry-more">
+                  Learn more <ArrowRight size={16} />
+                </span>
+              </Link>
             );
           })}
         </div>

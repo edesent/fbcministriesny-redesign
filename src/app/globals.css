@@ -20,6 +20,8 @@
   --shadow-sm: 0 16px 40px rgba(6, 26, 53, 0.1);
   --pad-x: clamp(20px, 6vw, 96px);
   --pad-y: clamp(72px, 10vw, 128px);
+  /* Shared max content width for text-led pages, so they line up. */
+  --content-width: 1000px;
 }
 
 * {
@@ -405,7 +407,7 @@ p {
 }
 
 .legal-body {
-  max-width: 760px;
+  max-width: var(--content-width);
   margin: 0 auto;
 }
 
@@ -931,6 +933,80 @@ p {
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.04em;
+}
+
+.ministry-card-link {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+}
+
+.ministry-card-link .ministry-more {
+  margin-top: auto;
+  padding-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--amber-deep);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ministry-card-link .ministry-more svg {
+  transition: transform 200ms ease;
+}
+
+.ministry-card-link:hover .ministry-more svg {
+  transform: translateX(4px);
+}
+
+/* ---------- Ministry sub-page programs ---------- */
+.program-grid {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+.program-card {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--paper);
+  box-shadow: var(--shadow-sm);
+}
+
+.program-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.3rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.program-when {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: var(--amber-deep);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.program-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.program-contact {
+  max-width: var(--content-width);
+  margin: 30px auto 0;
+  text-align: center;
+  color: var(--ink-soft);
 }
 
 /* ---------- Verse band (pine, ridge motif) ---------- */

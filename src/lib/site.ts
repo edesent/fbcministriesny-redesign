@@ -14,6 +14,7 @@ import {
   Phone,
   Users,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 export const site = {
   name: "Faith Bible Church",
@@ -176,6 +177,153 @@ export const ministryCards = [
     icon: Cross,
     text: "A church family committed to proclaiming God's saving grace to the world.",
     meta: "Global gospel partnership",
+  },
+];
+
+// Ministries with their own detail pages at /ministries/<slug>. `blurb` is the
+// short text on the listing card; the rest fills the sub-page (verse, intro,
+// and each program/group). Migrated from fbcministriesny.org sub-pages.
+export type MinistryProgram = {
+  name: string;
+  schedule: string;
+  description: string;
+};
+
+export type Ministry = {
+  slug: string;
+  title: string;
+  icon: LucideIcon;
+  blurb: string;
+  verse: string;
+  verseRef: string;
+  intro: string;
+  programs: MinistryProgram[];
+  contact: string;
+};
+
+export const ministries: Ministry[] = [
+  {
+    slug: "men",
+    title: "Men's Ministry",
+    icon: Users,
+    blurb: "Fellowship, Bible study, prayer, and accountability that encourage men to grow as strong soldiers of Jesus Christ.",
+    verse: "Iron sharpeneth iron; so a man sharpeneth the countenance of his friend.",
+    verseRef: "Proverbs 27:17",
+    intro: "",
+    programs: [
+      {
+        name: "Faithful Men's Fellowship",
+        schedule: "3rd Thursday of each month · 7–8 PM",
+        description:
+          "Building strong friendships through encouragement, prayer, Bible reading, and accountability — a time of fellowship, Bible study, and prayer.",
+      },
+      {
+        name: "Men's Prayer Breakfast",
+        schedule: "2nd Saturday of each month · 8:30–9:30 AM",
+        description:
+          "Men and boys learning the power of Christian fellowship every month.",
+      },
+    ],
+    contact: "",
+  },
+  {
+    slug: "women",
+    title: "Women's Ministry",
+    icon: HeartHandshake,
+    blurb: "Encouragement, prayer, and spiritual growth as women study God's Word and build lasting friendships.",
+    verse:
+      "And let us consider one another to provoke unto love and to good works: not forsaking the assembling of ourselves together, as the manner of some is; but exhorting one another.",
+    verseRef: "Hebrews 10:24–25",
+    intro: "",
+    programs: [
+      {
+        name: "15/15 Challenge Groups",
+        schedule: "",
+        description:
+          "Do you want to grow in your intimacy with God and your maturity as a believer, but don't know how? Are you struggling to keep a faithful habit of Bible reading and prayer and would benefit from encouragement and accountability from other women? Would you like to encourage other women in spiritual growth? Then this ministry is for you!",
+      },
+    ],
+    contact:
+      "For more information, connect with Mrs. Kathy Kelly or email the church office at pastormkellyfbcny@yahoo.com.",
+  },
+  {
+    slug: "adults",
+    title: "Adult's Ministry",
+    icon: BookOpen,
+    blurb: "Bible-centered teaching and discipleship that care for believers in every season of life.",
+    verse:
+      "And they continued steadfastly in the apostles' doctrine and fellowship, and in breaking of bread, and in prayers.",
+    verseRef: "Acts 2:42",
+    intro: "",
+    programs: [
+      {
+        name: "Hilltoppers",
+        schedule: "Ages 50+ · Meets monthly",
+        description:
+          "Strengthening the church through fellowship with others in a similar life stage — a tool to reach out to the lost and to help members get better acquainted with people new to Faith Bible Church.",
+      },
+      {
+        name: "Mountain Climbers",
+        schedule: "Sunday School · 9:45 AM in the gym",
+        description:
+          "A ministry for young adults out of high school to mid-30s, with monthly fellowship activities throughout the year.",
+      },
+    ],
+    contact: "",
+  },
+  {
+    slug: "teens",
+    title: "Teen's Ministry",
+    icon: Music,
+    blurb: "A place for 7th–12th grade students to enjoy games, worship, and solid Bible teaching on Wednesday nights.",
+    verse:
+      "Let no man despise thy youth; but be thou an example of the believers, in word, in conversation, in charity, in spirit, in faith, in purity.",
+    verseRef: "1 Timothy 4:12",
+    intro: "",
+    programs: [
+      {
+        name: "Ignite Youth Group",
+        schedule: "Wednesdays · 7–8 PM · 7th–12th Grade",
+        description:
+          "Join us Wednesday nights for a fun-filled time with other teens! Expect group games, worship, a message from God's Word, and special events.",
+      },
+      {
+        name: "Teen Sunday School",
+        schedule: "Sundays · 9:45 AM",
+        description:
+          "Meet in the North Learning Center before the Sunday service for a Bible lesson with other teens.",
+      },
+    ],
+    contact: "",
+  },
+  {
+    slug: "kids",
+    title: "Kid's Ministry",
+    icon: Baby,
+    blurb: "Sunday School, Children's Church, Wednesday clubs, and nursery care that point children to Jesus.",
+    verse:
+      "But Jesus called them unto him, and said, Suffer little children to come unto me, and forbid them not: for of such is the kingdom of God.",
+    verseRef: "Luke 18:16–17",
+    intro:
+      "Children are a gift from God, given to parents to raise in the nurture and admonition of the Lord. It is our desire to help you train your children in the way that they should go — and our children's ministries are designed to accomplish that goal.",
+    programs: [
+      {
+        name: "Children's Church",
+        schedule: "Sundays · 11 AM",
+        description: "Age-appropriate worship and Bible teaching during the morning service.",
+      },
+      {
+        name: "Wednesday Children's Club",
+        schedule: "Wednesdays · 7–8 PM",
+        description: "Midweek games, lessons, and fellowship for kids.",
+      },
+      {
+        name: "Nursery",
+        schedule: "Every service",
+        description: "Loving nursery care is provided for every service.",
+      },
+    ],
+    contact: "",
   },
 ];
 

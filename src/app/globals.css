@@ -1065,6 +1065,28 @@ p {
   background: var(--amber-soft);
 }
 
+/* Light variant — white background, dark text (used on ministry sub-pages) */
+.verse-band-light {
+  background: var(--paper);
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding-block: clamp(64px, 9vw, 110px);
+}
+
+.verse-band-light::after {
+  display: none;
+}
+
+.verse-band-light cite,
+.verse-band-light cite::before {
+  color: var(--amber-deep);
+  background: var(--amber-deep);
+}
+
+.verse-band-light cite {
+  background: none;
+}
+
 /* ---------- Quick links ---------- */
 .quick-section {
   display: grid;

@@ -31,7 +31,7 @@ export default async function MinistryPage({ params }: Props) {
       <PageHero eyebrow="Ministry" title={ministry.title} intro={ministry.blurb} />
 
       {ministry.verse && (
-        <section className="verse-band">
+        <section className="verse-band verse-band-light">
           <blockquote>&ldquo;{ministry.verse}&rdquo;</blockquote>
           <cite>{ministry.verseRef}</cite>
         </section>

@@ -49,6 +49,10 @@ export default function MissionaryGrid({ missionaries }: { missionaries: Mission
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img className="missionary-photo" src={m.photo} alt={alt(m)} loading="lazy" />
+            <span className="missionary-caption">
+              <strong>{m.name.split(" — ")[0]}</strong>
+              {m.field && <span className="missionary-field">{m.field}</span>}
+            </span>
           </button>
         ))}
       </div>

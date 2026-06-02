@@ -68,8 +68,26 @@ export type Missionary = {
   photo: string; // e.g. "/missionaries/the-smith-family.jpg"
 };
 
+// Each photo is a finished card (name + location are printed on the image), so
+// `name`/`field` here are used only for alt text / SEO, not rendered as labels.
 export const missionaries: Missionary[] = [
-  // { name: "The Smith Family", field: "Philippines", agency: "Baptist World Mission", photo: "/missionaries/smith.jpg" },
+  { name: "The Smith Family — Mark & Babe", field: "British Columbia", photo: "/missionaries/smith.avif" },
+  { name: "The Alves Family — Edson & Marly, Esdras, Eliaqim", field: "Petrolina, Brazil", photo: "/missionaries/alves.avif" },
+  { name: "The Timothy Project", field: "Dominican Republic", photo: "/missionaries/timothy-project.avif" },
+  { name: "The Marshall Family — Richard & Anna", field: "Mali, Africa", photo: "/missionaries/marshall-mali.avif" },
+  { name: "The Lovestrand Family — Joel & Seiko, Akari, Leo", field: "Japan", photo: "/missionaries/lovestrand.avif" },
+  { name: "The Carus Family — Tanner, Vivian & Arlo", field: "Ethnos 360", photo: "/missionaries/carus.avif" },
+  { name: "The Veldhuis Family — Michael & Dawn", field: "Native Americans", photo: "/missionaries/veldhuis.avif" },
+  { name: "The Olivares Family — Miguel & Mireya, Michelle, Ruth", field: "Juarez, Mexico", photo: "/missionaries/olivares.avif" },
+  { name: "The Whitman Family — Joshua & Esara", field: "Imola, Italy", photo: "/missionaries/whitman-imola.avif" },
+  { name: "The Marshall Family — Don & Sue", field: "France", photo: "/missionaries/marshall-france.avif" },
+  { name: "The Vo Family — Tuan & Chinh, Bao, Ngoc", field: "Southern Vietnam", photo: "/missionaries/vo.avif" },
+  { name: "The Abdiel Family — Madhu & Jamin, Ayaahah, Abdiel", field: "Toronto, Canada", photo: "/missionaries/abdiel.avif" },
+  { name: "The Appell Family — Jed & Amy and family", field: "Asia Pacific", photo: "/missionaries/appell.avif" },
+  { name: "The Niles Family — Alain & Katherine, Camille, Mia-Joy, Caleb", field: "Mango, Togo", photo: "/missionaries/niles.avif" },
+  { name: "Renate Reiner", field: "Brazil", photo: "/missionaries/reiner.avif" },
+  { name: "The Davoll Family — Jeff & Deanne", field: "Ecuador", photo: "/missionaries/davoll.avif" },
+  { name: "The Whitman Family — Jonathan & Melodee, Noah, Eva", field: "Perugia, Italy", photo: "/missionaries/whitman-perugia.avif" },
 ];
 
 export type NavItem = {

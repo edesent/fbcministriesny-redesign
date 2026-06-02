@@ -49,16 +49,14 @@ export default function MissionsPage() {
           </div>
           <div className="missionary-grid">
             {missionaries.map((m) => (
-              <article className="missionary-card" key={m.name}>
-                <div className="missionary-photo">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={m.photo} alt={m.name} loading="lazy" />
-                </div>
-                <div className="missionary-info">
-                  <strong>{m.name}</strong>
-                  {m.field && <span>{m.field}</span>}
-                  {m.agency && <small>{m.agency}</small>}
-                </div>
+              <article className="missionary-card" key={m.photo}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  className="missionary-photo"
+                  src={m.photo}
+                  alt={m.field ? `${m.name} — ${m.field}` : m.name}
+                  loading="lazy"
+                />
               </article>
             ))}
           </div>

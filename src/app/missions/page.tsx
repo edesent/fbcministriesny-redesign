@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Cross, Globe, HeartHandshake } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
+import MissionaryGrid from "@/components/MissionaryGrid";
 import { missionaries, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -47,19 +48,7 @@ export default function MissionsPage() {
               missionaries carrying the gospel at home and around the world.
             </p>
           </div>
-          <div className="missionary-grid">
-            {missionaries.map((m) => (
-              <article className="missionary-card" key={m.photo}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  className="missionary-photo"
-                  src={m.photo}
-                  alt={m.field ? `${m.name} — ${m.field}` : m.name}
-                  loading="lazy"
-                />
-              </article>
-            ))}
-          </div>
+          <MissionaryGrid missionaries={missionaries} />
         </section>
       )}
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { contactMethods, navItems, site } from "@/lib/site";
+import { contactMethods, navItems, site, youtube } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -30,6 +30,13 @@ export function Footer() {
                 <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.14 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.5 1.49-3.9 3.78-3.9 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.8 8.44-4.94 8.44-9.94z" />
               </svg>
             </a>
+            {youtube.channelUrl && (
+              <a href={youtube.channelUrl} aria-label="Faith Bible Church on YouTube" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+                  <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.5 15.5v-7l6.3 3.5-6.3 3.5z" />
+                </svg>
+              </a>
+            )}
           </div>
           <p className="footer-social-note">
             Stay connected for sermons, events, and church family updates.

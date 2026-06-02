@@ -2,20 +2,31 @@ import Link from "next/link";
 import { ArrowRight, CalendarDays, Clock3, MapPin } from "lucide-react";
 import { getUpcomingEvents } from "@/lib/events";
 
+type Props = {
+  limit?: number;
+  kicker?: string;
+  heading?: string;
+  blurb?: string;
+  showCalendarLink?: boolean;
+};
+
 // Server component: reads the church's public calendar feed and renders the
 // next few events as custom cards (not the Google Calendar iframe).
-export async function UpcomingEvents() {
-  const events = await getUpcomingEvents(4);
+export async function UpcomingEvents({
+  limit = 4,
+  kicker = "Mark Your Calendar",
+  heading = "Upcoming events",
+  blurb = "Here's what's coming up next at Faith Bible Church. See the full calendar for everything on the schedule.",
+  showCalendarLink = true,
+}: Props = {}) {
+  const events = await getUpcomingEvents(limit);
 
   return (
     <section className="events-section">
       <div className="section-heading">
-        <span className="kicker">Mark Your Calendar</span>
-        <h2>Upcoming events</h2>
-        <p>
-          Here&apos;s what&apos;s coming up next at Faith Bible Church. See the full
-          calendar for everything on the schedule.
-        </p>
+        <span className="kicker">{kicker}</span>
+        <h2>{heading}</h2>
+        <p>{blurb}</p>
       </div>
 
       {events.length > 0 ? (
@@ -52,11 +63,13 @@ export async function UpcomingEvents() {
         </div>
       )}
 
-      <div className="events-actions">
-        <Link className="button primary" href="/events">
-          View full calendar <ArrowRight size={18} />
-        </Link>
-      </div>
+      {showCalendarLink && (
+        <div className="events-actions">
+          <Link className="button primary" href="/events">
+            View full calendar <ArrowRight size={18} />
+          </Link>
+        </div>
+      )}
     </section>
   );
 }

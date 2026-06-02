@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowRight, CalendarDays, Clock3 } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
+import { UpcomingEvents } from "@/components/UpcomingEvents";
 import { googleCalendar, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -18,13 +19,21 @@ export default function EventsPage() {
         intro="Keep up with service times, guest speakers, special events, and ministry nights on our church calendar."
       />
 
+      <UpcomingEvents
+        limit={6}
+        kicker="What's Coming Up"
+        heading="Upcoming events"
+        blurb="The next gatherings and special events on our calendar. See the full month below."
+        showCalendarLink={false}
+      />
+
       <section className="calendar-section">
         <div className="section-heading">
           <span className="kicker">Church Calendar</span>
-          <h2>Upcoming events</h2>
+          <h2>The full calendar</h2>
           <p>
-            Stay up to date on service times, guest speakers, special events, and
-            more on our church calendar.
+            Browse the whole month — services, guest speakers, special events, and
+            ministry nights.
           </p>
         </div>
         {googleCalendar.embedSrc ? (

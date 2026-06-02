@@ -67,23 +67,38 @@ export function formatSermonDate(iso: string): string {
   });
 }
 
-// Returns the video ID of an active live broadcast, or null if idle.
-// Uses the unauthenticated /channel/{id}/live endpoint — when a live broadcast
-// is active YouTube serves the live watch page and the canonical URL points to
-// /watch?v={videoId}; when idle it points back to the channel.
+// Returns the video ID of an ACTIVELY live broadcast, or null otherwise.
+//
+// The /channel/{id}/live endpoint always resolves to a video when one exists
+// (including scheduled-but-not-started streams and recently-ended ones), so the
+// canonical URL alone isn't a reliable "is it live right now" signal. We confirm
+// against the page's own state flags: a stream is only treated as live when
+// "isLive":true is present AND it is neither offline nor merely upcoming.
 export async function fetchLiveVideoId(): Promise<string | null> {
   if (!youtube.channelId) return null;
   try {
     const url = `https://www.youtube.com/channel/${youtube.channelId}/live`;
     const res = await fetch(url, {
-      headers: { "User-Agent": "Mozilla/5.0" },
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
+        "Accept-Language": "en-US,en;q=0.9",
+      },
       next: { revalidate: 60 },
     });
     if (!res.ok) return null;
     const html = await res.text();
-    const canonical = html.match(/<link rel="canonical"\s+href="([^"]+)"/)?.[1] ?? "";
-    const videoMatch = canonical.match(/[?&]v=([A-Za-z0-9_-]{11})/);
-    return videoMatch?.[1] ?? null;
+
+    const canonical = html.match(
+      /<link rel="canonical" href="https:\/\/www\.youtube\.com\/watch\?v=([A-Za-z0-9_-]{11})"/,
+    );
+    const videoId = canonical?.[1] ?? null;
+
+    const isOffline =
+      /"status":"LIVE_STREAM_OFFLINE"/.test(html) || /"isUpcoming":true/.test(html);
+    const isLive = !isOffline && /"isLive":true/.test(html);
+
+    return isLive ? videoId : null;
   } catch {
     return null;
   }

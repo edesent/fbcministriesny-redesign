@@ -1287,21 +1287,17 @@ p {
 }
 
 .sermon-feature {
-  max-width: 980px;
-  margin: 0 auto;
   padding: var(--pad-y) var(--pad-x);
 }
 
-.sermon-feature-live {
-  max-width: none;
-  background: var(--pine-deep);
-  color: var(--cream);
+/* Cap the inner blocks but keep them left-aligned with the page title/headings. */
+.sermon-feature > * {
+  max-width: var(--content-width);
 }
 
-.sermon-feature-live > * {
-  max-width: 980px;
-  margin-left: auto;
-  margin-right: auto;
+.sermon-feature-live {
+  background: var(--pine-deep);
+  color: var(--cream);
 }
 
 .sermon-feature-head {
@@ -1387,8 +1383,6 @@ p {
 }
 
 .sermon-grid {
-  max-width: 1100px;
-  margin: 0 auto;
   padding: 0;
   list-style: none;
   display: grid;

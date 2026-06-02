@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Cross, Globe, HeartHandshake } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import { site } from "@/lib/site";
+import { missionaries, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Missions",
@@ -37,9 +37,37 @@ export default function MissionsPage() {
         intro="Faith Bible exists to glorify God in the salvation of souls, build up Christians through the teaching of God's Word, and proclaim God's saving grace to the world."
       />
 
+      {missionaries.length > 0 && (
+        <section className="missionaries-section">
+          <div className="section-heading">
+            <span className="kicker">Our Missionaries</span>
+            <h2>The missionaries we support</h2>
+            <p>
+              Faith Bible Church partners in prayer and giving with these
+              missionaries carrying the gospel at home and around the world.
+            </p>
+          </div>
+          <div className="missionary-grid">
+            {missionaries.map((m) => (
+              <article className="missionary-card" key={m.name}>
+                <div className="missionary-photo">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={m.photo} alt={m.name} loading="lazy" />
+                </div>
+                <div className="missionary-info">
+                  <strong>{m.name}</strong>
+                  {m.field && <span>{m.field}</span>}
+                  {m.agency && <small>{m.agency}</small>}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="service-section">
         <div className="section-heading">
-          <span className="kicker">Our Missionaries</span>
+          <span className="kicker">Why We Send</span>
           <h2>Partners in the gospel</h2>
           <p>
             Faith Bible Church prayerfully supports a number of missionaries and

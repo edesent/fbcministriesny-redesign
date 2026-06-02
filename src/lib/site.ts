@@ -57,6 +57,21 @@ export const youtube = {
   channelUrl: "https://www.youtube.com/@diggingdeeperdevotional-am6785",
 };
 
+// Missionaries the church supports — shown as a card grid at the top of /missions.
+// Drop each photo in /public/missionaries/ and add an entry here. `field` is the
+// country/region; `agency` (optional) is the sending board. The cards appear only
+// when this list is non-empty.
+export type Missionary = {
+  name: string;
+  field?: string;
+  agency?: string;
+  photo: string; // e.g. "/missionaries/the-smith-family.jpg"
+};
+
+export const missionaries: Missionary[] = [
+  // { name: "The Smith Family", field: "Philippines", agency: "Baptist World Mission", photo: "/missionaries/smith.jpg" },
+];
+
 export type NavItem = {
   label: string;
   href: string;

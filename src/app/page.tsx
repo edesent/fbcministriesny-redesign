@@ -7,7 +7,6 @@ import {
   Church,
   Clock3,
   PlayCircle,
-  Sunrise,
   Sunset,
   Users,
 } from "lucide-react";
@@ -30,9 +29,6 @@ export default function Home() {
         />
         <div className="hero-overlay" />
         <div className="hero-content">
-          <span className="hero-tag">
-            <Sunrise size={14} /> Sprakers, New York · Mohawk Valley
-          </span>
           <h1>Loving <span className="gold">Jesus</span> by Loving Others.</h1>
           <p>
             A Christ-centered country church on Crosby Road, forty-five minutes
@@ -43,7 +39,7 @@ export default function Home() {
             <Link className="button primary" href="/contact">
               Plan a Visit <ArrowRight size={18} />
             </Link>
-            <Link className="button outline" href="/events">
+            <Link className="button outline" href="/sermons">
               <PlayCircle size={18} /> Watch Online
             </Link>
           </div>

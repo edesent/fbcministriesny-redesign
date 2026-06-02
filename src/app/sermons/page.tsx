@@ -6,7 +6,6 @@ import SermonGrid from "@/components/SermonGrid";
 import {
   fetchLiveVideoId,
   fetchSermons,
-  formatSermonDate,
   YOUTUBE_CHANNEL_URL,
 } from "@/lib/sermons";
 import { site } from "@/lib/site";
@@ -72,7 +71,6 @@ export default async function SermonsPage() {
             </a>
           </div>
           <h2>{latest.title}</h2>
-          <p className="sermon-feature-date">{formatSermonDate(latest.published)}</p>
           <div className="sermon-player">
             <iframe
               src={`https://www.youtube.com/embed/${latest.videoId}?rel=0`}

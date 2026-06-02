@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { Play, X } from "lucide-react";
 import type { Sermon } from "@/lib/sermons";
-import { formatSermonDate } from "@/lib/sermons";
 
 export default function SermonGrid({ sermons }: { sermons: Sermon[] }) {
   const [active, setActive] = useState<Sermon | null>(null);
@@ -36,10 +35,7 @@ export default function SermonGrid({ sermons }: { sermons: Sermon[] }) {
                 </span>
               </span>
               <span className="sermon-info">
-                <span className="sermon-eyebrow">
-                  {new Date(s.published).toLocaleDateString("en-US", { weekday: "short" })}
-                </span>
-                <strong>{formatSermonDate(s.published)}</strong>
+                <strong>{s.title}</strong>
                 {typeof s.views === "number" && (
                   <small>{s.views.toLocaleString()} views</small>
                 )}
@@ -54,7 +50,7 @@ export default function SermonGrid({ sermons }: { sermons: Sermon[] }) {
           className="sermon-overlay"
           role="dialog"
           aria-modal="true"
-          aria-label={formatSermonDate(active.published)}
+          aria-label={active.title}
           onClick={(e) => {
             if (e.target === e.currentTarget) close();
           }}
@@ -63,7 +59,7 @@ export default function SermonGrid({ sermons }: { sermons: Sermon[] }) {
             <div className="sermon-modal-head">
               <div>
                 <span className="sermon-eyebrow">Faith Bible Church</span>
-                <h2>{formatSermonDate(active.published)}</h2>
+                <h2>{active.title}</h2>
               </div>
               <button type="button" className="sermon-close" aria-label="Close" onClick={close}>
                 <X size={22} />
@@ -72,7 +68,7 @@ export default function SermonGrid({ sermons }: { sermons: Sermon[] }) {
             <div className="sermon-player">
               <iframe
                 src={`https://www.youtube.com/embed/${active.videoId}?autoplay=1&rel=0`}
-                title={formatSermonDate(active.published)}
+                title={active.title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               />

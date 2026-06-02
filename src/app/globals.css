@@ -31,6 +31,12 @@ html {
   overflow-x: hidden;
 }
 
+/* Offset anchored sections so the sticky header doesn't cover them */
+#times,
+#welcome {
+  scroll-margin-top: 96px;
+}
+
 body {
   margin: 0;
   background: var(--paper);
@@ -318,6 +324,128 @@ p {
 
 .site-header nav a:hover::after {
   width: 100%;
+}
+
+/* ---------- Nav dropdown (sublinks) ---------- */
+@media (min-width: 901px) {
+  /* let the dropdown escape the horizontally-scrolling nav on desktop */
+  .site-header nav {
+    overflow: visible;
+  }
+}
+
+.nav-group {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-group > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-group > a svg {
+  transition: transform 200ms ease;
+}
+
+.nav-group:hover > a svg,
+.nav-group:focus-within > a svg {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 60;
+  min-width: 210px;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+}
+
+.nav-group:hover .nav-dropdown,
+.nav-group:focus-within .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.site-header .nav-dropdown a {
+  display: block;
+  padding: 9px 12px;
+  border-radius: 3px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.site-header .nav-dropdown a::after {
+  display: none;
+}
+
+.site-header .nav-dropdown a:hover {
+  background: var(--sage);
+  color: var(--pine);
+}
+
+/* ---------- Legal / constitution document ---------- */
+.legal-doc {
+  padding: var(--pad-y) var(--pad-x);
+  background: var(--paper);
+}
+
+.legal-body {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.legal-body h2 {
+  margin: 52px 0 18px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+  font-size: clamp(1.45rem, 2.6vw, 2rem);
+  letter-spacing: 0.05em;
+  color: var(--pine);
+}
+
+.legal-body h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.legal-body h3 {
+  margin: 30px 0 12px;
+  font-size: 1.04rem;
+  letter-spacing: 0.06em;
+  color: var(--amber-deep);
+}
+
+.legal-body p {
+  margin: 0 0 16px;
+  color: var(--ink-soft);
+  line-height: 1.78;
+}
+
+.footer-subnav {
+  margin: 8px 0 0;
+  padding: 0 0 0 14px;
+  list-style: none;
+  border-left: 1px solid var(--line-light);
+}
+
+.footer-subnav li {
+  margin-top: 6px;
 }
 
 /* ---------- Hero ---------- */
@@ -918,6 +1046,411 @@ p {
   transform: translateX(6px);
 }
 
+/* ---------- Upcoming events ---------- */
+.events-section {
+  padding: var(--pad-y) var(--pad-x);
+  background: var(--paper);
+}
+
+.events-list {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 16px;
+}
+
+.event-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 24px;
+  padding: 22px 26px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--amber);
+  border-radius: 3px;
+  transition: box-shadow 220ms ease, transform 220ms ease, border-color 220ms ease;
+}
+
+.event-row:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  border-left-color: var(--pine);
+}
+
+.event-date {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 74px;
+  height: 74px;
+  border-radius: 3px;
+  background: var(--pine);
+  color: var(--cream);
+  line-height: 1;
+}
+
+.event-month {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--amber-soft);
+}
+
+.event-day {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.event-body h3 {
+  margin: 0 0 8px;
+  font-size: 1.32rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.event-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.event-meta svg {
+  color: var(--amber-deep);
+}
+
+.events-empty {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  padding: 44px 24px;
+  color: var(--ink-soft);
+  border: 1px dashed var(--line);
+  border-radius: 4px;
+}
+
+.events-empty svg {
+  color: var(--amber);
+}
+
+.events-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+@media (max-width: 540px) {
+  .event-row {
+    gap: 16px;
+    padding: 18px;
+  }
+  .event-date {
+    width: 60px;
+    height: 60px;
+  }
+  .event-day {
+    font-size: 1.5rem;
+  }
+}
+
+/* ---------- Sermons ---------- */
+.sermon-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.sermon-player iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.sermon-feature {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: var(--pad-y) var(--pad-x);
+}
+
+.sermon-feature-live {
+  max-width: none;
+  background: var(--pine-deep);
+  color: var(--cream);
+}
+
+.sermon-feature-live > * {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sermon-feature-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.sermon-feature h2 {
+  margin: 0 0 8px;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.sermon-feature-date {
+  margin: 0 0 18px;
+  color: var(--ink-soft);
+}
+
+.sermon-feature-live .sermon-feature-date {
+  color: rgba(248, 248, 246, 0.75);
+}
+
+.sermon-feature-link {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--amber-deep);
+}
+
+.sermon-feature-live .sermon-feature-link {
+  color: var(--amber-soft);
+}
+
+.sermon-feature-link:hover {
+  text-decoration: underline;
+}
+
+.sermon-live-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #ff6b6b;
+}
+
+.sermon-live-dot {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ff4d4d;
+}
+
+.sermon-live-dot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #ff4d4d;
+  animation: sermon-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes sermon-ping {
+  75%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.sermon-archive {
+  padding: var(--pad-y) var(--pad-x);
+  background: var(--paper);
+}
+
+.sermon-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.sermon-card {
+  display: block;
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.sermon-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.sermon-thumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: var(--sage);
+}
+
+.sermon-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sermon-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(248, 248, 246, 0.95);
+  color: var(--pine);
+  box-shadow: 0 8px 24px rgba(6, 26, 53, 0.3);
+  padding-left: 3px;
+  transition: transform 220ms ease;
+}
+
+.sermon-card:hover .sermon-play {
+  transform: scale(1.1);
+}
+
+.sermon-info {
+  display: block;
+  padding: 18px 20px;
+}
+
+.sermon-eyebrow {
+  display: block;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber-deep);
+}
+
+.sermon-info strong {
+  display: block;
+  margin-top: 7px;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.12rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.sermon-info small {
+  display: block;
+  margin-top: 8px;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
+/* Sermon player modal */
+.sermon-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(4, 19, 34, 0.85);
+  backdrop-filter: blur(4px);
+  animation: connect-fade 0.2s ease;
+}
+
+.sermon-modal {
+  width: 100%;
+  max-width: 960px;
+}
+
+.sermon-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+  color: var(--cream);
+}
+
+.sermon-modal-head h2 {
+  margin: 4px 0 0;
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  text-transform: none;
+}
+
+.sermon-modal-head .sermon-eyebrow {
+  color: var(--amber-soft);
+}
+
+.sermon-close {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(248, 248, 246, 0.12);
+  color: var(--cream);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.sermon-close:hover {
+  background: rgba(248, 248, 246, 0.24);
+}
+
+.sermon-open {
+  margin: 12px 0 0;
+  text-align: center;
+}
+
+.sermon-open a {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber-soft);
+}
+
+.sermon-open a:hover {
+  color: var(--cream);
+}
+
 /* ---------- Visit ---------- */
 .visit-section {
   display: grid;
@@ -1371,7 +1904,8 @@ p {
 }
 
 .contact-form input,
-.contact-form textarea {
+.contact-form textarea,
+.contact-form select {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 2px;
@@ -1386,8 +1920,18 @@ p {
   resize: vertical;
 }
 
+.contact-form select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 42px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238f7637' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+
 .contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus,
+.contact-form select:focus {
   border-color: var(--pine);
   box-shadow: 0 0 0 4px rgba(38, 64, 47, 0.1);
 }

@@ -39,15 +39,38 @@ export const googleCalendar = {
     "https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&showTitle=0&showNav=1&showTabs=0&showCalendars=0&mode=AGENDA&src=bWFya19rMzQ5OUB5YWhvby5jb20&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23062a53&color=%23b89a5a",
   publicUrl:
     "https://calendar.google.com/calendar/embed?src=mark_k3499%40yahoo.com&ctz=America%2FNew_York",
+  // Public .ics feed(s) the homepage reads to build its own styled event list.
+  // Add more calendar feeds here and they'll be merged automatically.
+  icsUrls: [
+    "https://calendar.google.com/calendar/ical/mark_k3499%40yahoo.com/public/basic.ics",
+  ],
 };
 
-export const navItems = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+// YouTube — powers the /sermons page (live stream + archive of past videos).
+// To activate: create the church's YouTube channel, then paste its channel ID
+// here (the "UC…" string). Find it at YouTube → Settings → Advanced, or in any
+// channel-page URL (youtube.com/channel/UC...). The handle URL is for the
+// "Full channel" button. Until channelId is filled in, /sermons shows a tasteful
+// "coming soon" state.
+export const youtube = {
+  channelId: "UCyvSpzBl4xkHtLeOJpJTOjQ", // Digging Deeper Devotional — A ministry of FBC
+  channelUrl: "https://www.youtube.com/@diggingdeeperdevotional-am6785",
+};
+
+export type NavItem = {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+};
+
+export const navItems: NavItem[] = [
+  { label: "Times", href: "/#times" },
+  { label: "Welcome", href: "/#welcome" },
   { label: "Ministries", href: "/ministries" },
-  { label: "Events", href: "/events" },
-  { label: "Counseling", href: "/counseling" },
+  { label: "Sermons", href: "/sermons" },
+  { label: "Beliefs", href: "/about/constitution" },
   { label: "Missions", href: "/missions" },
+  { label: "Events", href: "/events" },
   { label: "Give", href: "/give" },
   { label: "Contact", href: "/contact" },
 ];

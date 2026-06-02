@@ -48,9 +48,18 @@ export function Footer() {
         <div>
           <h2>Explore</h2>
           <ul>
-            {navItems.slice(1).map((item) => (
+            {navItems.map((item) => (
               <li key={item.href}>
                 <Link href={item.href}>{item.label}</Link>
+                {item.children?.length ? (
+                  <ul className="footer-subnav">
+                    {item.children.map((child) => (
+                      <li key={child.href}>
+                        <Link href={child.href}>{child.label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
               </li>
             ))}
           </ul>

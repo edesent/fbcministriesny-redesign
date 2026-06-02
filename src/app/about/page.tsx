@@ -40,6 +40,11 @@ export default function AboutPage() {
             <p><CheckCircle2 size={20} /> An autonomous congregation with Christ as its Head</p>
             <p><CheckCircle2 size={20} /> Home of Faith Bible Academy, a K-12 Christian school</p>
           </div>
+          <div className="hero-actions">
+            <Link className="button outline" href="/about/constitution">
+              Read Our Constitution <ArrowRight size={18} />
+            </Link>
+          </div>
         </div>
         <figure className="image-feature">
           <Image

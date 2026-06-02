@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import { pageContent, site } from "@/lib/site";
+import { pageContent, serviceTimes, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -42,6 +42,21 @@ export default function ContactPage() {
           <label>
             Phone
             <input name="phone" type="tel" autoComplete="tel" />
+          </label>
+          <label className="wide">
+            Which service are you planning to attend?
+            <select name="service" defaultValue="">
+              <option value="" disabled>
+                Select a service…
+              </option>
+              {serviceTimes.map((service) => (
+                <option key={service.label} value={`${service.label} — ${service.time}`}>
+                  {service.label} — {service.time}
+                </option>
+              ))}
+              <option value="More than one service">More than one service</option>
+              <option value="Not sure yet">Not sure yet</option>
+            </select>
           </label>
           <label className="wide">
             Subject

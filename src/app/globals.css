@@ -283,33 +283,28 @@ p {
   letter-spacing: 0.01em;
 }
 
-.site-header nav {
+/* Desktop inline nav */
+.site-nav {
   display: flex;
   justify-content: flex-end;
-  gap: clamp(10px, 1.5vw, 22px);
+  flex-wrap: wrap;
+  gap: clamp(10px, 1.4vw, 20px);
   min-width: 0;
-  max-width: 100%;
-  overflow-x: auto;
-  white-space: nowrap;
-  scrollbar-width: none;
 }
 
-.site-header nav::-webkit-scrollbar {
-  display: none;
-}
-
-.site-header nav a {
+.site-nav a {
   position: relative;
   color: var(--ink-soft);
   font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 6px 0;
+  white-space: nowrap;
   transition: color 180ms ease;
 }
 
-.site-header nav a::after {
+.site-nav a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -320,83 +315,63 @@ p {
   transition: width 220ms ease;
 }
 
-.site-header nav a:hover {
+.site-nav a:hover {
   color: var(--pine);
 }
 
-.site-header nav a:hover::after {
+.site-nav a:hover::after {
   width: 100%;
 }
 
-/* ---------- Nav dropdown (sublinks) ---------- */
-@media (min-width: 901px) {
-  /* let the dropdown escape the horizontally-scrolling nav on desktop */
-  .site-header nav {
-    overflow: visible;
-  }
-}
-
-.nav-group {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-}
-
-.nav-group > a {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.nav-group > a svg {
-  transition: transform 200ms ease;
-}
-
-.nav-group:hover > a svg,
-.nav-group:focus-within > a svg {
-  transform: rotate(180deg);
-}
-
-.nav-dropdown {
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 0;
-  z-index: 60;
-  min-width: 210px;
-  margin: 0;
-  padding: 8px;
-  list-style: none;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  box-shadow: var(--shadow);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(8px);
-  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
-}
-
-.nav-group:hover .nav-dropdown,
-.nav-group:focus-within .nav-dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.site-header .nav-dropdown a {
-  display: block;
-  padding: 9px 12px;
-  border-radius: 3px;
-  color: var(--ink-soft);
-  white-space: nowrap;
-}
-
-.site-header .nav-dropdown a::after {
+/* Mobile hamburger toggle (hidden on desktop) */
+.nav-toggle {
   display: none;
+  place-items: center;
+  justify-self: end;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--pine);
+  cursor: pointer;
 }
 
-.site-header .nav-dropdown a:hover {
-  background: var(--sage);
+/* Mobile dropdown menu (hidden until opened, and only on mobile) */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  flex-direction: column;
+  padding: 8px var(--pad-x) 18px;
+  background: rgba(248, 248, 246, 0.98);
+  backdrop-filter: blur(16px) saturate(1.1);
+  border-bottom: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.mobile-menu.is-open {
+  display: flex;
+}
+
+.mobile-menu a {
+  padding: 14px 4px;
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.mobile-menu a:last-child {
+  border-bottom: 0;
+}
+
+.mobile-menu a:hover {
   color: var(--pine);
 }
 
@@ -2409,14 +2384,17 @@ button.button.wide {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
+  /* Collapse the inline nav into a hamburger menu */
   .site-header {
     grid-template-columns: 1fr auto;
   }
 
-  .site-header nav {
-    grid-column: 1 / -1;
-    justify-content: flex-start;
-    order: 3;
+  .site-nav {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: grid;
   }
 
   .service-grid {
@@ -2506,20 +2484,6 @@ button.button.wide {
 
   .strip-item:first-child {
     border-top: 0;
-  }
-
-  .site-header nav {
-    display: none;
-  }
-
-  .header-action {
-    padding: 0 14px;
-    font-size: 0.68rem;
-    letter-spacing: 0.03em;
-  }
-
-  .header-action svg {
-    display: none;
   }
 
   .hero h1 {

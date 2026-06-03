@@ -104,6 +104,7 @@ export const navItems: NavItem[] = [
   { label: "Beliefs", href: "/about/constitution" },
   { label: "Missions", href: "/missions" },
   { label: "Events", href: "/events" },
+  { label: "Counseling", href: "/counseling" },
   { label: "Give", href: "/give" },
   { label: "Contact", href: "/contact" },
 ];

@@ -1,9 +1,28 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { navItems, site } from "@/lib/site";
 
 export function Header() {
+  const [open, setOpen] = useState(false);
+
+  // Close the mobile menu on Escape and lock body scroll while it's open.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <header className="site-header">
       <Link className="brand" href="/" aria-label={`${site.name} home`}>
@@ -16,31 +35,40 @@ export function Header() {
           priority
         />
       </Link>
-      <nav aria-label="Primary navigation">
-        {navItems.map((item) =>
-          item.children?.length ? (
-            <div className="nav-group" key={item.href}>
-              <Link href={item.href}>
-                {item.label} <ChevronDown size={13} strokeWidth={2.4} aria-hidden />
-              </Link>
-              <ul className="nav-dropdown">
-                {item.children.map((child) => (
-                  <li key={child.href}>
-                    <Link href={child.href}>{child.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : (
-            <Link key={item.href} href={item.href}>
-              {item.label}
-            </Link>
-          ),
-        )}
+
+      {/* Desktop inline links */}
+      <nav className="site-nav" aria-label="Primary navigation">
+        {navItems.map((item) => (
+          <Link key={item.href} href={item.href}>
+            {item.label}
+          </Link>
+        ))}
       </nav>
-      <Link className="header-action" href="/contact">
-        Plan a Visit <ArrowRight size={16} strokeWidth={2.2} />
-      </Link>
+
+      {/* Mobile hamburger */}
+      <button
+        type="button"
+        className="nav-toggle"
+        aria-label={open ? "Close menu" : "Open menu"}
+        aria-expanded={open}
+        aria-controls="mobile-menu"
+        onClick={() => setOpen((v) => !v)}
+      >
+        {open ? <X size={24} /> : <Menu size={24} />}
+      </button>
+
+      {/* Mobile dropdown menu */}
+      <nav
+        id="mobile-menu"
+        className={`mobile-menu${open ? " is-open" : ""}`}
+        aria-label="Mobile navigation"
+      >
+        {navItems.map((item) => (
+          <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
+            {item.label}
+          </Link>
+        ))}
+      </nav>
     </header>
   );
 }

@@ -61,7 +61,7 @@ export const youtube = {
   // Now" banner on the home page), paste the live video's ID here before the
   // service, then set it back to "" when the service ends.
   // Find the ID in the live video's URL: youtube.com/watch?v=THIS_PART
-  liveVideoId: "3PG7h8PKZmI",
+  liveVideoId: "p8SaCAAkEXU",
 };
 
 // Missionaries the church supports — shown as a card grid at the top of /missions.

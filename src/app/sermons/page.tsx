@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import SermonGrid from "@/components/SermonGrid";
 import {
-  fetchLiveVideoId,
+  getLiveVideoId,
   fetchSermons,
   YOUTUBE_CHANNEL_URL,
 } from "@/lib/sermons";

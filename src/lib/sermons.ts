@@ -128,6 +128,14 @@ function canonicalVideoId(html: string): string | null {
   );
 }
 
+// The live video to show, if any. Manual switch (youtube.liveVideoId) wins,
+// because YouTube serves stripped HTML to servers so auto-detection is
+// unreliable; otherwise fall back to a best-effort scrape.
+export async function getLiveVideoId(): Promise<string | null> {
+  if (youtube.liveVideoId) return youtube.liveVideoId;
+  return fetchLiveVideoId();
+}
+
 // Returns the video ID of an ACTIVELY live broadcast, or null otherwise.
 export async function fetchLiveVideoId(): Promise<string | null> {
   if (!youtube.channelId) return null;

@@ -56,6 +56,12 @@ export const googleCalendar = {
 export const youtube = {
   channelId: "UCyvSpzBl4xkHtLeOJpJTOjQ", // Digging Deeper Devotional — A ministry of FBC
   channelUrl: "https://www.youtube.com/@diggingdeeperdevotional-am6785",
+  // MANUAL "GO LIVE" SWITCH. YouTube blocks reliable live-detection from the
+  // server, so to put the site in "live" mode (live player on /sermons + "Live
+  // Now" banner on the home page), paste the live video's ID here before the
+  // service, then set it back to "" when the service ends.
+  // Find the ID in the live video's URL: youtube.com/watch?v=THIS_PART
+  liveVideoId: "3PG7h8PKZmI",
 };
 
 // Missionaries the church supports — shown as a card grid at the top of /missions.

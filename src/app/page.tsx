@@ -10,13 +10,23 @@ import {
   Sunset,
   Users,
 } from "lucide-react";
-import { serviceTimes } from "@/lib/site";
+import { serviceTimes, youtube } from "@/lib/site";
 
 const stripIcons = [BookOpen, Church, Sunset, Users];
 
 export default function Home() {
   return (
     <>
+      {youtube.liveVideoId && (
+        <Link className="live-banner" href="/sermons">
+          <span className="live-banner-dot" aria-hidden />
+          <strong>We&apos;re Live Now</strong>
+          <span className="live-banner-cta">
+            Watch the service <ArrowRight size={16} />
+          </span>
+        </Link>
+      )}
+
       <section className="hero">
         <Image
           src="/church-building.jpg"

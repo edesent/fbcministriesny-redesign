@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -123,6 +124,7 @@ export default function RootLayout({
           data-key="wbc_cfbaa539e1ca0e7692f5e02f43c5cd78ca140ca5abc8b32b"
           strategy="afterInteractive"
         />
+        <Analytics />
       </body>
     </html>
   );

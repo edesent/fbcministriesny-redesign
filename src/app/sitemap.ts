@@ -1,11 +1,28 @@
 import type { MetadataRoute } from "next";
-import { navItems, site } from "@/lib/site";
+import { ministries, site } from "@/lib/site";
 
+// Explicit list of real, indexable pages. (Not derived from navItems, which
+// includes on-page anchors like /#times that don't belong in a sitemap.)
 export default function sitemap(): MetadataRoute.Sitemap {
-  return navItems.map((item) => ({
-    url: `${site.url}${item.href === "/" ? "" : item.href}`,
-    lastModified: new Date(),
+  const paths = [
+    "/",
+    "/about",
+    "/about/constitution",
+    "/ministries",
+    ...ministries.map((m) => `/ministries/${m.slug}`),
+    "/sermons",
+    "/missions",
+    "/events",
+    "/counseling",
+    "/give",
+    "/contact",
+  ];
+
+  const now = new Date();
+  return paths.map((path) => ({
+    url: `${site.url}${path === "/" ? "" : path}`,
+    lastModified: now,
     changeFrequency: "monthly",
-    priority: item.href === "/" ? 1 : 0.8,
+    priority: path === "/" ? 1 : 0.7,
   }));
 }

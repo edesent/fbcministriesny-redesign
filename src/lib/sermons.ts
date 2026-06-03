@@ -103,39 +103,55 @@ export function formatSermonDate(iso: string): string {
   });
 }
 
+const YT_HEADERS = {
+  "User-Agent":
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
+  "Accept-Language": "en-US,en;q=0.9",
+};
+
+// The one trustworthy "is it live right now" marker YouTube emits is
+// "isLiveNow":true inside the watch page's liveBroadcastDetails. The
+// /channel/{id}/live page is noisy (it carries LIVE_STREAM_OFFLINE / isUpcoming
+// strings for OTHER videos even mid-broadcast) and its canonical can point at a
+// stale, already-ended stream — so we never trust those alone.
+function htmlSaysLiveNow(html: string): boolean {
+  return /"isLiveNow"\s*:\s*true/.test(html);
+}
+
+function canonicalVideoId(html: string): string | null {
+  return (
+    html.match(
+      /<link rel="canonical" href="https:\/\/www\.youtube\.com\/watch\?v=([A-Za-z0-9_-]{11})"/,
+    )?.[1] ?? null
+  );
+}
+
 // Returns the video ID of an ACTIVELY live broadcast, or null otherwise.
-//
-// The /channel/{id}/live endpoint always resolves to a video when one exists
-// (including scheduled-but-not-started streams and recently-ended ones), so the
-// canonical URL alone isn't a reliable "is it live right now" signal. We confirm
-// against the page's own state flags: a stream is only treated as live when
-// "isLive":true is present AND it is neither offline nor merely upcoming.
 export async function fetchLiveVideoId(): Promise<string | null> {
   if (!youtube.channelId) return null;
   try {
-    const url = `https://www.youtube.com/channel/${youtube.channelId}/live`;
-    const res = await fetch(url, {
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
-        "Accept-Language": "en-US,en;q=0.9",
-      },
-      // Re-check at most every 30s so the live stream appears within half a minute.
-      next: { revalidate: 30 },
-    });
+    // Re-check at most every 30s so a live stream appears within half a minute.
+    const res = await fetch(
+      `https://www.youtube.com/channel/${youtube.channelId}/live`,
+      { headers: YT_HEADERS, next: { revalidate: 30 } },
+    );
     if (!res.ok) return null;
     const html = await res.text();
 
-    const canonical = html.match(
-      /<link rel="canonical" href="https:\/\/www\.youtube\.com\/watch\?v=([A-Za-z0-9_-]{11})"/,
-    );
-    const videoId = canonical?.[1] ?? null;
+    const videoId = canonicalVideoId(html);
+    if (!videoId) return null;
 
-    const isOffline =
-      /"status":"LIVE_STREAM_OFFLINE"/.test(html) || /"isUpcoming":true/.test(html);
-    const isLive = !isOffline && /"isLive":true/.test(html);
+    // When genuinely live, the /live page IS the live watch page → isLiveNow:true.
+    if (htmlSaysLiveNow(html)) return videoId;
 
-    return isLive ? videoId : null;
+    // The /live canonical can be stale (an ended stream). Confirm by loading the
+    // resolved video's own watch page and checking its live flag directly.
+    const watch = await fetch(`https://www.youtube.com/watch?v=${videoId}`, {
+      headers: YT_HEADERS,
+      next: { revalidate: 30 },
+    });
+    if (!watch.ok) return null;
+    return htmlSaysLiveNow(await watch.text()) ? videoId : null;
   } catch {
     return null;
   }

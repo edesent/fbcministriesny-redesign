@@ -28,6 +28,23 @@ export default function EventsPage() {
         showCalendarLink={false}
       />
 
+      <section className="events-section" style={{ paddingTop: 0 }}>
+        <div className="section-heading">
+          <span className="kicker">Special Guest · June 7</span>
+          <h2>Mark &amp; Valerie Appell — Missionaries to Marseille, France</h2>
+          <p>Join us as we welcome Mark and Valerie Appell, missionaries reaching people in Marseille, France through the gospel of Jesus Christ.</p>
+        </div>
+        <div style={{ maxWidth: 680, margin: "0 auto" }}>
+          <Image
+            src="/events/appell-june7.jpg"
+            alt="Mark and Valerie Appell – Missionaries to Marseille, France – June 7"
+            width={680}
+            height={510}
+            style={{ width: "100%", height: "auto", borderRadius: 12 }}
+          />
+        </div>
+      </section>
+
       <section className="calendar-section">
         <div className="section-heading">
           <span className="kicker">Church Calendar</span>

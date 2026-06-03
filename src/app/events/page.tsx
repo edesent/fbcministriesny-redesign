@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowRight, CalendarDays, Clock3 } from "lucide-react";
+import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { UpcomingEvents } from "@/components/UpcomingEvents";
 import { googleCalendar, site } from "@/lib/site";

@@ -128,12 +128,43 @@ function canonicalVideoId(html: string): string | null {
   );
 }
 
-// The live video to show, if any. Manual switch (youtube.liveVideoId) wins,
-// because YouTube serves stripped HTML to servers so auto-detection is
-// unreliable; otherwise fall back to a best-effort scrape.
+// The live video to show, if any.
+//  1) Official YouTube Data API (reliable auto-detection — needs YOUTUBE_API_KEY).
+//  2) Manual override (youtube.liveVideoId) — optional emergency switch.
+//  3) Best-effort HTML scrape — usually blocked by YouTube, last resort.
 export async function getLiveVideoId(): Promise<string | null> {
+  const viaApi = await fetchLiveViaApi();
+  if (viaApi) return viaApi;
   if (youtube.liveVideoId) return youtube.liveVideoId;
   return fetchLiveVideoId();
+}
+
+type YtVideosResponse = {
+  items?: { id: string; snippet?: { liveBroadcastContent?: string } }[];
+};
+
+// Reliable live detection via the YouTube Data API. Pulls the channel's recent
+// video IDs from the (free) RSS feed, then asks the API which — if any — is
+// broadcasting right now. Costs ~1 quota unit per check, so polling every 30s
+// stays far under the free 10k/day quota. Returns null when no key is set.
+async function fetchLiveViaApi(): Promise<string | null> {
+  const key = process.env.YOUTUBE_API_KEY;
+  if (!key || !youtube.channelId) return null;
+  try {
+    const recent = await fetchSermons();
+    const ids = recent.slice(0, 30).map((s) => s.videoId);
+    if (!ids.length) return null;
+    const res = await fetch(
+      `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${ids.join(",")}&key=${key}`,
+      { next: { revalidate: 30 } },
+    );
+    if (!res.ok) return null;
+    const data = (await res.json()) as YtVideosResponse;
+    const live = data.items?.find((i) => i.snippet?.liveBroadcastContent === "live");
+    return live?.id ?? null;
+  } catch {
+    return null;
+  }
 }
 
 // Returns the video ID of an ACTIVELY live broadcast, or null otherwise.

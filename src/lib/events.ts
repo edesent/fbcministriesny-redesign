@@ -289,8 +289,9 @@ export async function getUpcomingEvents(limit = 4): Promise<UpcomingEvent[]> {
   const texts = await Promise.all(
     urls.map(async (url) => {
       try {
-        // Cache for an hour so we don't re-fetch on every request.
-        const res = await fetch(url, { next: { revalidate: 3600 } });
+        // Always fetch fresh so the list stays in sync with the live calendar
+        // (no stale cache when the church updates events).
+        const res = await fetch(url, { cache: "no-store" });
         return res.ok ? await res.text() : "";
       } catch {
         return "";

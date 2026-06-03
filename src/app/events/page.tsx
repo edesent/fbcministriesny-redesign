@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "Stay up to date on service times, guest speakers, and special events at Faith Bible Church.",
 };
 
+// Render on every request so the events list always matches the live calendar.
+export const dynamic = "force-dynamic";
+
 export default function EventsPage() {
   return (
     <>

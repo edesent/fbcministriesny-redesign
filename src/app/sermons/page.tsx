@@ -16,7 +16,8 @@ export const metadata: Metadata = {
     "Watch recent sermons and online services from Faith Bible Church in Sprakers, New York. Services streamed live on YouTube.",
 };
 
-export const revalidate = 60;
+// Render on every request so a live stream shows up the instant YouTube goes live.
+export const dynamic = "force-dynamic";
 
 export default async function SermonsPage() {
   const [sermons, liveVideoId] = await Promise.all([fetchSermons(), fetchLiveVideoId()]);

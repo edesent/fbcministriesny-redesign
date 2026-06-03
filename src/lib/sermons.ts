@@ -120,7 +120,8 @@ export async function fetchLiveVideoId(): Promise<string | null> {
           "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
         "Accept-Language": "en-US,en;q=0.9",
       },
-      next: { revalidate: 60 },
+      // Never cache the live check — so the live stream appears the moment it starts.
+      cache: "no-store",
     });
     if (!res.ok) return null;
     const html = await res.text();

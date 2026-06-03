@@ -28,7 +28,9 @@ export async function fetchSermons(): Promise<Sermon[]> {
   if (!youtube.channelId) return [];
   try {
     const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${youtube.channelId}`;
-    const res = await fetch(feedUrl, { next: { revalidate: 3600 } });
+    // Refresh every 30s so a just-finished live stream / new upload appears near
+    // the top quickly (it sorts by created date when its title has no date).
+    const res = await fetch(feedUrl, { next: { revalidate: 30 } });
     if (!res.ok) return [];
     const xml = await res.text();
 

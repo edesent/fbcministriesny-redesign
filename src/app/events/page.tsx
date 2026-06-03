@@ -41,8 +41,8 @@ export default function EventsPage() {
           <Image
             src="/events/appell-june7.jpg"
             alt="Mark and Valerie Appell – Missionaries to Marseille, France – June 7"
-            width={680}
-            height={510}
+            width={1320}
+            height={959}
             style={{ width: "100%", height: "auto", borderRadius: 12 }}
           />
         </div>

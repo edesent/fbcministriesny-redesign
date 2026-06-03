@@ -84,15 +84,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <figure className="image-feature">
-          <Image
-            src="/logo.jpg"
-            alt="Faith Bible Church along the road in Sprakers, New York"
-            fill
-            sizes="(max-width: 900px) 100vw, 44vw"
-          />
-          <figcaption>A country church for the valley.</figcaption>
-        </figure>
+
       </section>
     </>
   );

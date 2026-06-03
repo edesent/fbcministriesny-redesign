@@ -10,14 +10,19 @@ import {
   Sunset,
   Users,
 } from "lucide-react";
-import { serviceTimes, youtube } from "@/lib/site";
+import { serviceTimes } from "@/lib/site";
+import { getLiveVideoId } from "@/lib/sermons";
 
 const stripIcons = [BookOpen, Church, Sunset, Users];
 
-export default function Home() {
+// Re-check live status every 30s so the "Live Now" banner appears/clears on its own.
+export const revalidate = 30;
+
+export default async function Home() {
+  const liveVideoId = await getLiveVideoId();
   return (
     <>
-      {youtube.liveVideoId && (
+      {liveVideoId && (
         <Link className="live-banner" href="/sermons">
           <span className="live-banner-dot" aria-hidden />
           <strong>We&apos;re Live Now</strong>

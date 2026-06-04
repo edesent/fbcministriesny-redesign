@@ -641,7 +641,11 @@ p {
 .contact-page h2 {
   max-width: 18ch;
   margin: 14px 0 20px;
-  font-size: clamp(2.35rem, 4.4vw, 3.8rem);
+  font-size: clamp(2.1rem, 4vw, 3.5rem);
+}
+
+#welcome .kicker {
+  font-size: 1rem;
 }
 
 .welcome-section p,

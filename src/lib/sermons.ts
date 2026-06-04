@@ -28,9 +28,8 @@ export async function fetchSermons(): Promise<Sermon[]> {
   if (!youtube.channelId) return [];
   try {
     const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${youtube.channelId}`;
-    // Refresh every 30s so a just-finished live stream / new upload appears near
-    // the top quickly (it sorts by created date when its title has no date).
-    const res = await fetch(feedUrl, { next: { revalidate: 30 } });
+    // No cache — the sermon page renders fresh on every request.
+    const res = await fetch(feedUrl, { cache: "no-store" });
     if (!res.ok) return [];
     const xml = await res.text();
 
@@ -110,13 +109,13 @@ export function formatSermonDate(iso: string): string {
 // the canonical link points at the live video, "isLive":true is present, and the
 // OFFLINE / upcoming flags are absent. (Reliability depends on the channel not
 // having stray scheduled/old streams cluttering its /live page.)
-export async function getLiveVideoId(): Promise<string | null> {
+export async function getLiveVideoId(opts?: { noStore?: boolean }): Promise<string | null> {
   if (!youtube.channelId) return null;
   try {
     const res = await fetch(
       `https://www.youtube.com/channel/${youtube.channelId}/live`,
       {
-        next: { revalidate: 30 },
+        ...(opts?.noStore ? { cache: "no-store" } : { next: { revalidate: 30 } }),
         headers: {
           "User-Agent":
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",

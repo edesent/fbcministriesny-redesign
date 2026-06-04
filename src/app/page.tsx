@@ -50,6 +50,9 @@ export default async function Home() {
             west of Albany, gathering to worship, grow, serve, and proclaim
             God&apos;s saving grace.
           </p>
+          <p style={{ fontStyle: "italic", opacity: 0.85 }}>
+            &ldquo;By this shall all men know that ye are my disciples, if ye have love one to another.&rdquo; — John 13:35
+          </p>
           <div className="hero-actions">
             <Link className="button primary" href="/contact">
               Plan a Visit <ArrowRight size={18} />

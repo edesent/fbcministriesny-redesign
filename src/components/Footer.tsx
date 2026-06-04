@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { contactMethods, navItems, site, youtube } from "@/lib/site";
+import type { LucideIcon } from "lucide-react";
 
 export function Footer() {
   return (

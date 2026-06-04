@@ -85,8 +85,7 @@ export default async function Home() {
           <h2>Come and see what God is doing here.</h2>
           <p>
             When you step inside, expect a warm welcome from people genuinely glad
-            to see you. Our services hold praise and hymns, prayer, encouragement,
-            and a message straight from the Bible.
+            to see you.
           </p>
           <div className="check-list">
             <p><CheckCircle2 size={20} /> Bible-centered preaching and teaching</p>

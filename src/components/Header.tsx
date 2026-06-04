@@ -39,7 +39,7 @@ export function Header() {
       {/* Desktop inline links */}
       <nav className="site-nav" aria-label="Primary navigation">
         {navItems.map((item) => (
-          <Link key={item.href} href={item.href}>
+          <Link key={item.href} href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noopener noreferrer" : undefined}>
             {item.label}
           </Link>
         ))}

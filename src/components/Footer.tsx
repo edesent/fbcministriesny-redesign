@@ -46,11 +46,17 @@ export function Footer() {
         <div>
           <h2>Contact</h2>
           <ul>
-            {contactMethods.map((method) => (
-              <li key={method.label}>
-                <a href={method.href}>{method.label}</a>
-              </li>
-            ))}
+            {contactMethods.map((method) => {
+              const Icon = method.icon;
+              return (
+                <li key={method.label}>
+                  <a href={method.href} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                    <Icon size={16} />
+                    <span>{method.label}</span>
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div>

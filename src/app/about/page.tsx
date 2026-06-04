@@ -25,10 +25,7 @@ export default function AboutPage() {
           <span className="kicker">Who We Are</span>
           <h2>Loving Jesus by loving others.</h2>
           <p>
-            When you join us, you can expect a warm welcome and a service of
-            praise and hymns, prayer, encouragement, and a message straight from
-            the Bible. We believe salvation is by faith in Jesus
-            Christ, followed by water baptism and discipleship.
+            We're a church that loves God's Word and loves people. Come join us for worship, prayer, and preaching — and see for yourself what God is doing here.
           </p>
           <p>
             Faith Bible is an autonomous congregation — self-governing and

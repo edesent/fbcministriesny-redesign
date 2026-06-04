@@ -107,6 +107,7 @@ export const navItems: NavItem[] = [
   { label: "Counseling", href: "/counseling" },
   { label: "Give", href: "/give" },
   { label: "Contact", href: "/contact" },
+  { label: "Faith Bible Academy", href: "https://www.faithbibleacademyny.com" },
 ];
 
 export const serviceTimes = [

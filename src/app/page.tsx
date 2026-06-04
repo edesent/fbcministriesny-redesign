@@ -46,7 +46,7 @@ export default async function Home() {
         <div className="hero-content">
           <h1>Loving <span className="gold">Jesus</span> by Loving Others.</h1>
           <p>
-            A Christ-centered country church on Crosby Road, forty-five minutes
+            We are a Christ-centered country church on Crosby Road, forty-five minutes
             west of Albany, gathering to worship, grow, serve, and proclaim
             God&apos;s saving grace.
           </p>

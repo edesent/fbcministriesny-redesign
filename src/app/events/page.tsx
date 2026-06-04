@@ -27,7 +27,7 @@ export default function EventsPage() {
         limit={6}
         kicker="What's Coming Up"
         heading="Upcoming events"
-        blurb="The next gatherings and special events on our calendar. See the full month below."
+        blurb="Please join us at the upcoming events for some fun and fellowship. See the full month below."
         showCalendarLink={false}
       />
 

@@ -154,15 +154,48 @@ type YtVideosResponse = {
   items?: { id: string; snippet?: { liveBroadcastContent?: string } }[];
 };
 
-// Reliable backup: ask the YouTube Data API which recent video (from the free
-// RSS feed) is broadcasting right now. ~1 quota unit per check. The key is
-// referrer-restricted to the site, so we send the matching Referer header.
+// Distinct video IDs scraped (free) from the channel's home page. YouTube
+// features a current live stream there first, so this catches a fresh live that
+// hasn't hit the RSS feed yet.
+async function channelPageVideoIds(opts?: { noStore?: boolean }): Promise<string[]> {
+  if (!youtube.channelId) return [];
+  try {
+    const res = await fetch(`https://www.youtube.com/channel/${youtube.channelId}`, {
+      ...(opts?.noStore ? { cache: "no-store" } : { next: { revalidate: 30 } }),
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
+        "Accept-Language": "en-US,en;q=0.9",
+      },
+    });
+    if (!res.ok) return [];
+    const html = await res.text();
+    const ids: string[] = [];
+    for (const m of html.matchAll(/"videoId":"([A-Za-z0-9_-]{11})"/g)) {
+      if (!ids.includes(m[1])) ids.push(m[1]);
+      if (ids.length >= 40) break;
+    }
+    return ids;
+  } catch {
+    return [];
+  }
+}
+
+// Reliable backup: gather candidate video IDs (channel home page + RSS feed),
+// then ask the YouTube Data API which — if any — is broadcasting right now.
+// videos.list is ~1 quota unit per check (cheap enough to poll constantly). The
+// key is referrer-restricted to the site, so we send the matching Referer header.
 async function fetchLiveViaApi(opts?: { noStore?: boolean }): Promise<string | null> {
   const key = process.env.YOUTUBE_API_KEY;
   if (!key || !youtube.channelId) return null;
   try {
-    const recent = await fetchSermons();
-    const ids = recent.slice(0, 45).map((s) => s.videoId);
+    const [pageIds, recent] = await Promise.all([
+      channelPageVideoIds(opts),
+      fetchSermons(),
+    ]);
+    const ids = Array.from(
+      new Set([...pageIds, ...recent.map((s) => s.videoId)]),
+    ).slice(0, 50);
     if (!ids.length) return null;
     const res = await fetch(
       `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${ids.join(",")}&key=${key}`,

@@ -114,7 +114,7 @@ export const navItems: NavItem[] = [
 export const serviceTimes = [
   { label: "Sunday School", time: "9:45 AM", detail: "Classes for every age" },
   { label: "Sunday Worship", time: "11:00 AM", detail: "Preaching, prayer, and worship" },
-  { label: "Sunday Prayer Service", time: "6:00 PM", detail: "Evening prayer and fellowship" },
+  { label: "Sunday Family Prayer, Praise and Fellowship Service", time: "6:00 PM", detail: "Evening prayer and fellowship" },
   { label: "Wednesday Ministries", time: "7:00 PM", detail: "Adult, teen, and children's ministries" },
 ];
 

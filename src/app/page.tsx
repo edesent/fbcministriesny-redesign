@@ -6,14 +6,14 @@ import {
   CheckCircle2,
   Church,
   Clock3,
-  HandsPraying,
+  HeartHandshake,
   PlayCircle,
   Users,
 } from "lucide-react";
 import { serviceTimes } from "@/lib/site";
 import { getLiveVideoId } from "@/lib/sermons";
 
-const stripIcons = [BookOpen, Church, HandsPraying, Users];
+const stripIcons = [BookOpen, Church, HeartHandshake, Users];
 
 // Re-check live status every 30s so the "Live Now" banner appears/clears on its own.
 export const revalidate = 30;

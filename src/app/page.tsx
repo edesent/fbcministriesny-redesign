@@ -92,6 +92,14 @@ export default async function Home() {
             <Link className="button primary" href="/about">
               About Our Church <ArrowRight size={18} />
             </Link>
+            <a
+              className="button outline"
+              href="https://www.google.com/maps/dir/?api=1&destination=108+Crosby+Road,+Sprakers,+NY+12166"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Directions <ArrowRight size={18} />
+            </a>
           </div>
         </div>
 

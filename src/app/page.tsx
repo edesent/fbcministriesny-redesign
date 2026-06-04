@@ -81,13 +81,8 @@ export default async function Home() {
 
       <section className="welcome-section" id="welcome">
         <div>
-          <span className="kicker">Welcome</span>
+          <span className="kicker" style={{ fontSize: "2em" }}>Welcome</span>
           <h2>Come and see what God is doing here.</h2>
-          <p>
-            We&apos;re a church that believes the gospel changes everything — and
-            we&apos;d love for you to experience that with us. Expect open Bibles,
-            sincere worship, and friends who are happy to meet you.
-          </p>
           <div className="check-list">
             <p><CheckCircle2 size={20} /> Bible-centered preaching and teaching</p>
             <p><CheckCircle2 size={20} /> Ministries for children, teens, and adults</p>

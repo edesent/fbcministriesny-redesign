@@ -86,7 +86,7 @@ export default async function Home() {
           <p>
             We&apos;re a church that believes the gospel changes everything — and
             we&apos;d love for you to experience that with us. Expect open Bibles,
-            sincere worship, and neighbors who are happy to meet you.
+            sincere worship, and friends who are happy to meet you.
           </p>
           <div className="check-list">
             <p><CheckCircle2 size={20} /> Bible-centered preaching and teaching</p>

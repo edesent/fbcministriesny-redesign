@@ -43,15 +43,27 @@ export default async function Home() {
           style={{ objectPosition: "center 38%" }}
         />
         <div className="hero-overlay" />
+        <p style={{
+          position: "absolute",
+          top: "1.5rem",
+          right: "2rem",
+          fontStyle: "italic",
+          opacity: 0.85,
+          color: "white",
+          textAlign: "right",
+          maxWidth: "320px",
+          fontSize: "0.9rem",
+          lineHeight: "1.5",
+          zIndex: 2,
+        }}>
+          &ldquo;By this shall all men know that ye are my disciples, if ye have love one to another.&rdquo; — John 13:35
+        </p>
         <div className="hero-content">
           <h1>Loving <span className="gold">Jesus</span> by Loving Others.</h1>
           <p>
             We are a Christ-centered country church on Crosby Road, forty-five minutes
             west of Albany, gathering to worship, grow, serve, and proclaim
             God&apos;s saving grace.
-          </p>
-          <p style={{ fontStyle: "italic", opacity: 0.85 }}>
-            &ldquo;By this shall all men know that ye are my disciples, if ye have love one to another.&rdquo; — John 13:35
           </p>
           <div className="hero-actions">
             <Link className="button primary" href="/contact">

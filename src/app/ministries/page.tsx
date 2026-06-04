@@ -16,7 +16,7 @@ export default function MinistriesPage() {
       <PageHero
         eyebrow="Discover Ministries"
         title="A place to grow for every age and life stage."
-        intro="The ministries at Faith Bible Church exist to help you get involved, meet other believers in a similar season of life, and connect and grow with God."
+        intro="Ministry at Faith Bible isn't a program — it's people. Men, women, teens, and children all have a place to study God's Word, build real friendships, and serve the church family together."
       />
 
       <section className="ministries-section">

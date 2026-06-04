@@ -64,7 +64,7 @@ export function Header() {
         aria-label="Mobile navigation"
       >
         {navItems.map((item) => (
-          <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
+          <Link key={item.href} href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noopener noreferrer" : undefined} onClick={() => setOpen(false)}>
             {item.label}
           </Link>
         ))}

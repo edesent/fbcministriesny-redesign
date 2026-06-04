@@ -93,6 +93,7 @@ export const missionaries: Missionary[] = [
 export type NavItem = {
   label: string;
   href: string;
+  external?: boolean;
   children?: { label: string; href: string }[];
 };
 

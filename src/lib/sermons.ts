@@ -3,7 +3,7 @@
 // the page can surface a service that's streaming right now. No API key needed.
 // Set the channel in `youtube` (site.ts); everything no-ops gracefully until then.
 
-import { youtube } from "@/lib/site";
+import { site, youtube } from "@/lib/site";
 
 export type Sermon = {
   videoId: string;
@@ -104,12 +104,21 @@ export function formatSermonDate(iso: string): string {
   });
 }
 
-// Keyless live detection — the same method the Bellingham site uses. When a
-// broadcast is active, YouTube serves /channel/{id}/live as the live watch page:
-// the canonical link points at the live video, "isLive":true is present, and the
-// OFFLINE / upcoming flags are absent. (Reliability depends on the channel not
-// having stray scheduled/old streams cluttering its /live page.)
+// The live video to show, if any:
+//  1) keyless scrape of /channel/<id>/live (same as Bellingham — instant),
+//  2) if that finds nothing, the YouTube Data API (reliable backup; needs
+//     YOUTUBE_API_KEY). FBC's channel clutters its /live page, so the API is
+//     what actually catches its lives.
 export async function getLiveVideoId(opts?: { noStore?: boolean }): Promise<string | null> {
+  const viaScrape = await fetchLiveScrape(opts);
+  if (viaScrape) return viaScrape;
+  return fetchLiveViaApi(opts);
+}
+
+// Keyless scrape of the channel's /live page. When a broadcast is active YouTube
+// serves it as the live watch page (canonical → live video, "isLive":true, no
+// OFFLINE/upcoming flags). Misses lives on channels with stray scheduled streams.
+async function fetchLiveScrape(opts?: { noStore?: boolean }): Promise<string | null> {
   if (!youtube.channelId) return null;
   try {
     const res = await fetch(
@@ -136,6 +145,35 @@ export async function getLiveVideoId(opts?: { noStore?: boolean }): Promise<stri
       /"status":"LIVE_STREAM_OFFLINE"/.test(html) || /"isUpcoming":true/.test(html);
     const isLive = !offline && /"isLive":true/.test(html);
     return isLive ? videoId : null;
+  } catch {
+    return null;
+  }
+}
+
+type YtVideosResponse = {
+  items?: { id: string; snippet?: { liveBroadcastContent?: string } }[];
+};
+
+// Reliable backup: ask the YouTube Data API which recent video (from the free
+// RSS feed) is broadcasting right now. ~1 quota unit per check. The key is
+// referrer-restricted to the site, so we send the matching Referer header.
+async function fetchLiveViaApi(opts?: { noStore?: boolean }): Promise<string | null> {
+  const key = process.env.YOUTUBE_API_KEY;
+  if (!key || !youtube.channelId) return null;
+  try {
+    const recent = await fetchSermons();
+    const ids = recent.slice(0, 45).map((s) => s.videoId);
+    if (!ids.length) return null;
+    const res = await fetch(
+      `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${ids.join(",")}&key=${key}`,
+      {
+        ...(opts?.noStore ? { cache: "no-store" } : { next: { revalidate: 30 } }),
+        headers: { Referer: site.url },
+      },
+    );
+    if (!res.ok) return null;
+    const data = (await res.json()) as YtVideosResponse;
+    return data.items?.find((i) => i.snippet?.liveBroadcastContent === "live")?.id ?? null;
   } catch {
     return null;
   }

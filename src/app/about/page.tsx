@@ -27,7 +27,7 @@ export default function AboutPage() {
           <p>
             When you step inside, you can expect a warm welcome and a service of
             praise and hymns, prayer, encouragement, and a message straight from
-            the Bible. We hold to Baptist practices — salvation by faith in Jesus
+            the Bible. We believe salvation is by faith in Jesus
             Christ, followed by water baptism and discipleship.
           </p>
           <p>

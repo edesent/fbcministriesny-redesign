@@ -86,7 +86,7 @@ export default async function Home() {
           <div className="check-list">
             <p><CheckCircle2 size={20} /> Bible-centered preaching and teaching</p>
             <p><CheckCircle2 size={20} /> Ministries for children, teens, and adults</p>
-            <p><CheckCircle2 size={20} /> A church family committed to gospel witness and discipleship</p>
+            <p><CheckCircle2 size={20} /> We are a church family committed to gospel witness and discipleship</p>
           </div>
           <div className="hero-actions">
             <Link className="button primary" href="/about">

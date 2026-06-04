@@ -25,7 +25,13 @@ export default async function SermonsPage() {
     getLiveVideoId({ noStore: true }),
   ]);
   const latest = sermons[0];
-  const archive = sermons.slice(1);
+  // When live, the featured slot is the live stream, so the whole archive (minus
+  // the live video itself) drops into the list below — including what used to be
+  // "most recent". When not live, the featured slot is the newest video, so it's
+  // excluded from the list.
+  const archive = liveVideoId
+    ? sermons.filter((s) => s.videoId !== liveVideoId)
+    : sermons.slice(1);
 
   return (
     <>

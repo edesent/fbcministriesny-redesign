@@ -373,7 +373,7 @@ export const pageContent = {
     eyebrow: "Discover Ministries",
     title: "A place to grow for every age and life stage.",
     intro:
-      "Take the next step by getting involved in a ministry. Faith Bible offers ministry environments for men, women, adults, teens, and children.",
+      "Ministry at Faith Bible isn't a program — it's people. Men, women, teens, and children all have a place to study God's Word, build real friendships, and serve the church family together.",
     points: [
       "Men's fellowship and prayer breakfast for encouragement and accountability.",
       "Women's discipleship groups for prayer, Bible reading, and spiritual growth.",

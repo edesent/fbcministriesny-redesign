@@ -376,9 +376,7 @@ Faith Bible Academy shall be a ministry of Faith Bible Church designed to provid
 
 WHAT WE EXPECT OF OUR MEMBERS
 
-1. ATTENDANCE. For a Christian to be his best, he must be in the services of the
-
-church. God's Word says, ‘Not forsaking the assembling of ourselves together as the manner of some is.. " Hebrews 10:25. The main services of our church are the Sunday School at 9:45 a.m.,
+1. ATTENDANCE. For a Christian to be his best, he must be in the services of the church. God's Word says, ‘Not forsaking the assembling of ourselves together as the manner of some is.. " Hebrews 10:25. The main services of our church are the Sunday School at 9:45 a.m.,
 
 the Morning Worship at 11:00 a.m., the Evening Service at 7:00 p.m., and on Wednesday nights,
 

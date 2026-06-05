@@ -364,8 +364,6 @@ Date
 
 Name of Board
 
-​
-
 ARTICLE VIII - FINANCES
 
 The work of the church is entirely dependent upon the prayers, personal services, and voluntary gifts (1 Cor. 16:2) of the Lord's people. No organization of this church shall use commercial means of any kind in any endeavor to meet its financial needs, with the exception of Faith Bible Academy. The academy may charge tuition and fees and engage in commercial fund-raising as necessary to raise money. This fund-raising excludes the selling of tickets where prizes are involved, or any means of gambling or games of chance.
@@ -375,8 +373,6 @@ ARTICLE IX - BIBLE SCHOOL
 The government of the Bible School shall be vested in the Board of Deacons. All officers and teachers shall meet regularly for prayer, exhortation, and instruction. The Sunday School Superintendent shall be appointed by the Pastor and Board of Deacons.
 
 The Sunday School Superintendent shall have the general supervision of the Bible School, children's churches, select the teachers with the approval of the pastor, and preside at all meetings of the Bible School.
-
-​
 
 ARTICLE X - MUSIC
 
@@ -403,8 +399,6 @@ ARTICLE XIV - BY-LAWS
 SECTION A: The fiscal year of the church shall be from July 1st to June 30th.
 
 SECTION B: The annual meeting of the congregation must be announced on two successive Sundays prior to the meeting and shall be held on or about the first Wednesday after the third Sunday of July of each year in the church building for the purpose of electing officers, receiving reports, and transaction of such other business as may be properly brought before the meeting. Quarterly congregational meetings shall be held on or about the Wednesday after the Third Sunday of October, January, and April.
-
-​
 
 SECTION C: Special meetings of the congregation may be called by the Board of Deacons or Trustees at any time, provided that notice of the time, place, and purpose thereof, unless deemed an emergency shall be given at both services on two consecutive Lord's Days immediately preceding such a meeting.
 

@@ -141,13 +141,7 @@ SECTION E: TERMINATION OF MEMBERSHIP SHALL BE
 
 2. By discipline (see previous section).
 
-3. By letter. Members who are faithful in their responsibilities as set forth in Section C of this
-
-Article shall be recognized as being in good standing. Any active member who desires to
-
-transfer to another evangelical church, upon application, shall be granted a letter of
-
-recommendation.
+3. By letter. Members who are faithful in their responsibilities as set forth in Section C of this Article shall be recognized as being in good standing. Any active member who desires to transfer to another evangelical church, upon application, shall be granted a letter of recommendation.
 
 4. By request.
 

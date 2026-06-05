@@ -382,9 +382,7 @@ the Morning Worship at 11:00 a.m., the Evening Service at 7:00 p.m., and on Wedn
 
 our Mid-Week prayer Meeting at 7:00 p.m. Every member should feel his responsibility for special meetings such as Bible and Missionary Conferences and other such special services as are announced.
 
-2. READ THE BIBLE. God commands the reading of His Word through
-
-2 Timothy 2:15 where He says, "Study to show thyself approved unto God..." Therefore, every Christian should set aside a time each day when he reads God's Word to find out what God wants him to do and grow in grace. By reading four chapters each day, one can read the entire Bible through is less than one year. Few Christians have done this, to their shame. The importance of spiritual food in the life of a Christian can never be overemphasized.
+2. READ THE BIBLE. God commands the reading of His Word through 2 Timothy 2:15 where He says, "Study to show thyself approved unto God..." Therefore, every Christian should set aside a time each day when he reads God's Word to find out what God wants him to do and grow in grace. By reading four chapters each day, one can read the entire Bible through is less than one year. Few Christians have done this, to their shame. The importance of spiritual food in the life of a Christian can never be overemphasized.
 
 3. TALK TO GOD IN PRAYER. As you read the Bible God speaks to you. As you pray, you talk to God. As a child of God, He is your Heavenly Father and invites you to come to Him with the problems and burdens of your life. The entire family should have a time each day when the Bible is read and prayer is offered, seeking God's leadership in the home. Of course, scriptural prayers are made in the name of Jesus Christ. Christians ought to pray much, according to Jesus' Word in Luke 18:1.
 

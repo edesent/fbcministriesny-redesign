@@ -75,9 +75,7 @@ We believe that a local church is a congregation of baptized believers, associat
 
 SECTION F: THE ORDINANCES
 
-1. We believe that Biblical baptism is the immersion of a believer in water to show forth
-
-in a solemn and beautiful emblem our faith in the crucified, buried, and risen Saviour, with its effect in our death to sin and resurrection to a new life. It is an outward, physical symbol of an inward, spiritual transaction, which took place at the moment of our salvation when God the Holy Spirit baptized us into the body of Christ.
+1. We believe that Biblical baptism is the immersion of a believer in water to show forth in a solemn and beautiful emblem our faith in the crucified, buried, and risen Saviour, with its effect in our death to sin and resurrection to a new life. It is an outward, physical symbol of an inward, spiritual transaction, which took place at the moment of our salvation when God the Holy Spirit baptized us into the body of Christ.
 
 2. We believe that Christ instituted the Lord's Supper to commemorate His death until He
 

@@ -368,9 +368,7 @@ SECTION H: All congregational meetings, unless otherwise specified by our Consti
 
 ARTICLE XV - FAITH BIBLE ACADEMY
 
-Faith Bible Academy shall be a ministry of Faith Bible Church designed to provide a private
-
-Christian day school education for the children of parents who may or may not be members of Faith Bible Church.
+Faith Bible Academy shall be a ministry of Faith Bible Church designed to provide a private Christian day school education for the children of parents who may or may not be members of Faith Bible Church.
 
 2. The School Board shall be elected as provided for in the By-laws of the church. The school board shall consist of at least 3 members of Faith Bible Church who are in good standing. Terms for each member shall be for three years with none to succeed himself. In the case of vacancy on the School Board, the Board of Deacons shall have the authority to fill the unexpired term.
 

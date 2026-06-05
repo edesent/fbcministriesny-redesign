@@ -119,13 +119,9 @@ RESPONSIBILITY OF MEMBERS
 
 1. Every member should so walk and conduct himself or herself in daily life as to give evidence of being possessed of the Spirit of Christ and agreement with the Statement of Belief.
 
-2. Every member should attend the services of the church and participate regularly in the giving
+2. Every member should attend the services of the church and participate regularly in the giving of their means as the Lord may prosper, in harmony with the system used by this church.
 
-of their means as the Lord may prosper, in harmony with the system used by this church.
-
-3. Any member absent from the communion and other services of the church for a continuous
-
-period of six months will be contacted by the Board of Deacons. The Board of Deacons will then either:
+3. Any member absent from the communion and other services of the church for a continuous period of six months will be contacted by the Board of Deacons. The Board of Deacons will then either:
 
 a. Place the individual on the nonresident membership list.
 

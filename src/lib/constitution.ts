@@ -211,7 +211,16 @@ SECTION C: DEACONS
 
 work, its organizations such as Sunday School, Young Peoples' Societies, Missionary Societies, etc., and any branch that shall be under the leadership of the leadership of the Holy Spirit, shall be vested in the Board of Deacons, which shall consist of a group of men whose number shall be determined as follows:
 
-​
+Active Church Members | Number of Deacons
+--- | ---
+Up to 50 | 2
+51–75 | 3
+76–100 | 4
+101–125 | 5
+126–150 | 6
+151–175 | 7
+176–200 | 8
+201–250 | 9
 
 2. Deacons shall be elected as provided for in the By-Laws of the church. Their terms are to be for three years. These men must be members of the church with qualifications for a deacon as prescribed in God's Word. In the case of a vacancy on the Board of Deacons, the Board shall have the authority to fill the unexpired term.
 

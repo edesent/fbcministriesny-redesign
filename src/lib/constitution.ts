@@ -123,9 +123,7 @@ RESPONSIBILITY OF MEMBERS
 
 a. Place the individual on the nonresident membership list.
 
-b. Place the individual on the inactive membership list. The nonresident member and the
-
-inactive member will be contacted yearly by letter from the Pastor and the Board of Deacons concerning their status. If they do not reply in 3 months, their membership will be dropped. These members would not be permitted to vote at any business meetings.
+b. Place the individual on the inactive membership list. The nonresident member and the inactive member will be contacted yearly by letter from the Pastor and the Board of Deacons concerning their status. If they do not reply in 3 months, their membership will be dropped. These members would not be permitted to vote at any business meetings.
 
 c. Continue the individual's active membership.
 

@@ -266,7 +266,7 @@ export const ministries: Ministry[] = [
       },
       {
         name: "Mountain Climbers",
-        schedule: "Sunday School · 9:45 AM in the gym",
+        schedule: "Mountain Climbers · Sunday School · 9:45 AM in the North Learning Center",
         description:
           "A ministry for young adults out of high school to mid-30s, with monthly fellowship activities throughout the year.",
       },

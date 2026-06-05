@@ -221,7 +221,7 @@ export const ministries: Ministry[] = [
       },
       {
         name: "Men's Prayer Breakfast",
-        schedule: "2nd Saturday of each month from September through May · 8:30–9:30 AM",
+        schedule: "Men's/Boys Prayer Breakfast · 2nd Saturday of each month from September through May · 8:30–9:30 AM",
         description:
           "Men and boys learning the power of Christian fellowship every month.",
       },

@@ -183,9 +183,7 @@ The assistant pastor shall not be permitted to exercise in any preaching or teac
 
 SECTION C: DEACONS
 
-1. The government of the church, the conduct of its business, the supervision of its general
-
-work, its organizations such as Sunday School, Young Peoples' Societies, Missionary Societies, etc., and any branch that shall be under the leadership of the leadership of the Holy Spirit, shall be vested in the Board of Deacons, which shall consist of a group of men whose number shall be determined as follows:
+1. The government of the church, the conduct of its business, the supervision of its general work, its organizations such as Sunday School, Young Peoples' Societies, Missionary Societies, etc., and any branch that shall be under the leadership of the leadership of the Holy Spirit, shall be vested in the Board of Deacons, which shall consist of a group of men whose number shall be determined as follows:
 
 Active Church Members | Number of Deacons
 --- | ---

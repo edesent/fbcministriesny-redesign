@@ -306,9 +306,7 @@ SECTION B: MISSIONARY PROGRAM
 
 They shall elect a President annually who shall be responsible for the conducting of the meetings and programs of the Society. Ladies shall be members of the church to vote in this election.
 
-5. It shall be the duty of every member to pray faithfully for our missionaries and to give
-
-cheerfully, liberally, and regularly to the support of our missionary family. The church will be happy to pass on specially designated gifts to missionaries or mission who/which meet the qualification laid down in this article, but such action is entirely at the discretion of the Missionary Committee.
+5. It shall be the duty of every member to pray faithfully for our missionaries and to give cheerfully, liberally, and regularly to the support of our missionary family. The church will be happy to pass on specially designated gifts to missionaries or mission who/which meet the qualification laid down in this article, but such action is entirely at the discretion of the Missionary Committee.
 
 SECTION C: MISSIONARY PACT
 

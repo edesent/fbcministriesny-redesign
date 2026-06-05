@@ -198,9 +198,7 @@ Up to 50 | 2
 
 2. Deacons shall be elected as provided for in the By-Laws of the church. Their terms are to be for three years. These men must be members of the church with qualifications for a deacon as prescribed in God's Word. In the case of a vacancy on the Board of Deacons, the Board shall have the authority to fill the unexpired term.
 
-3. Deacons shall have authority to call congregational meetings for the purpose of
-
-recommending such actions as call for the vote of the congregation.
+3. Deacons shall have authority to call congregational meetings for the purpose of recommending such actions as call for the vote of the congregation.
 
 4. A quorum for the transaction of business at a meeting of the Board of Deacons shall be three-fourths of the Board members. The Board of Deacons shall meet within one week after the annual meeting of the congregation and elect a chairman, vice chairman, and clerk. These offices shall be for a period of one year. The chairman shall preside at all the meetings of the Board of Deacons. Should a meeting of the congregation be held when the church does not have a pastor, the chairman of the Board of Deacons shall preside. In the event of the absence or resignation of the chairman, the vice-chairman shall assume all the duties.
 

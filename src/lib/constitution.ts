@@ -242,9 +242,7 @@ c. The interview of all church-supported missionaries on furlough as to their wo
 
 d. To plan, promote, and conduct an Annual Missionary Conference in the church.
 
-2. The Mission Board. Only those missionaries shall be supported who are serving
-
-under mission boards which adhere to the following minimum standards:
+2. The Mission Board. Only those missionaries shall be supported who are serving under mission boards which adhere to the following minimum standards:
 
 a. Board controlled by a council, board or similar body, and not under the direction of one man
 

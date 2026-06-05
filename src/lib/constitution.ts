@@ -232,9 +232,7 @@ SECTION A: MISSIONARY POLICY
 
 In accordance with our convictions set forth in our Statement of Belief as to the need for all men to come to Jesus Christ for salvation and our responsibility as a local church as to "the world-wide proclamation of God's saving grace" (Article II), we hereby adopt this missionary policy under the guidance of the Holy Spirit to fulfill our Lord's clear command in Matthew 28:18-20.
 
-1. The Missionary Committee. To carry out this policy, a Missionary Committee
-
-shall be maintained consisting of the pastor, who shall act as its chairman, and the members of the Board of Deacons. The responsibilities of the Missionary Committee shall include:
+1. The Missionary Committee. To carry out this policy, a Missionary Committee shall be maintained consisting of the pastor, who shall act as its chairman, and the members of the Board of Deacons. The responsibilities of the Missionary Committee shall include:
 
 a. The promotion of a vigorous, balanced program of missionary endeavor in and through the church.
 

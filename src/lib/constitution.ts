@@ -19,9 +19,7 @@ We will seek by God's grace to obey the Holy Spirit's command to "... have no fe
 
 ARTICLE III - STATEMENT OF BELIEF
 
-1. We believe that the whole Bible, consisting of the sixty-six books of the Old and New
-
-Testaments, is verbally inspired of God and inerrant in the original writings, and is the supreme and final authority in faith and life.
+1. We believe that the whole Bible, consisting of the sixty-six books of the Old and New Testaments, is verbally inspired of God and inerrant in the original writings, and is the supreme and final authority in faith and life.
 
 2. We believe in one God, Creator of heaven and earth, Spirit, Light, Love, and Truth, Eternal,
 

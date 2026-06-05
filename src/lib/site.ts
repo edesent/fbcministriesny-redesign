@@ -260,7 +260,7 @@ export const ministries: Ministry[] = [
     programs: [
       {
         name: "Hilltoppers",
-        schedule: "Ages 50+ · Meets monthly",
+        schedule: "Hilltoppers · Ages 50+ · Meets monthly",
         description:
           "Strengthening the church through fellowship with others in a similar life stage — a tool to reach out to the lost and to help members get better acquainted with people new to Faith Bible Church.",
       },

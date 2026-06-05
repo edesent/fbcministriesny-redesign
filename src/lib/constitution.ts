@@ -77,9 +77,7 @@ SECTION F: THE ORDINANCES
 
 1. We believe that Biblical baptism is the immersion of a believer in water to show forth in a solemn and beautiful emblem our faith in the crucified, buried, and risen Saviour, with its effect in our death to sin and resurrection to a new life. It is an outward, physical symbol of an inward, spiritual transaction, which took place at the moment of our salvation when God the Holy Spirit baptized us into the body of Christ.
 
-2. We believe that Christ instituted the Lord's Supper to commemorate His death until He
-
-comes, that participation should be preceded always by solemn self-examination, and that all believers are invited thusly to the Lord's Supper. (Acts 8:26-39; Romans 6:1-5; Col. 2:12; 1 Cor. 11:23-32, 12:13; Ephesians 4:5; Luke 22:19; Matthew 26:27)
+2. We believe that Christ instituted the Lord's Supper to commemorate His death until He comes, that participation should be preceded always by solemn self-examination, and that all believers are invited thusly to the Lord's Supper. (Acts 8:26-39; Romans 6:1-5; Col. 2:12; 1 Cor. 11:23-32, 12:13; Ephesians 4:5; Luke 22:19; Matthew 26:27)
 
 SECTION G: THE RETURN OF CHRIST
 

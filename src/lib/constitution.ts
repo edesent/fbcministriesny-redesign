@@ -31,9 +31,7 @@ ARTICLE III - STATEMENT OF BELIEF
 
 6. We believe in the eternal and everlasting blessedness of the saved and the eternal judgment and punishment of all who reject our Lord Jesus Christ; this is the "second death," and "whosoever was not found in the book of life was cast into the lake of fire." Revelation 20:14 - 15
 
-7. We believe in the personality of Satan, that he is the author of the fall, and that he shall be
-
-eternally punished.
+7. We believe in the personality of Satan, that he is the author of the fall, and that he shall be eternally punished.
 
 8. We believe in the bodily resurrection of all men, the saved to eternal life, and the lost to judgment and everlasting punishment.
 

@@ -350,21 +350,41 @@ Amendments to this constitution may be adopted by a two-thirds vote of the congr
 
 ARTICLE XIV - BY-LAWS
 
-SECTION A: The fiscal year of the church shall be from July 1st to June 30th.
+SECTION A: THE FISCAL YEAR OF THE CHURCH
 
-SECTION B: The annual meeting of the congregation must be announced on two successive Sundays prior to the meeting and shall be held on or about the first Wednesday after the third Sunday of July of each year in the church building for the purpose of electing officers, receiving reports, and transaction of such other business as may be properly brought before the meeting. Quarterly congregational meetings shall be held on or about the Wednesday after the Third Sunday of October, January, and April.
+The fiscal year of the church shall be from July 1st to June 30th.
 
-SECTION C: Special meetings of the congregation may be called by the Board of Deacons or Trustees at any time, provided that notice of the time, place, and purpose thereof, unless deemed an emergency shall be given at both services on two consecutive Lord's Days immediately preceding such a meeting.
+SECTION B: THE ANNUAL MEETING OF THE CONGREGATION
 
-SECTION D: The Board of Deacons shall arrange the details of the congregational meetings and see that all possible preparations for their successful conduct is made.
+The annual meeting of the congregation must be announced on two successive Sundays prior to the meeting and shall be held on or about the first Wednesday after the third Sunday of July of each year in the church building for the purpose of electing officers, receiving reports, and transacting such other business as may be properly brought before the meeting.
 
-SECTION E: If any member desires a congregational meeting, he may approach the Board of Deacons requesting the same. If such request is not granted, the said member with four (4) other members can require same of the Board of Deacons.
+Quarterly congregational meetings shall be held on or about the Wednesday after the third Sunday of October, January, and April.
 
-SECTION F: The voting members present at any congregational meeting called in accordance with the requirements of the Constitution and By-laws shall be considered a quorum for the transaction of business.
+SECTION C: SPECIAL MEETINGS OF THE CONGREGATION
 
-SECTION G: Any active member of the church sixteen (16) years of age or more shall have the right to vote on any question properly brought before any congregational meeting, except that on questions involving the disbursement of money, or any financial transaction, or voting on the Pastor and Assistant Pastor; then only members of eighteen (18) years of age or more shall have the right to vote. Any member wishing to contest the voting privilege of another member shall assume the responsibility of proving that member's ineligibility to vote.
+Special meetings of the congregation may be called by the Board of Deacons or Trustees at any time, provided that notice of the time, place, and purpose thereof, unless deemed an emergency, shall be given at both services on two consecutive Lord's Days immediately preceding such a meeting.
 
-SECTION H: All congregational meetings, unless otherwise specified by our Constitution and By-laws, shall be conducted according to Robert's Rules of Order.
+SECTION D: CONDUCT OF CONGREGATIONAL MEETINGS
+
+The Board of Deacons shall arrange the details of the congregational meetings and see that all possible preparations for their successful conduct are made.
+
+SECTION E: REQUEST FOR A CONGREGATIONAL MEETING
+
+If any member desires a congregational meeting, he may approach the Board of Deacons requesting the same. If such request is not granted, the said member with four (4) other members can require the same of the Board of Deacons.
+
+SECTION F: QUORUM
+
+The voting members present at any congregational meeting called in accordance with the requirements of the Constitution and By-Laws shall be considered a quorum for the transaction of business.
+
+SECTION G: VOTING PRIVILEGES
+
+Any active member of the church sixteen (16) years of age or more shall have the right to vote on any question properly brought before any congregational meeting, except that on questions involving the disbursement of money, any financial transaction, or voting on the Pastor and Assistant Pastor, only members eighteen (18) years of age or more shall have the right to vote.
+
+Any member wishing to contest the voting privilege of another member shall assume the responsibility of proving that member's ineligibility to vote.
+
+SECTION H: PARLIAMENTARY AUTHORITY
+
+All congregational meetings, unless otherwise specified by the Constitution and By-Laws, shall be conducted according to Robert's Rules of Order.
 
 ARTICLE XV - FAITH BIBLE ACADEMY
 

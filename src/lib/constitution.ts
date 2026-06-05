@@ -262,9 +262,7 @@ a. New missionaries being considered for support shall sign with no mental reser
 
 b. Currently supported missionaries shall also sign with no mental reservations whatever their name(s) in the space provided in Section C of this Article, thereby indicating their wholehearted agreement with this missionary policy, as well as Articles II, III, and IV of the constitution. All church supported missionaries shall be required to sign Article VII, Section C, reaffirming their agreement, during February of every even-numbered year. Failure to do so will terminate the support of this missionary or missionaries after the church has given sixty (60) days notice.
 
-c. All missionaries shall be required to correspond with the church at least once every
-
-Three (3) months: so that the church may pray intelligently for the missionary and his work. Repeated failure to do so shall be cause for a termination of support.
+c. All missionaries shall be required to correspond with the church at least once every Three (3) months: so that the church may pray intelligently for the missionary and his work. Repeated failure to do so shall be cause for a termination of support.
 
 (The mailing address is: Faith Bible Church, 106 Crosby Road, Sprakers, NY 12166 ).
 

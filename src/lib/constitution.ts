@@ -21,13 +21,9 @@ ARTICLE III - STATEMENT OF BELIEF
 
 1. We believe that the whole Bible, consisting of the sixty-six books of the Old and New Testaments, is verbally inspired of God and inerrant in the original writings, and is the supreme and final authority in faith and life.
 
-2. We believe in one God, Creator of heaven and earth, Spirit, Light, Love, and Truth, Eternal,
+2. We believe in one God, Creator of heaven and earth, Spirit, Light, Love, and Truth, Eternal, Almighty, Infallible and Unchangeable, Infinitely Wise, Just and Holy; and that God eternally exists and manifests Himself to us in three persons: The Father, The Son, and the Holy Spirit.
 
-Almighty, Infallible and Unchangeable, Infinitely Wise, Just and Holy; and that God eternally exists and manifests Himself to us in three persons: The Father, The Son, and the Holy Spirit.
-
-3. We believe in Jesus Christ, the only begotten Son of God, the eternal Word manifested in
-
-flesh. We believe that He was conceived of the Holy Spirit, and born of the Virgin Mary and that He is true God and true man. We believe in His vicarious, substitutionary and redeeming death, Christ receiving in Himself the penalty of man's sin. We believe in his bodily resurrection, in His ascension and His personal, imminent and premillennial return for His redeemed ones, followed by His coming in glory to judge the rebellious and to establish His millennial reign. We believe Christ is the only mediator between God and man and the only advocate and intercessor before God in behalf of man.
+3. We believe in Jesus Christ, the only begotten Son of God, the eternal Word manifested in flesh. We believe that He was conceived of the Holy Spirit, and born of the Virgin Mary and that He is true God and true man. We believe in His vicarious, substitutionary and redeeming death, Christ receiving in Himself the penalty of man's sin. We believe in his bodily resurrection, in His ascension and His personal, imminent and premillennial return for His redeemed ones, followed by His coming in glory to judge the rebellious and to establish His millennial reign. We believe Christ is the only mediator between God and man and the only advocate and intercessor before God in behalf of man.
 
 4. We believe in the Holy Spirit, in His personality, that He is God; and we believe that his work is to convict men of sin, to regenerate, indwell and empower the believer day by day. We believe He is the teacher of God's Word and the guide for the daily life.
 

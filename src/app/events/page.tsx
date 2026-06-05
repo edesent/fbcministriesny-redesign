@@ -39,7 +39,7 @@ export default function EventsPage() {
         </div>
         <div style={{ maxWidth: 680, margin: "0 auto" }}>
           <Image
-            src="/events/chicken-bbq-july5.jpeg"
+            src="/events/img-1914.jpeg"
             alt="Opening Chicken BBQ – July 5 – Christian Lake Bible Conference"
             width={1080}
             height={1080}

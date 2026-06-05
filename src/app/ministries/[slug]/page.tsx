@@ -68,7 +68,6 @@ export default async function MinistryPage({ params }: Props) {
         <div>
           <span className="kicker">Get Involved</span>
           <h2>We&apos;d love to help you take a next step.</h2>
-          <p>{site.email} · {site.phone}</p>
         </div>
         <div className="band-actions">
           <Link className="button light" href="/contact">

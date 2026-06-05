@@ -246,9 +246,7 @@ d. To plan, promote, and conduct an Annual Missionary Conference in the church.
 
 a. Board controlled by a council, board or similar body, and not under the direction of one man or his family.
 
-b. Board which will promptly furnish complete information regarding any of their financial
-
-policies and/or condition.
+b. Board which will promptly furnish complete information regarding any of their financial policies and/or condition.
 
 c. Board, which adheres to a Statement of Belief compatible with Articles III and IV of the Constitution.
 

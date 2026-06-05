@@ -302,9 +302,7 @@ SECTION B: MISSIONARY PROGRAM
 
 3. Missionary letters shall be shared regularly with the congregation with the purpose of united prayer for our missionary family.
 
-4. A Ladies' Missionary Society shall meet regularly for the assistance of our missionaries
-
-through prayer, letter-writing, and in all other ways possible.
+4. A Ladies' Missionary Society shall meet regularly for the assistance of our missionaries through prayer, letter-writing, and in all other ways possible.
 
 They shall elect a President annually who shall be responsible for the conducting of the meetings and programs of the Society. Ladies shall be members of the church to vote in this election.
 

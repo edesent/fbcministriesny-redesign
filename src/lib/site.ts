@@ -215,7 +215,7 @@ export const ministries: Ministry[] = [
     programs: [
       {
         name: "Faithful Men's Fellowship",
-        schedule: "3rd Thursday of each month · 7–8 PM",
+        schedule: "3rd Thursday of each month from September through May · 7–8 PM",
         description:
           "Building strong friendships through encouragement, prayer, Bible reading, and accountability — a time of fellowship, Bible study, and prayer.",
       },

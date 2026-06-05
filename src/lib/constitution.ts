@@ -167,9 +167,7 @@ The pastor shall receive a stipulated salary. If at any time the pastor shall ma
 
 If at any time his personal belief, preaching or teaching shall not be in accord with the doctrinal statement and standard of this church, it shall be the responsibility of the Board of Deacons to Recommend to the church his dismissal at a special congregational meeting called for that purpose.
 
-The pastor shall not be permitted to exercise in any preaching or teaching ministry in the
-
-Church pending action of the Deacons. The Board of Deacons shall be responsible for pulpit supply during this period. A majority vote of the voters present to accept the Board's recommendation shall result in the pastor's immediate dismissal.
+The pastor shall not be permitted to exercise in any preaching or teaching ministry in the Church pending action of the Deacons. The Board of Deacons shall be responsible for pulpit supply during this period. A majority vote of the voters present to accept the Board's recommendation shall result in the pastor's immediate dismissal.
 
 2. ASSISTANT PASTOR
 

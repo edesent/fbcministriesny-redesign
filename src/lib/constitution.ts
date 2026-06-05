@@ -256,9 +256,7 @@ e. Board which does not have any working relations with any group that is not in
 
 f. Board, which shall complete and return a questionnaire giving a complete description of their ministry. Independent missionaries supported by this church at the time of the adoption of this Article shall not be eliminated from our missionary family because of any of the provisions of this paragraph (Article VII, Section A, Paragraph 2).
 
-3. The Missionary. All missionaries or missionary organizations supported by this church
-
-shall be responsible for the following:
+3. The Missionary. All missionaries or missionary organizations supported by this church shall be responsible for the following:
 
 a. New missionaries being considered for support shall sign with no mental reservations whatever their name(s) in the space provided in Section C of this Article, thereby indicating their wholehearted agreement with this missionary policy, as well as Articles II, III, and IV of this constitution. No missionary candidate will be eligible for support by this church until such signature is given.
 

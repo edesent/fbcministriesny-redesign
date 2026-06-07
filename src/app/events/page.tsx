@@ -33,23 +33,6 @@ export default function EventsPage() {
 
       <section className="events-section" style={{ paddingTop: 0 }}>
         <div className="section-heading">
-          <span className="kicker">This Sunday</span>
-          <h2>Fellowship Dinner — After the Morning Service</h2>
-          <p>Good food, great fellowship — all are welcome! Join us right after the morning service.</p>
-        </div>
-        <div style={{ maxWidth: 680, margin: "0 auto" }}>
-          <Image
-            src="/events/img-1917.jpeg"
-            alt="Fellowship Dinner – This Sunday after the morning service"
-            width={1080}
-            height={1080}
-            style={{ width: "100%", height: "auto", borderRadius: 12 }}
-          />
-        </div>
-      </section>
-
-      <section className="events-section" style={{ paddingTop: 0 }}>
-        <div className="section-heading">
           <span className="kicker">Special Event · July 5</span>
           <h2>Opening Chicken BBQ — Christian Lake Bible Conference</h2>
           <p>Come enjoy a great evening at the lake! Church service, BBQ dinner, Kids Fishing Derby, and fireworks display.</p>

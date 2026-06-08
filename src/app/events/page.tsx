@@ -56,7 +56,7 @@ export default function EventsPage() {
         </div>
         <div style={{ maxWidth: 680, margin: "0 auto" }}>
           <Image
-            src="/events/richard-anna-marshall.jpg"
+            src="/events/img-1950.jpeg"
             alt="Richard and Anna Marshall missionary ministry in Mali"
             width={1080}
             height={1350}

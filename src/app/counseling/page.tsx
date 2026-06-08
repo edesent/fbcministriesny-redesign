@@ -37,6 +37,13 @@ export default function CounselingPage() {
         <aside className="service-panel">
           <span>Qualified Counselors</span>
           <h3>Trained to walk with you</h3>
+          <Image
+            src="/78689915263-4aa9c94e-63a6-4394-8fc5-1529219f3721.jpeg"
+            alt="Mark and Kathy Kelly"
+            width={600}
+            height={450}
+            style={{ width: "100%", height: "auto", borderRadius: "8px", marginBottom: "1rem" }}
+          />
           <p style={{ color: "var(--ink-soft)" }}>
             Pastor Mark and his wife Kathy have completed rigorous biblical
             counseling training and would count it a privilege to meet with you.

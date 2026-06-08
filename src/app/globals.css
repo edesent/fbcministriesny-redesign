@@ -1500,6 +1500,75 @@ p {
   font-size: 0.82rem;
 }
 
+/* Sermon archive pagination */
+.sermon-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.sermon-pagination ul {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sermon-pagination button,
+.sermon-page-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 200ms ease, color 200ms ease, background 200ms ease;
+}
+
+.sermon-pagination button:hover:not(:disabled),
+.sermon-page-arrow:hover:not(:disabled) {
+  border-color: var(--amber-deep);
+  color: var(--amber-deep);
+}
+
+.sermon-pagination button.is-current {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+  cursor: default;
+}
+
+.sermon-page-arrow:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.sermon-page-gap {
+  color: var(--ink-soft);
+  padding: 0 2px;
+  user-select: none;
+}
+
+@media (max-width: 480px) {
+  .sermon-pagination button,
+  .sermon-page-arrow {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 9px;
+  }
+}
+
 /* Sermon player modal */
 .sermon-overlay {
   position: fixed;

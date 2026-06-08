@@ -32,49 +32,112 @@ function unescapeXml(s: string): string {
 export async function fetchSermons(): Promise<Sermon[]> {
   if (!youtube.channelId) return [];
   try {
-    const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${youtube.channelId}`;
-    // No cache — the sermon page renders fresh on every request.
-    const res = await fetch(feedUrl, { cache: "no-store" });
-    if (!res.ok) return [];
-    const xml = await res.text();
-
-    const entries: Sermon[] = [];
-    for (const match of xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)) {
-      const entry = match[1];
-      const videoId = entry.match(/<yt:videoId>([^<]+)<\/yt:videoId>/)?.[1];
-      const title = entry.match(/<title>([^<]+)<\/title>/)?.[1];
-      const published = entry.match(/<published>([^<]+)<\/published>/)?.[1];
-      const thumbnail = entry.match(/<media:thumbnail\s+url="([^"]+)"/)?.[1];
-      const views = entry.match(/views="(\d+)"/)?.[1];
-
-      if (videoId && title && published && thumbnail) {
-        entries.push({
-          videoId,
-          title: unescapeXml(title),
-          published,
-          thumbnail,
-          views: views ? Number(views) : undefined,
-        });
-      }
-    }
-
-    const sermons = entries.filter(
-      (e) => e.title.trim().toLowerCase() !== "test",
-    );
+    // The Data API's uploads playlist returns the whole archive. The RSS feed
+    // (fallback when there's no key) only returns the latest ~15 uploads — so a
+    // batch of back-dated uploads can push genuinely-recent services (e.g. live
+    // streams) out of view, which is why we prefer the API when we have a key.
+    const sermons =
+      (await fetchUploadsViaApi()) ?? (await fetchSermonsViaRss());
 
     // Live broadcasts have no date in their title and an unreliable publish
     // time — look up when each actually started so its date is correct.
     await attachLiveStartTimes(sermons);
 
-    // Order by service date, newest first — the YouTube upload date is
-    // meaningless for the bulk-uploaded archive. Same-day videos keep their
-    // trailing part-number order (e.g. "... 2025 04 13 1", "... 2", "... 3").
+    // Order by service date, newest first: the date written in the title when
+    // present (the bulk-upload date is meaningless), otherwise the live/upload
+    // time. Same-day videos keep their trailing part-number order ("... 1/2/3").
     return sermons.sort(
       (a, b) => sermonTime(b) - sermonTime(a) || titlePart(a) - titlePart(b),
     );
   } catch {
     return [];
   }
+}
+
+// The full archive via the Data API's uploads playlist. Pages through the whole
+// channel (50 per page, capped for safety) so back-dated uploads can't bury a
+// genuinely-recent service. Returns null without a key (caller falls back to RSS).
+async function fetchUploadsViaApi(): Promise<Sermon[] | null> {
+  const key = process.env.YOUTUBE_API_KEY;
+  if (!key || !youtube.channelId) return null;
+  // A channel's uploads playlist shares its ID with the channel, "UC" → "UU".
+  const uploadsId = `UU${youtube.channelId.slice(2)}`;
+  const sermons: Sermon[] = [];
+  let pageToken = "";
+  try {
+    for (let page = 0; page < 8; page++) {
+      const url =
+        `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet` +
+        `&maxResults=50&playlistId=${uploadsId}&key=${key}` +
+        (pageToken ? `&pageToken=${pageToken}` : "");
+      const res = await fetch(url, {
+        next: { revalidate: 300 },
+        headers: { Referer: site.url },
+      });
+      if (!res.ok) return sermons.length ? sermons : null;
+      const data = (await res.json()) as {
+        nextPageToken?: string;
+        items?: {
+          snippet?: {
+            title?: string;
+            publishedAt?: string;
+            resourceId?: { videoId?: string };
+            thumbnails?: Record<string, { url?: string }>;
+          };
+        }[];
+      };
+      for (const item of data.items ?? []) {
+        const s = item.snippet;
+        const videoId = s?.resourceId?.videoId;
+        const title = s?.title?.trim();
+        const published = s?.publishedAt;
+        if (!videoId || !title || !published) continue;
+        // Skip placeholders and removed videos.
+        if (/^(test|private video|deleted video)$/i.test(title)) continue;
+        const thumbnail =
+          s?.thumbnails?.high?.url ??
+          s?.thumbnails?.medium?.url ??
+          s?.thumbnails?.default?.url ??
+          `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+        sermons.push({ videoId, title, published, thumbnail });
+      }
+      if (!data.nextPageToken) break;
+      pageToken = data.nextPageToken;
+    }
+    return sermons;
+  } catch {
+    return sermons.length ? sermons : null;
+  }
+}
+
+// The latest ~15 uploads via the public RSS feed (no API key required).
+async function fetchSermonsViaRss(): Promise<Sermon[]> {
+  const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${youtube.channelId}`;
+  const res = await fetch(feedUrl, { cache: "no-store" });
+  if (!res.ok) return [];
+  const xml = await res.text();
+
+  const entries: Sermon[] = [];
+  for (const match of xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)) {
+    const entry = match[1];
+    const videoId = entry.match(/<yt:videoId>([^<]+)<\/yt:videoId>/)?.[1];
+    const title = entry.match(/<title>([^<]+)<\/title>/)?.[1];
+    const published = entry.match(/<published>([^<]+)<\/published>/)?.[1];
+    const thumbnail = entry.match(/<media:thumbnail\s+url="([^"]+)"/)?.[1];
+    const views = entry.match(/views="(\d+)"/)?.[1];
+
+    if (videoId && title && published && thumbnail) {
+      entries.push({
+        videoId,
+        title: unescapeXml(title),
+        published,
+        thumbnail,
+        views: views ? Number(views) : undefined,
+      });
+    }
+  }
+
+  return entries.filter((e) => e.title.trim().toLowerCase() !== "test");
 }
 
 // Fill in `liveStart` for entries that look like live broadcasts (no date in

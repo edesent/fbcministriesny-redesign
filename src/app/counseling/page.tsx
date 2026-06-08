@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowRight, BookOpen, HeartHandshake, Phone } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { site } from "@/lib/site";

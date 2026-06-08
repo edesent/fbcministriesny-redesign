@@ -48,6 +48,23 @@ export default function EventsPage() {
         </div>
       </section>
 
+      <section className="events-section" style={{ paddingTop: 0 }}>
+        <div className="section-heading">
+          <span className="kicker">Missionary Spotlight</span>
+          <h2>Richard & Anna Marshall — Mali, West Africa</h2>
+          <p>Richard and Anna Marshall faithfully serve the Lord in the Republic of Mali. Please pray for their ministry and outreach efforts.</p>
+        </div>
+        <div style={{ maxWidth: 680, margin: "0 auto" }}>
+          <Image
+            src="/events/richard-anna-marshall.jpg"
+            alt="Richard and Anna Marshall missionary ministry in Mali"
+            width={1080}
+            height={1350}
+            style={{ width: "100%", height: "auto", borderRadius: 12 }}
+          />
+        </div>
+      </section>
+
       <section className="calendar-section">
         <div className="section-heading">
           <span className="kicker">Church Calendar</span>

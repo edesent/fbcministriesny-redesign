@@ -6,6 +6,7 @@ import SermonGrid from "@/components/SermonGrid";
 import {
   getLiveVideoId,
   fetchSermons,
+  isLiveStream,
   sermonDate,
   sermonTitle,
   YOUTUBE_CHANNEL_URL,
@@ -72,7 +73,9 @@ export default async function SermonsPage() {
       ) : latest ? (
         <section className="sermon-feature">
           <div className="sermon-feature-head">
-            <span className="kicker">Most Recent · {sermonDate(latest)}</span>
+            <span className="kicker">
+              Most Recent{isLiveStream(latest) ? "" : ` · ${sermonDate(latest)}`}
+            </span>
             <a
               href={`https://www.youtube.com/watch?v=${latest.videoId}`}
               target="_blank"

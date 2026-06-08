@@ -2,7 +2,18 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { Play, X } from "lucide-react";
-import { sermonDate, sermonTitle, type Sermon } from "@/lib/sermons";
+import { isLiveStream, sermonDate, sermonTitle, type Sermon } from "@/lib/sermons";
+
+// Shown if YouTube's thumbnail won't load (e.g. a brand-new live recording, or a
+// blocked CDN host on some mobile networks).
+const THUMB_FALLBACK = "/church-building.jpg";
+
+// Build the thumbnail from the canonical host. The RSS feed hands back
+// region-sharded hosts (i1/i3/i4.ytimg.com) that some mobile networks block,
+// which is why a thumbnail can be blank on one device but fine on another.
+function thumbUrl(videoId: string): string {
+  return `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+}
 
 export default function SermonGrid({ sermons }: { sermons: Sermon[] }) {
   const [active, setActive] = useState<Sermon | null>(null);
@@ -29,13 +40,23 @@ export default function SermonGrid({ sermons }: { sermons: Sermon[] }) {
             <button type="button" className="sermon-card" onClick={() => setActive(s)}>
               <span className="sermon-thumb">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={s.thumbnail} alt="" loading="lazy" />
+                <img
+                  src={thumbUrl(s.videoId)}
+                  alt=""
+                  loading="lazy"
+                  onError={(e) => {
+                    const img = e.currentTarget;
+                    if (!img.src.endsWith(THUMB_FALLBACK)) img.src = THUMB_FALLBACK;
+                  }}
+                />
                 <span className="sermon-play" aria-hidden>
                   <Play size={22} fill="currentColor" strokeWidth={0} />
                 </span>
               </span>
               <span className="sermon-info">
-                <span className="sermon-eyebrow">{sermonDate(s)}</span>
+                {!isLiveStream(s) && (
+                  <span className="sermon-eyebrow">{sermonDate(s)}</span>
+                )}
                 <strong>{sermonTitle(s)}</strong>
                 {typeof s.views === "number" && (
                   <small>{s.views.toLocaleString()} views</small>
@@ -59,7 +80,9 @@ export default function SermonGrid({ sermons }: { sermons: Sermon[] }) {
           <div className="sermon-modal">
             <div className="sermon-modal-head">
               <div>
-                <span className="sermon-eyebrow">{sermonDate(active)}</span>
+                {!isLiveStream(active) && (
+                  <span className="sermon-eyebrow">{sermonDate(active)}</span>
+                )}
                 <h2>{sermonTitle(active)}</h2>
               </div>
               <button type="button" className="sermon-close" aria-label="Close" onClick={close}>

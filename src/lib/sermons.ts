@@ -11,6 +11,11 @@ export type Sermon = {
   published: string;
   thumbnail: string;
   views?: number;
+  // For live broadcasts: when the service actually started (from the YouTube
+  // Data API). The RSS `published` time is when YouTube finished publishing the
+  // recording — often hours later, sometimes tipping past midnight — so it's
+  // unreliable as the service date. Undefined for ordinary uploads.
+  liveStart?: string;
 };
 
 export const YOUTUBE_CHANNEL_URL = youtube.channelUrl;
@@ -53,15 +58,53 @@ export async function fetchSermons(): Promise<Sermon[]> {
       }
     }
 
-    // Drop placeholder "test" uploads, then order by the date written in the
-    // title, newest first — the YouTube upload date is meaningless here because
-    // the videos were all uploaded together. Same-day videos keep their trailing
-    // part number order (e.g. "... 2025 04 13 1", "... 2", "... 3").
-    return entries
-      .filter((e) => e.title.trim().toLowerCase() !== "test")
-      .sort((a, b) => titleDate(b) - titleDate(a) || titlePart(a) - titlePart(b));
+    const sermons = entries.filter(
+      (e) => e.title.trim().toLowerCase() !== "test",
+    );
+
+    // Live broadcasts have no date in their title and an unreliable publish
+    // time — look up when each actually started so its date is correct.
+    await attachLiveStartTimes(sermons);
+
+    // Order by service date, newest first — the YouTube upload date is
+    // meaningless for the bulk-uploaded archive. Same-day videos keep their
+    // trailing part-number order (e.g. "... 2025 04 13 1", "... 2", "... 3").
+    return sermons.sort(
+      (a, b) => sermonTime(b) - sermonTime(a) || titlePart(a) - titlePart(b),
+    );
   } catch {
     return [];
+  }
+}
+
+// Fill in `liveStart` for entries that look like live broadcasts (no date in
+// the title). Best-effort: needs YOUTUBE_API_KEY; silently no-ops without it,
+// leaving those entries to fall back to their RSS publish time.
+async function attachLiveStartTimes(sermons: Sermon[]): Promise<void> {
+  const key = process.env.YOUTUBE_API_KEY;
+  const live = sermons.filter((s) => !titleDateParts(s.title));
+  if (!key || live.length === 0) return;
+  try {
+    const ids = live.map((s) => s.videoId).slice(0, 50);
+    const res = await fetch(
+      `https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails&id=${ids.join(",")}&key=${key}`,
+      { cache: "no-store", headers: { Referer: site.url } },
+    );
+    if (!res.ok) return;
+    const data = (await res.json()) as {
+      items?: { id: string; liveStreamingDetails?: { actualStartTime?: string } }[];
+    };
+    const startById = new Map<string, string>();
+    for (const item of data.items ?? []) {
+      const start = item.liveStreamingDetails?.actualStartTime;
+      if (start) startById.set(item.id, start);
+    }
+    for (const s of live) {
+      const start = startById.get(s.videoId);
+      if (start) s.liveStart = start;
+    }
+  } catch {
+    // Leave liveStart unset — callers fall back to the publish time.
   }
 }
 
@@ -87,11 +130,11 @@ function titleDateParts(title: string): [number, number, number] | null {
 
 // Sortable timestamp: the date written in the title when present (the bulk
 // upload date is meaningless — every past service was uploaded together), else
-// the YouTube upload date for live streams that have no date in their title.
-function titleDate(s: Sermon): number {
+// the live broadcast's actual start time, falling back to the publish time.
+function sermonTime(s: Sermon): number {
   const parts = titleDateParts(s.title);
   if (parts) return Date.UTC(parts[0], parts[1] - 1, parts[2]);
-  return Date.parse(s.published) || 0;
+  return Date.parse(s.liveStart || s.published) || 0;
 }
 
 // Trailing part number on same-day services ("... 2025 04 13 2" → 2), else 0.
@@ -126,19 +169,24 @@ export function sermonDate(s: Sermon): string {
       { ...DATE_FMT, timeZone: "UTC" },
     );
   }
-  return new Date(s.published).toLocaleDateString("en-US", {
+  return new Date(s.liveStart || s.published).toLocaleDateString("en-US", {
     ...DATE_FMT,
     timeZone: CHURCH_TZ,
   });
 }
 
+// A live broadcast — placeholder title ("Live June 04", "... Live Stream") with
+// no date written into it. These get their date from the actual broadcast time.
+export function isLiveStream(s: Sermon): boolean {
+  return /\blive\b/i.test(s.title) && !titleDateParts(s.title);
+}
+
 // The title with a trailing written date / part index stripped ("Worship
 // Service 2025 12 14 1" → "Worship Service") — the date is shown separately.
-// Titles without a numeric date (live streams) are returned untouched.
 export function sermonTitle(s: Sermon): string {
-  // Live streams carry placeholder titles ("Live June 04", "... Live Stream").
-  // Show a clean label — their real date is rendered separately from the upload.
-  if (/\blive\b/i.test(s.title) && !titleDateParts(s.title)) return "Live Stream";
+  // Live streams get a clean label with the real service date baked in (their
+  // raw title carries no usable date), so callers don't show the date twice.
+  if (isLiveStream(s)) return `Live Stream — ${sermonDate(s)}`;
   const cleaned = s.title
     .replace(/\b20\d{2}[\s._\-/]+\d{1,2}[\s._\-/]+\d{1,2}(\s+\d{1,2})?\s*$/, "")
     .replace(/\b\d{1,2}[-/]\d{1,2}[-/]\d{2,4}\s*$/, "")

@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { Play, X } from "lucide-react";
-import type { Sermon } from "@/lib/sermons";
+import { sermonDate, sermonTitle, type Sermon } from "@/lib/sermons";
 
 export default function SermonGrid({ sermons }: { sermons: Sermon[] }) {
   const [active, setActive] = useState<Sermon | null>(null);
@@ -35,7 +35,8 @@ export default function SermonGrid({ sermons }: { sermons: Sermon[] }) {
                 </span>
               </span>
               <span className="sermon-info">
-                <strong>{s.title}</strong>
+                <span className="sermon-eyebrow">{sermonDate(s)}</span>
+                <strong>{sermonTitle(s)}</strong>
                 {typeof s.views === "number" && (
                   <small>{s.views.toLocaleString()} views</small>
                 )}
@@ -58,8 +59,8 @@ export default function SermonGrid({ sermons }: { sermons: Sermon[] }) {
           <div className="sermon-modal">
             <div className="sermon-modal-head">
               <div>
-                <span className="sermon-eyebrow">Faith Bible Church</span>
-                <h2>{active.title}</h2>
+                <span className="sermon-eyebrow">{sermonDate(active)}</span>
+                <h2>{sermonTitle(active)}</h2>
               </div>
               <button type="button" className="sermon-close" aria-label="Close" onClick={close}>
                 <X size={22} />

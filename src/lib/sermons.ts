@@ -65,23 +65,32 @@ export async function fetchSermons(): Promise<Sermon[]> {
   }
 }
 
-// Sortable timestamp from the date written in the title. Handles year-first
+// [year, month, day] written in the title, or null. Handles year-first
 // ("2025 04 13", any of space/-/./_ separators) and month-first ("5-24-20" /
-// "5/24/2020"); falls back to the upload date when no title date is present.
-function titleDate(s: Sermon): number {
-  const ymd = s.title.match(/\b(20\d{2})[\s._\-/]+(\d{1,2})[\s._\-/]+(\d{1,2})\b/);
+// "5/24/2020"). Live streams ("Live June 04") have no numeric date → null.
+function titleDateParts(title: string): [number, number, number] | null {
+  const ymd = title.match(/\b(20\d{2})[\s._\-/]+(\d{1,2})[\s._\-/]+(\d{1,2})\b/);
   if (ymd) {
     const [, y, mo, d] = ymd.map(Number);
-    if (mo >= 1 && mo <= 12 && d >= 1 && d <= 31) return Date.UTC(y, mo - 1, d);
+    if (mo >= 1 && mo <= 12 && d >= 1 && d <= 31) return [y, mo, d];
   }
-  const mdy = s.title.match(/\b(\d{1,2})[-/](\d{1,2})[-/](\d{2,4})\b/);
+  const mdy = title.match(/\b(\d{1,2})[-/](\d{1,2})[-/](\d{2,4})\b/);
   if (mdy) {
     const mo = Number(mdy[1]);
     const d = Number(mdy[2]);
     let y = Number(mdy[3]);
     if (y < 100) y += 2000;
-    if (mo >= 1 && mo <= 12 && d >= 1 && d <= 31) return Date.UTC(y, mo - 1, d);
+    if (mo >= 1 && mo <= 12 && d >= 1 && d <= 31) return [y, mo, d];
   }
+  return null;
+}
+
+// Sortable timestamp: the date written in the title when present (the bulk
+// upload date is meaningless — every past service was uploaded together), else
+// the YouTube upload date for live streams that have no date in their title.
+function titleDate(s: Sermon): number {
+  const parts = titleDateParts(s.title);
+  if (parts) return Date.UTC(parts[0], parts[1] - 1, parts[2]);
   return Date.parse(s.published) || 0;
 }
 
@@ -94,14 +103,47 @@ function titlePart(s: Sermon): number {
   return m ? Number(m[1]) : 0;
 }
 
-export function formatSermonDate(iso: string): string {
-  const d = new Date(iso);
-  return d.toLocaleDateString("en-US", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+// The church's timezone — live-stream publish timestamps are in UTC, so a
+// service that went up at e.g. 02:00 UTC must read as the prior evening here.
+const CHURCH_TZ = "America/New_York";
+
+const DATE_FMT = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+} as const;
+
+// The date to show for a sermon. Past services use the date written in their
+// title (their upload date is meaningless — all bulk-uploaded together); live
+// streams have no date in the title, so we use the publish date in church time.
+export function sermonDate(s: Sermon): string {
+  const parts = titleDateParts(s.title);
+  if (parts) {
+    // Built in UTC, formatted in UTC, so the title date is shown verbatim.
+    return new Date(Date.UTC(parts[0], parts[1] - 1, parts[2])).toLocaleDateString(
+      "en-US",
+      { ...DATE_FMT, timeZone: "UTC" },
+    );
+  }
+  return new Date(s.published).toLocaleDateString("en-US", {
+    ...DATE_FMT,
+    timeZone: CHURCH_TZ,
   });
+}
+
+// The title with a trailing written date / part index stripped ("Worship
+// Service 2025 12 14 1" → "Worship Service") — the date is shown separately.
+// Titles without a numeric date (live streams) are returned untouched.
+export function sermonTitle(s: Sermon): string {
+  // Live streams carry placeholder titles ("Live June 04", "... Live Stream").
+  // Show a clean label — their real date is rendered separately from the upload.
+  if (/\blive\b/i.test(s.title) && !titleDateParts(s.title)) return "Live Stream";
+  const cleaned = s.title
+    .replace(/\b20\d{2}[\s._\-/]+\d{1,2}[\s._\-/]+\d{1,2}(\s+\d{1,2})?\s*$/, "")
+    .replace(/\b\d{1,2}[-/]\d{1,2}[-/]\d{2,4}\s*$/, "")
+    .trim();
+  return cleaned || s.title;
 }
 
 // The live video to show, if any:

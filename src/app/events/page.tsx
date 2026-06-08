@@ -52,7 +52,7 @@ export default function EventsPage() {
         <div className="section-heading">
           <span className="kicker">Missionary Spotlight</span>
           <h2>Richard & Anna Marshall — Mali, West Africa</h2>
-          <p>Richard and Anna Marshall faithfully serve the Lord in the Republic of Mali. Please pray for their ministry and outreach efforts.</p>
+          <p>Richard and Anna Marshall faithfully served the Lord in the Republic of Mali. Please pray for their ministry and outreach efforts.</p>
         </div>
         <div style={{ maxWidth: 680, margin: "0 auto" }}>
           <Image

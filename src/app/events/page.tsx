@@ -35,7 +35,7 @@ export default function EventsPage() {
         <div className="section-heading" style={{ textAlign: "center", margin: "0 auto 44px" }}>
           <span className="kicker">Special Event · June 13</span>
           <h2>FBA Graduation — Graduation Parties</h2>
-          <p>Congratulations to our FBA graduates! Join us in celebrating after the ceremony.</p>
+          <p>Congratulations to our graduates! Join us in celebrating after the ceremony.</p>
         </div>
         <ul style={{ listStyle: "none", padding: 0, margin: "0 auto", maxWidth: 560, lineHeight: 2, fontSize: "1.05rem", textAlign: "center" }}>
           <li>🎓 <strong>Silas</strong> — After graduation on the church property</li>

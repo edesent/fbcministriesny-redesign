@@ -50,7 +50,15 @@ export default function MinistriesPage() {
             A quality Christian education for grades K-12, on a foundation anchored
             in the Word of God.
           </p>
-          <a className="button light" href={site.phoneHref}>
+          <div style={{ marginTop: "1.25rem", textAlign: "left", maxWidth: 420 }}>
+            <strong style={{ display: "block", marginBottom: "0.5rem", fontSize: "1rem" }}>Graduation Parties</strong>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, lineHeight: 1.8 }}>
+              <li>🎓 <strong>Silas</strong> — After graduation on the church property</li>
+              <li>🎓 <strong>Ruth</strong> — 2:00 PM at the Appell home</li>
+              <li>🎓 <strong>Elijah</strong> — 2:00 PM at the Gural home</li>
+            </ul>
+          </div>
+          <a className="button light" href={site.phoneHref} style={{ marginTop: "1.5rem" }}>
             Call the Church <ArrowRight size={18} />
           </a>
         </div>

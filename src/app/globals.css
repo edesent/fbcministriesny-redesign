@@ -1317,11 +1317,15 @@ p {
 
 .sermon-feature {
   padding: var(--pad-y) var(--pad-x);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-/* Cap the inner blocks but keep them left-aligned with the page title/headings. */
 .sermon-feature > * {
   max-width: var(--content-width);
+  width: 100%;
 }
 
 .sermon-feature-live {

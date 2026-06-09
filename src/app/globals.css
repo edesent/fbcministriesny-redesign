@@ -852,6 +852,7 @@ p {
 .section-heading {
   max-width: 60ch;
   margin-bottom: 44px;
+  text-align: center;
 }
 
 .section-heading h2 {

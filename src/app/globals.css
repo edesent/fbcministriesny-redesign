@@ -1569,6 +1569,15 @@ p {
   }
 }
 
+/* Web-chat widget — shown only on the homepage. The third-party script injects
+   these fixed elements into <body>; ChatWidget.tsx flags non-home routes. */
+body[data-chat-hidden="true"] #wbc-chat-bubble,
+body[data-chat-hidden="true"] #wbc-chat-window,
+body[data-chat-hidden="true"] #wbc-greeting-popup,
+body[data-chat-hidden="true"] #wbc-modal-overlay {
+  display: none !important;
+}
+
 /* Sermon player modal */
 .sermon-overlay {
   position: fixed;

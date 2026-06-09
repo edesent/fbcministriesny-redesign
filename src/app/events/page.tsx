@@ -32,12 +32,12 @@ export default function EventsPage() {
       />
 
       <section className="events-section" style={{ paddingTop: 0 }}>
-        <div className="section-heading">
+        <div className="section-heading" style={{ textAlign: "center", margin: "0 auto 44px" }}>
           <span className="kicker">Special Event · June 13</span>
           <h2>FBA Graduation — Graduation Parties</h2>
           <p>Congratulations to our FBA graduates! Join us in celebrating after the ceremony.</p>
         </div>
-        <ul style={{ listStyle: "none", padding: 0, margin: "0 auto", maxWidth: 560, lineHeight: 2, fontSize: "1.05rem" }}>
+        <ul style={{ listStyle: "none", padding: 0, margin: "0 auto", maxWidth: 560, lineHeight: 2, fontSize: "1.05rem", textAlign: "center" }}>
           <li>🎓 <strong>Silas</strong> — After graduation on the church property</li>
           <li>🎓 <strong>Ruth</strong> — 2:00 PM at the Appell home</li>
           <li>🎓 <strong>Elijah</strong> — 2:00 PM at the Gural home</li>
@@ -45,7 +45,7 @@ export default function EventsPage() {
       </section>
 
       <section className="events-section" style={{ paddingTop: 0 }}>
-        <div className="section-heading">
+        <div className="section-heading" style={{ textAlign: "center", margin: "0 auto 44px" }}>
           <span className="kicker">Special Event · July 5</span>
           <h2>Opening Chicken BBQ — Christian Lake Bible Conference</h2>
           <p>Come enjoy a great evening at the lake! Church service, BBQ dinner, Kids Fishing Derby, and fireworks display.</p>
@@ -62,7 +62,7 @@ export default function EventsPage() {
       </section>
 
       <section className="events-section" style={{ paddingTop: 0 }}>
-        <div className="section-heading">
+        <div className="section-heading" style={{ textAlign: "center", margin: "0 auto 44px" }}>
           <span className="kicker">Missionary Spotlight</span>
           <h2>Richard & Anna Marshall — Mali, West Africa</h2>
           <p>Richard and Anna Marshall faithfully served the Lord in the Republic of Mali. Please plan to join us this Sunday to hear a final ministry update from Anna.</p>

@@ -18,10 +18,6 @@ export function Footer() {
             />
           </Link>
           <p className="footer-tagline">{site.tagline}</p>
-          <p>
-            We are a Christ-centered community in Sprakers, New York, gathering in the
-            Mohawk Valley to worship, grow, serve, and proclaim God&apos;s saving grace.
-          </p>
         </div>
         <div>
           <h2>Follow Us</h2>

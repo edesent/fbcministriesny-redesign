@@ -92,6 +92,28 @@ export default function MissionaryGrid({ missionaries }: { missionaries: Mission
                     <FacebookIcon size={13} />
                   </a>
                 )}
+                {m.logoHref && m.logoSrc && (
+                  <a
+                    href={m.logoHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${m.name} — visit ministry site`}
+                    onClick={(e) => e.stopPropagation()}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginTop: "6px",
+                    }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={m.logoSrc}
+                      alt={`${m.name} logo`}
+                      style={{ height: "24px", width: "auto", objectFit: "contain" }}
+                    />
+                  </a>
+                )}
               </span>
             </button>
           </div>

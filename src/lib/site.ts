@@ -76,7 +76,7 @@ export const missionaries: Missionary[] = [
   { name: "The Smith Family — Mark & Babe", field: "British Columbia", photo: "/missionaries/smith.avif" },
   { name: "The Alves Family — Edson & Marly, Esdras, Eliaqim", field: "Petrolina, Brazil", photo: "/missionaries/alves.avif" },
   { name: "The Timothy Project", field: "Dominican Republic", photo: "/missionaries/timothy-project.avif" },
-  { name: "The Lovestrand Family — Joel & Seiko, Akari, Leo", field: "Japan", photo: "/missionaries/lovestrand.avif" },
+  { name: "The Lovestrand Family — Joel & Seiko, Akari, Leo", field: "Japan", photo: "/missionaries/lovestrand.avif", facebookHref: "https://landoftherisenson.com/?fbclid=IwVERDUASXY8xleHRuA2FlbQIxMABzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEekTHpA8-DSh_E8gWB3I1mu9IyvP0VwVn5T2tiAcb1uDhei6Zz2fRehkBM5LI_aem_fPrxi6NarQRe9xAqwvmCng" },
   { name: "The Carus Family — Tanner, Vivian & Arlo", field: "Ethnos 360", photo: "/missionaries/carus.avif" },
   { name: "The Veldhuis Family — Michael & Dawn", field: "Native Americans", photo: "/missionaries/veldhuis.avif" },
   { name: "The Olivares Family — Miguel & Mireya, Michelle, Ruth", field: "Juarez, Mexico", photo: "/missionaries/olivares.avif" },

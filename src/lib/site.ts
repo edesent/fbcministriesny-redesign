@@ -78,7 +78,7 @@ export const missionaries: Missionary[] = [
   { name: "The Timothy Project", field: "Dominican Republic", photo: "/missionaries/timothy-project.avif" },
   { name: "The Lovestrand Family — Joel & Seiko, Akari, Leo", field: "Japan", photo: "/missionaries/lovestrand.avif", facebookHref: "https://landoftherisenson.com/?fbclid=IwVERDUASXY8xleHRuA2FlbQIxMABzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEekTHpA8-DSh_E8gWB3I1mu9IyvP0VwVn5T2tiAcb1uDhei6Zz2fRehkBM5LI_aem_fPrxi6NarQRe9xAqwvmCng" },
   { name: "The Carus Family — Tanner, Vivian & Arlo", field: "Ethnos 360", photo: "/missionaries/carus.avif" },
-  { name: "The Veldhuis Family — Michael & Dawn", field: "Native Americans", photo: "/missionaries/veldhuis.avif" },
+  { name: "The Veldhuis Family — Michael & Dawn", field: "Native Americans", photo: "/missionaries/veldhuis.avif", facebookHref: "https://ibimi.com/?page_id=190" },
   { name: "The Olivares Family — Miguel & Mireya, Michelle, Ruth", field: "Juarez, Mexico", photo: "/missionaries/olivares.avif" },
   { name: "The Whitman Family — Joshua & Esara", field: "Imola, Italy", photo: "/missionaries/whitman-imola.avif", facebookHref: "https://www.facebook.com/share/1GanVd8i2R/?mibextid=wwXIfr" },
   { name: "The Marshall Family — Don & Sue", field: "France", photo: "/missionaries/marshall-france.avif" },

@@ -103,14 +103,19 @@ export default function MissionaryGrid({ missionaries }: { missionaries: Mission
                       display: "inline-flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      marginTop: "6px",
+                      marginTop: "8px",
+                      padding: "4px 10px",
+                      borderRadius: "4px",
+                      backgroundColor: "#fff",
+                      border: "1px solid rgba(0,0,0,0.1)",
+                      boxShadow: "0 1px 4px rgba(0,0,0,0.15)",
                     }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={m.logoSrc}
                       alt={`${m.name} logo`}
-                      style={{ height: "24px", width: "auto", objectFit: "contain" }}
+                      style={{ height: "28px", width: "auto", objectFit: "contain", display: "block" }}
                     />
                   </a>
                 )}

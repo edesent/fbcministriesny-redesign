@@ -86,7 +86,7 @@ export const missionaries: Missionary[] = [
   { name: "The Marshall Family — Don & Sue", field: "France", photo: "/missionaries/marshall-france.avif" },
   { name: "The Vo Family — Tuan & Chinh, Bao, Ngoc", field: "Southern Vietnam", photo: "/missionaries/vo.avif" },
   { name: "The Abdiel Family — Madhu & Jamin, Ayaahah, Abdiel", field: "Toronto, Canada", photo: "/missionaries/abdiel.avif" },
-  { name: "The Appell Family — Jed & Amy and family", field: "Asia Pacific", photo: "/missionaries/appell.avif" },
+  { name: "The Appell Family — Jed & Amy and family", field: "Asia Pacific", photo: "/missionaries/appell.avif", logoHref: "https://mailchi.mp/8e267443a19c/may-2026-update?e=da5bb78c04", logoSrc: "/missionaries/ethnos360-logo.jpeg" },
   { name: "The Niles Family — Alain & Katherine, Camille, Mia-Joy, Caleb", field: "Mango, Togo", photo: "/missionaries/niles.avif" },
   { name: "Renate Reiner", field: "Brazil", photo: "/missionaries/reiner.avif" },
   { name: "The Davoll Family — Jeff & Deanne", field: "Ecuador", photo: "/missionaries/davoll.avif" },

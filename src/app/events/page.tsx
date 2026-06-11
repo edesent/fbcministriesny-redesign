@@ -39,79 +39,86 @@ export default function EventsPage() {
           <p>Serving schedules for nursery, music, greeters, and more.</p>
         </div>
 
-        <div style={{
-          maxWidth: 780,
-          margin: "0 auto",
-          background: "#fff",
-          border: "1px solid #D0C8BC",
-          borderTop: "4px solid #7C2D2D",
-          borderRadius: 8,
-          overflow: "hidden",
-          boxShadow: "0 2px 12px rgba(0,0,0,0.07)",
-        }}>
+        {/* Navy card */}
+        <div style={{ maxWidth: 700, margin: "0 auto", background: "#0F1B2D", borderRadius: 8, overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.25)" }}>
+
+          {/* Header bar */}
+          <div style={{ padding: "20px 24px 16px", display: "flex", justifyContent: "space-between", alignItems: "flex-end", borderBottom: "1px solid #243C5A", position: "relative" }}>
+            <div style={{ position: "absolute", bottom: -2, left: 24, right: 24, height: 2, background: "linear-gradient(90deg, #E8C55A, #4A9CC7, transparent)" }} />
+            <div>
+              <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "#4A9CC7", marginBottom: 4 }}>Ministry Schedule</div>
+              <div style={{ fontFamily: "Georgia, serif", fontSize: 22, color: "#fff", lineHeight: 1 }}>Serving Together</div>
+            </div>
+            <div style={{ fontFamily: "Georgia, serif", fontStyle: "italic", fontSize: 32, color: "#E8C55A", lineHeight: 1 }}>June</div>
+          </div>
 
           {/* Nursery */}
-          <div style={{ background: "#7C2D2D", padding: "10px 20px", borderBottom: "3px solid #C9A84C" }}>
-            <span style={{ fontFamily: "Georgia, serif", fontSize: 15, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#fff" }}>
-              Nursery
-            </span>
-          </div>
-          <div style={{ padding: "14px 20px 16px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "0 20px", borderBottom: "1px solid #EDE8E0" }}>
+          <div style={{ padding: "16px 24px 0" }}>
+            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.25em", textTransform: "uppercase", color: "#4A9CC7", display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
+              Nursery<span style={{ flex: 1, height: 1, background: "#243C5A", display: "block" }} />
+            </div>
             {/* Sunday School */}
-            <div>
-              <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#8C7E72", marginBottom: 6 }}>Sunday School</div>
-              <div style={{ fontSize: 12 }}>Marcia Watson <span style={{ fontStyle: "italic", color: "#8C7E72" }}>(all month)</span></div>
+            <div style={{ background: "#1A2E47", borderLeft: "3px solid #E8C55A", borderRadius: 3, padding: "8px 14px", marginBottom: 10, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div>
+                <div style={{ fontSize: 8.5, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#7A96B0", marginBottom: 2 }}>Sunday School</div>
+                <div style={{ fontSize: 13, color: "#C8D8E8" }}>Marcia Watson</div>
+              </div>
+              <div style={{ fontSize: 10, fontStyle: "italic", color: "#7A96B0" }}>all month</div>
             </div>
-            {/* AM */}
-            <div style={{ borderLeft: "1px solid #EDE8E0", paddingLeft: 16 }}>
-              <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#8C7E72", marginBottom: 6 }}>AM Service</div>
-              {[["6/7","Birdie & Kristen S"],["6/14","Sigrid & Rebecca T"],["6/21","Carolyn & Stephanie B"],["6/28","Jeannette & Sandy"]].map(([d,n]) => (
-                <div key={d} style={{ display: "flex", gap: 8, alignItems: "baseline", padding: "3px 0", borderBottom: "1px dashed #EDE8E0" }}>
-                  <span style={{ fontSize: 10, fontWeight: 700, color: "#7C2D2D", background: "#EDE8E0", borderRadius: 2, padding: "1px 5px", minWidth: 30, textAlign: "center" }}>{d}</span>
-                  <span style={{ fontSize: 12 }}>{n}</span>
-                </div>
-              ))}
-            </div>
-            {/* PM */}
-            <div style={{ borderLeft: "1px solid #EDE8E0", paddingLeft: 16 }}>
-              <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#8C7E72", marginBottom: 6 }}>PM Service</div>
-              {[["6/7","Fellowship Dinner"],["6/14","As Needed"],["6/21","Kay"],["6/28","Vyanna"]].map(([d,n]) => (
-                <div key={d} style={{ display: "flex", gap: 8, alignItems: "baseline", padding: "3px 0", borderBottom: "1px dashed #EDE8E0" }}>
-                  <span style={{ fontSize: 10, fontWeight: 700, color: "#7C2D2D", background: "#EDE8E0", borderRadius: 2, padding: "1px 5px", minWidth: 30, textAlign: "center" }}>{d}</span>
-                  <span style={{ fontSize: 12, fontStyle: "italic", color: "#5A5047" }}>{n}</span>
+            {/* AM / PM grid */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0, background: "#1A2E47", borderRadius: 3, overflow: "hidden", marginBottom: 10 }}>
+              {[
+                { label: "AM Service", rows: [["6/7","Birdie & Kristen S"],["6/14","Sigrid & Rebecca T"],["6/21","Carolyn & Stephanie B"],["6/28","Jeannette & Sandy"]], italic: false },
+                { label: "PM Service", rows: [["6/7","Fellowship Dinner"],["6/14","As Needed"],["6/21","Kay"],["6/28","Vyanna"]], italic: true },
+              ].map(({ label, rows, italic }, ci) => (
+                <div key={label} style={{ padding: "10px 14px", borderLeft: ci > 0 ? "1px solid #243C5A" : undefined }}>
+                  <div style={{ fontSize: 8.5, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#7A96B0", marginBottom: 7, paddingBottom: 5, borderBottom: "1px solid #243C5A" }}>{label}</div>
+                  {rows.map(([d, n]) => (
+                    <div key={d} style={{ display: "flex", alignItems: "center", gap: 8, padding: "4px 0", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+                      <span style={{ flexShrink: 0, width: 34, fontSize: 10, fontWeight: 700, color: "#E8C55A", textAlign: "center", background: "rgba(232,197,90,0.12)", borderRadius: 3, padding: "2px 0" }}>{d}</span>
+                      <span style={{ fontSize: 12, color: italic ? "#7A96B0" : "#C8D8E8", fontStyle: italic ? "italic" : "normal" }}>{n}</span>
+                    </div>
+                  ))}
                 </div>
               ))}
             </div>
             {/* Wednesday */}
-            <div style={{ borderLeft: "1px solid #EDE8E0", paddingLeft: 16 }}>
-              <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#8C7E72", marginBottom: 6 }}>Wednesday</div>
-              {[["6/10","Kristen S & Stefani E"],["6/17","Amy A"],["6/24","Amy A"],["7/1","Amy A"]].map(([d,n]) => (
-                <div key={d} style={{ display: "flex", gap: 8, alignItems: "baseline", padding: "3px 0", borderBottom: "1px dashed #EDE8E0" }}>
-                  <span style={{ fontSize: 10, fontWeight: 700, color: "#7C2D2D", background: "#EDE8E0", borderRadius: 2, padding: "1px 5px", minWidth: 30, textAlign: "center" }}>{d}</span>
-                  <span style={{ fontSize: 12 }}>{n}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Bottom four sections */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr" }}>
-            {[
-              { title: "Behind-the-Scenes", rows: [["6/6","Victoria S & Kay P"],["6/13","Birdie S & Nancy K"],["6/20","Bethann & The Kellys"],["6/27","Michelle T & Mark S"]] },
-              { title: "Special Music",      rows: [["6/7","Jesse N"],["6/14","The Watsons"],["6/21","Vyanna"],["6/28","Praise Team"]] },
-              { title: "Bible Challenge",    rows: [["6/14","Eric W"],["6/21","Jesse N"],["6/28","Casey W"]] },
-              { title: "Greeters",           rows: [["6/7","Bill & Kay"],["6/14","Laura"],["6/21","Roger & Sigrid"],["6/28","Mark S"]] },
-            ].map(({ title, rows }, i) => (
-              <div key={title} style={{ padding: "14px 16px", borderLeft: i > 0 ? "1px solid #EDE8E0" : undefined }}>
-                <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#7C2D2D", marginBottom: 8, paddingBottom: 4, borderBottom: "1px solid #EDE8E0" }}>{title}</div>
-                {rows.map(([d, n]) => (
-                  <div key={d} style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "3.5px 0", borderBottom: "1px dashed #EDE8E0", gap: 6 }}>
-                    <span style={{ fontSize: 12, color: "#1E1E1E" }}>{n}</span>
-                    <span style={{ fontSize: 10, fontWeight: 600, color: "#C9A84C", flexShrink: 0 }}>{d}</span>
+            <div style={{ background: "#1A2E47", borderRadius: 3, padding: "10px 14px", marginBottom: 16 }}>
+              <div style={{ fontSize: 8.5, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#7A96B0", marginBottom: 7, paddingBottom: 5, borderBottom: "1px solid #243C5A" }}>Wednesday Service</div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 16px" }}>
+                {[["6/10","Kristen S & Stefani E"],["6/17","Amy A"],["6/24","Amy A"],["7/1","Amy A"]].map(([d, n]) => (
+                  <div key={d} style={{ display: "flex", alignItems: "center", gap: 8, padding: "4px 0", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+                    <span style={{ flexShrink: 0, width: 34, fontSize: 10, fontWeight: 700, color: "#E8C55A", textAlign: "center", background: "rgba(232,197,90,0.12)", borderRadius: 3, padding: "2px 0" }}>{d}</span>
+                    <span style={{ fontSize: 12, color: "#C8D8E8" }}>{n}</span>
                   </div>
                 ))}
               </div>
-            ))}
+            </div>
+          </div>
+
+          {/* Ministry Assignments */}
+          <div style={{ padding: "0 24px 20px" }}>
+            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.25em", textTransform: "uppercase", color: "#4A9CC7", display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
+              Ministry Assignments<span style={{ flex: 1, height: 1, background: "#243C5A", display: "block" }} />
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+              {[
+                { title: "Behind-the-Scenes", rows: [["6/6","Victoria S & Kay P"],["6/13","Birdie S & Nancy K"],["6/20","Bethann & The Kellys"],["6/27","Michelle T & Mark S"]] },
+                { title: "Special Music",     rows: [["6/7","Jesse N"],["6/14","The Watsons"],["6/21","Vyanna"],["6/28","Praise Team"]] },
+                { title: "Bible Challenge",   rows: [["6/14","Eric W"],["6/21","Jesse N"],["6/28","Casey W"]] },
+                { title: "Greeters",          rows: [["6/7","Bill & Kay"],["6/14","Laura"],["6/21","Roger & Sigrid"],["6/28","Mark S"]] },
+              ].map(({ title, rows }) => (
+                <div key={title} style={{ background: "#1A2E47", borderTop: "2px solid #4A9CC7", borderRadius: 3, padding: "10px 12px" }}>
+                  <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#A8D4EC", marginBottom: 8, paddingBottom: 5, borderBottom: "1px solid #243C5A" }}>{title}</div>
+                  {rows.map(([d, n]) => (
+                    <div key={d} style={{ display: "flex", alignItems: "center", gap: 8, padding: "4px 0", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+                      <span style={{ flexShrink: 0, width: 34, fontSize: 10, fontWeight: 700, color: "#E8C55A", textAlign: "center", background: "rgba(232,197,90,0.12)", borderRadius: 3, padding: "2px 0" }}>{d}</span>
+                      <span style={{ fontSize: 12, color: "#C8D8E8" }}>{n}</span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>

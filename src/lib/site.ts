@@ -67,6 +67,7 @@ export type Missionary = {
   field?: string;
   agency?: string;
   photo: string; // e.g. "/missionaries/the-smith-family.jpg"
+  facebookHref?: string; // optional Facebook page link shown on the card
 };
 
 // Each photo is a finished card (name + location are printed on the image), so

@@ -4,6 +4,22 @@ import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import type { Missionary } from "@/lib/site";
 
+/** Inline Facebook "f" SVG — no external dependency needed */
+function FacebookIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
+    </svg>
+  );
+}
+
 export default function MissionaryGrid({ missionaries }: { missionaries: Missionary[] }) {
   const [index, setIndex] = useState<number | null>(null);
   const open = index !== null;
@@ -40,20 +56,48 @@ export default function MissionaryGrid({ missionaries }: { missionaries: Mission
     <>
       <div className="missionary-grid">
         {missionaries.map((m, i) => (
-          <button
-            type="button"
-            className="missionary-card"
-            key={m.photo}
-            onClick={() => setIndex(i)}
-            aria-label={`View ${m.name}`}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="missionary-photo" src={m.photo} alt={alt(m)} loading="lazy" />
-            <span className="missionary-caption">
-              <strong>{m.name.split(" — ")[0]}</strong>
-              {m.field && <span className="missionary-field">{m.field}</span>}
-            </span>
-          </button>
+          <div className="missionary-card-wrapper" key={m.photo} style={{ position: "relative", display: "contents" }}>
+            <button
+              type="button"
+              className="missionary-card"
+              onClick={() => setIndex(i)}
+              aria-label={`View ${m.name}`}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img className="missionary-photo" src={m.photo} alt={alt(m)} loading="lazy" />
+              <span className="missionary-caption">
+                <strong>{m.name.split(" — ")[0]}</strong>
+                {m.field && <span className="missionary-field">{m.field}</span>}
+              </span>
+            </button>
+            {m.facebookHref && (
+              <a
+                href={m.facebookHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${m.name} on Facebook`}
+                onClick={(e) => e.stopPropagation()}
+                style={{
+                  position: "absolute",
+                  bottom: "44px",
+                  right: "8px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "28px",
+                  height: "28px",
+                  borderRadius: "50%",
+                  backgroundColor: "#1877F2",
+                  color: "#fff",
+                  boxShadow: "0 1px 4px rgba(0,0,0,0.35)",
+                  zIndex: 10,
+                  flexShrink: 0,
+                }}
+              >
+                <FacebookIcon size={15} />
+              </a>
+            )}
+          </div>
         ))}
       </div>
 

@@ -56,10 +56,11 @@ export default function MissionaryGrid({ missionaries }: { missionaries: Mission
     <>
       <div className="missionary-grid">
         {missionaries.map((m, i) => (
-          <div className="missionary-card-wrapper" key={m.photo} style={{ position: "relative", display: "contents" }}>
+          <div key={m.photo} style={{ position: "relative" }}>
             <button
               type="button"
               className="missionary-card"
+              style={{ width: "100%" }}
               onClick={() => setIndex(i)}
               aria-label={`View ${m.name}`}
             >
@@ -91,7 +92,6 @@ export default function MissionaryGrid({ missionaries }: { missionaries: Mission
                   color: "#fff",
                   boxShadow: "0 1px 4px rgba(0,0,0,0.35)",
                   zIndex: 10,
-                  flexShrink: 0,
                 }}
               >
                 <FacebookIcon size={15} />

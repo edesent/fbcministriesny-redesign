@@ -69,34 +69,31 @@ export default function MissionaryGrid({ missionaries }: { missionaries: Mission
               <span className="missionary-caption">
                 <strong>{m.name.split(" — ")[0]}</strong>
                 {m.field && <span className="missionary-field">{m.field}</span>}
+                {m.facebookHref && (
+                  <a
+                    href={m.facebookHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${m.name} on Facebook`}
+                    onClick={(e) => e.stopPropagation()}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "24px",
+                      height: "24px",
+                      borderRadius: "50%",
+                      backgroundColor: "#1877F2",
+                      color: "#fff",
+                      boxShadow: "0 1px 4px rgba(0,0,0,0.35)",
+                      marginTop: "6px",
+                    }}
+                  >
+                    <FacebookIcon size={13} />
+                  </a>
+                )}
               </span>
             </button>
-            {m.facebookHref && (
-              <a
-                href={m.facebookHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${m.name} on Facebook`}
-                onClick={(e) => e.stopPropagation()}
-                style={{
-                  position: "absolute",
-                  bottom: "44px",
-                  right: "8px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "28px",
-                  height: "28px",
-                  borderRadius: "50%",
-                  backgroundColor: "#1877F2",
-                  color: "#fff",
-                  boxShadow: "0 1px 4px rgba(0,0,0,0.35)",
-                  zIndex: 10,
-                }}
-              >
-                <FacebookIcon size={15} />
-              </a>
-            )}
           </div>
         ))}
       </div>

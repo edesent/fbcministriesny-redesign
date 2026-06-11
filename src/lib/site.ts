@@ -90,7 +90,7 @@ export const missionaries: Missionary[] = [
   { name: "The Niles Family — Alain & Katherine, Camille, Mia-Joy, Caleb", field: "Mango, Togo", photo: "/missionaries/niles.avif" },
   { name: "Renate Reiner", field: "Brazil", photo: "/missionaries/reiner.avif" },
   { name: "The Davoll Family — Jeff & Deanne", field: "Ecuador", photo: "/missionaries/davoll.avif" },
-  { name: "The Whitman Family — Jonathan & Melodee, Noah, Eva", field: "Perugia, Italy", photo: "/missionaries/whitman-perugia.avif" },
+  { name: "The Whitman Family — Jonathan & Melodee, Noah, Eva", field: "Perugia, Italy", photo: "/missionaries/whitman-perugia.avif", logoHref: "https://jonathanwhitman.com/2026/01/30/its-all-about-worship/?fbclid=IwZnRzaASXvrdleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEeFI_MPMuWodaj2312IFEuOo0z5G0yj4BO_pPfWjgVh3qaoZMll9ePXs9Av7g_aem_BJcJpJ4qPbcE8sr9WV7UDQ", logoSrc: "/missionaries/bmm-logo.jpeg" },
 ];
 
 export type NavItem = {

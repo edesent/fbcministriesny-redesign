@@ -80,7 +80,7 @@ export const missionaries: Missionary[] = [
   { name: "The Carus Family — Tanner, Vivian & Arlo", field: "Ethnos 360", photo: "/missionaries/carus.avif" },
   { name: "The Veldhuis Family — Michael & Dawn", field: "Native Americans", photo: "/missionaries/veldhuis.avif" },
   { name: "The Olivares Family — Miguel & Mireya, Michelle, Ruth", field: "Juarez, Mexico", photo: "/missionaries/olivares.avif" },
-  { name: "The Whitman Family — Joshua & Esara", field: "Imola, Italy", photo: "/missionaries/whitman-imola.avif" },
+  { name: "The Whitman Family — Joshua & Esara", field: "Imola, Italy", photo: "/missionaries/whitman-imola.avif", facebookHref: "https://www.facebook.com/joshuawhitman" },
   { name: "The Marshall Family — Don & Sue", field: "France", photo: "/missionaries/marshall-france.avif" },
   { name: "The Vo Family — Tuan & Chinh, Bao, Ngoc", field: "Southern Vietnam", photo: "/missionaries/vo.avif" },
   { name: "The Abdiel Family — Madhu & Jamin, Ayaahah, Abdiel", field: "Toronto, Canada", photo: "/missionaries/abdiel.avif" },

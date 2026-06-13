@@ -136,10 +136,11 @@ export default async function Home() {
           width: "100%",
           textAlign: "center",
           boxShadow: "0 4px 24px rgba(0,0,0,0.18)",
+          color: "#ffffff",
         }}>
-          <span className="kicker">Prayer</span>
-          <h2 style={{ marginTop: "0.5rem" }}>We&apos;d Love to Pray for You</h2>
-          <p style={{ opacity: 0.85, lineHeight: 1.7, marginBottom: "2rem" }}>
+          <span className="kicker" style={{ color: "#ffffff" }}>Prayer</span>
+          <h2 style={{ marginTop: "0.5rem", color: "#ffffff" }}>We&apos;d Love to Pray for You</h2>
+          <p style={{ opacity: 0.9, lineHeight: 1.7, marginBottom: "2rem", color: "#ffffff" }}>
             Whatever you&apos;re going through, you don&apos;t have to face it alone.
             Feel free to message or call us with any prayer request — we&apos;d be
             honored to bring it before the Lord.

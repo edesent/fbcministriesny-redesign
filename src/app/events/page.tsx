@@ -129,6 +129,7 @@ export default function EventsPage() {
           <span className="kicker">Special Event · July 5</span>
           <h2>Opening Chicken BBQ — Christian Lake Bible Conference</h2>
           <p>Come enjoy a great evening at the lake! Church service, BBQ dinner, Kids Fishing Derby, and fireworks display.</p>
+          <p style={{ marginTop: 8 }}>To let us know you&apos;re attending, contact us at <strong>(518) 257-2335</strong>.</p>
         </div>
         <div style={{ maxWidth: 680, margin: "0 auto" }}>
           <Image

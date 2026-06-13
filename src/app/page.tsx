@@ -7,6 +7,8 @@ import {
   Church,
   Clock3,
   HeartHandshake,
+  MessageCircle,
+  Phone,
   PlayCircle,
   Users,
 } from "lucide-react";

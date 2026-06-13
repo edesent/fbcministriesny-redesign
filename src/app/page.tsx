@@ -142,15 +142,12 @@ export default async function Home() {
           <h2 style={{ marginTop: "0.5rem", color: "#ffffff" }}>We&apos;d Love to Pray for You</h2>
           <p style={{ opacity: 0.9, lineHeight: 1.7, marginBottom: "2rem", color: "#ffffff" }}>
             Whatever you&apos;re going through, you don&apos;t have to face it alone.
-            Feel free to message or call us with any prayer request — we&apos;d be
+            Feel free to message us with any prayer request — we&apos;d be
             honored to bring it before the Lord.
           </p>
           <div className="hero-actions" style={{ justifyContent: "center" }}>
             <a className="button primary" href="sms:+15186053177">
               <MessageCircle size={18} /> Text a Prayer Request
-            </a>
-            <a className="button outline" href="tel:+15186053177">
-              <Phone size={18} /> (518) 605-3177
             </a>
           </div>
         </div>

@@ -129,7 +129,7 @@ export default function EventsPage() {
           <span className="kicker">Special Event · July 5</span>
           <h2>Opening Chicken BBQ — Christian Lake Bible Conference</h2>
           <p>Come enjoy a great evening at the lake! Church service, BBQ dinner, Kids Fishing Derby, and fireworks display.</p>
-          <p style={{ marginTop: 8 }}>To let us know you&apos;re attending, text us at <a href="sms:+15182572335" style={{ fontWeight: 600, color: "inherit", textDecoration: "underline", whiteSpace: "nowrap" }}>(518) 257-2335</a>.</p>
+          <p style={{ marginTop: 8 }}>To let us know you&apos;re attending, text us at <a href="sms:+15182572335" style={{ fontWeight: 600, color: "inherit", textDecoration: "underline", whiteSpace: "nowrap" }}>text Ethan</a>.</p>
         </div>
         <div style={{ maxWidth: 680, margin: "0 auto" }}>
           <Image

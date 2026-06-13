@@ -121,6 +121,39 @@ export default async function Home() {
         </div>
 
       </section>
+
+      <section id="prayer" style={{
+        padding: "3rem 1.5rem",
+        display: "flex",
+        justifyContent: "center",
+      }}>
+        <div style={{
+          background: "var(--card, #1a2235)",
+          border: "1px solid rgba(255,255,255,0.08)",
+          borderRadius: "1rem",
+          padding: "2.5rem 2rem",
+          maxWidth: "600px",
+          width: "100%",
+          textAlign: "center",
+          boxShadow: "0 4px 24px rgba(0,0,0,0.18)",
+        }}>
+          <span className="kicker">Prayer</span>
+          <h2 style={{ marginTop: "0.5rem" }}>We&apos;d Love to Pray for You</h2>
+          <p style={{ opacity: 0.85, lineHeight: 1.7, marginBottom: "2rem" }}>
+            Whatever you&apos;re going through, you don&apos;t have to face it alone.
+            Feel free to message or call us with any prayer request — we&apos;d be
+            honored to bring it before the Lord.
+          </p>
+          <div className="hero-actions" style={{ justifyContent: "center" }}>
+            <a className="button primary" href="sms:+15186053177">
+              <MessageCircle size={18} /> Text a Prayer Request
+            </a>
+            <a className="button outline" href="tel:+15186053177">
+              <Phone size={18} /> (518) 605-3177
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

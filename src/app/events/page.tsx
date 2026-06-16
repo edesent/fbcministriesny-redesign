@@ -142,6 +142,23 @@ export default function EventsPage() {
         </div>
       </section>
 
+      <section className="events-section" style={{ paddingTop: 0 }}>
+        <div className="section-heading" style={{ textAlign: "center", margin: "0 auto 44px" }}>
+          <span className="kicker">Special Event · July 4</span>
+          <h2>4th of July Parade &amp; Float</h2>
+          <p>Join us! Float prep at <strong>3:00 PM</strong> at the Price Chopper parking lot. Parade begins at <strong>4:00 PM</strong>. Help needed to ride the float, hand out candy, and share Gospel tracts.</p>
+        </div>
+        <div style={{ maxWidth: 680, margin: "0 auto" }}>
+          <Image
+            src="/events/img-2019.jpeg"
+            alt="4th of July Parade and Float — Faith Bible Church"
+            width={1275}
+            height={1650}
+            style={{ width: "100%", height: "auto", borderRadius: 12 }}
+          />
+        </div>
+      </section>
+
       <section className="calendar-section">
         <div className="section-heading">
           <span className="kicker">Church Calendar</span>

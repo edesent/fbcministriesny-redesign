@@ -70,7 +70,7 @@ export type Missionary = {
   facebookHref?: string; // optional Facebook page link shown on the card
   logoHref?: string;     // optional custom logo link (overrides Facebook icon)
   logoSrc?: string;      // image path for the custom logo
-  newsletterSrc?: string; // optional prayer letter image shown in a modal on the card
+  newsletterImages?: string[]; // optional array of prayer letter/newsletter images shown in a gallery modal
 };
 
 // Each photo is a finished card (name + location are printed on the image), so

@@ -22,11 +22,17 @@ function FacebookIcon({ size = 16 }: { size?: number }) {
 
 export default function MissionaryGrid({ missionaries }: { missionaries: Missionary[] }) {
   const [index, setIndex] = useState<number | null>(null);
-  const [newsletterSrc, setNewsletterSrc] = useState<string | null>(null);
+  const [newsletterImages, setNewsletterImages] = useState<string[] | null>(null);
+  const [newsletterIndex, setNewsletterIndex] = useState(0);
   const open = index !== null;
+  const newsletterOpen = newsletterImages !== null;
 
   const close = useCallback(() => setIndex(null), []);
-  const closeNewsletter = useCallback(() => setNewsletterSrc(null), []);
+  const closeNewsletter = useCallback(() => {
+    setNewsletterImages(null);
+    setNewsletterIndex(0);
+  }, []);
+
   const prev = useCallback(
     () => setIndex((i) => (i === null ? i : (i - 1 + missionaries.length) % missionaries.length)),
     [missionaries.length],
@@ -36,15 +42,25 @@ export default function MissionaryGrid({ missionaries }: { missionaries: Mission
     [missionaries.length],
   );
 
+  const newsletterPrev = useCallback(() => {
+    setNewsletterIndex((i) => (newsletterImages ? (i - 1 + newsletterImages.length) % newsletterImages.length : 0));
+  }, [newsletterImages]);
+
+  const newsletterNext = useCallback(() => {
+    setNewsletterIndex((i) => (newsletterImages ? (i + 1) % newsletterImages.length : 0));
+  }, [newsletterImages]);
+
   useEffect(() => {
-    if (!open && !newsletterSrc) return;
+    if (!open && !newsletterOpen) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        close();
-        closeNewsletter();
+      if (e.key === "Escape") { close(); closeNewsletter(); }
+      if (newsletterOpen) {
+        if (e.key === "ArrowLeft") newsletterPrev();
+        if (e.key === "ArrowRight") newsletterNext();
+      } else {
+        if (e.key === "ArrowLeft") prev();
+        if (e.key === "ArrowRight") next();
       }
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
     };
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
@@ -52,7 +68,7 @@ export default function MissionaryGrid({ missionaries }: { missionaries: Mission
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [open, newsletterSrc, close, closeNewsletter, prev, next]);
+  }, [open, newsletterOpen, close, closeNewsletter, prev, next, newsletterPrev, newsletterNext]);
 
   const active = index !== null ? missionaries[index] : null;
   const alt = (m: Missionary) => (m.field ? `${m.name} — ${m.field}` : m.name);
@@ -124,13 +140,14 @@ export default function MissionaryGrid({ missionaries }: { missionaries: Mission
                     />
                   </a>
                 )}
-                {m.newsletterSrc && (
+                {m.newsletterImages && m.newsletterImages.length > 0 && (
                   <button
                     type="button"
-                    aria-label={`View ${m.name} prayer letter`}
+                    aria-label={`View ${m.name} newsletter`}
                     onClick={(e) => {
                       e.stopPropagation();
-                      setNewsletterSrc(m.newsletterSrc!);
+                      setNewsletterImages(m.newsletterImages!);
+                      setNewsletterIndex(0);
                     }}
                     style={{
                       display: "inline-flex",
@@ -166,20 +183,13 @@ export default function MissionaryGrid({ missionaries }: { missionaries: Mission
           role="dialog"
           aria-modal="true"
           aria-label={alt(active)}
-          onClick={(e) => {
-            if (e.target === e.currentTarget) close();
-          }}
+          onClick={(e) => { if (e.target === e.currentTarget) close(); }}
         >
           <button type="button" className="lightbox-close" aria-label="Close" onClick={close}>
             <X size={24} />
           </button>
           {missionaries.length > 1 && (
-            <button
-              type="button"
-              className="lightbox-nav lightbox-prev"
-              aria-label="Previous"
-              onClick={prev}
-            >
+            <button type="button" className="lightbox-nav lightbox-prev" aria-label="Previous" onClick={prev}>
               <ChevronLeft size={28} />
             </button>
           )}
@@ -188,36 +198,70 @@ export default function MissionaryGrid({ missionaries }: { missionaries: Mission
             <img src={active.photo} alt={alt(active)} />
           </figure>
           {missionaries.length > 1 && (
-            <button
-              type="button"
-              className="lightbox-nav lightbox-next"
-              aria-label="Next"
-              onClick={next}
-            >
+            <button type="button" className="lightbox-nav lightbox-next" aria-label="Next" onClick={next}>
               <ChevronRight size={28} />
             </button>
           )}
         </div>
       )}
 
-      {/* Newsletter / prayer letter lightbox */}
-      {newsletterSrc && (
+      {/* Newsletter gallery lightbox */}
+      {newsletterOpen && newsletterImages && (
         <div
           className="lightbox-overlay"
           role="dialog"
           aria-modal="true"
-          aria-label="Prayer Letter"
-          onClick={(e) => {
-            if (e.target === e.currentTarget) closeNewsletter();
-          }}
+          aria-label="Newsletter"
+          onClick={(e) => { if (e.target === e.currentTarget) closeNewsletter(); }}
         >
           <button type="button" className="lightbox-close" aria-label="Close" onClick={closeNewsletter}>
             <X size={24} />
           </button>
+          {newsletterImages.length > 1 && (
+            <button type="button" className="lightbox-nav lightbox-prev" aria-label="Previous" onClick={newsletterPrev}>
+              <ChevronLeft size={28} />
+            </button>
+          )}
           <figure className="lightbox-figure">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={newsletterSrc} alt="Prayer Letter" style={{ maxHeight: "90vh", objectFit: "contain" }} />
+            <img
+              src={newsletterImages[newsletterIndex]}
+              alt={`Newsletter page ${newsletterIndex + 1}`}
+              style={{ maxHeight: "90vh", objectFit: "contain" }}
+            />
           </figure>
+          {newsletterImages.length > 1 && (
+            <>
+              <button type="button" className="lightbox-nav lightbox-next" aria-label="Next" onClick={newsletterNext}>
+                <ChevronRight size={28} />
+              </button>
+              <div style={{
+                position: "absolute",
+                bottom: "16px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                display: "flex",
+                gap: "8px",
+              }}>
+                {newsletterImages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setNewsletterIndex(i)}
+                    aria-label={`Go to page ${i + 1}`}
+                    style={{
+                      width: "8px",
+                      height: "8px",
+                      borderRadius: "50%",
+                      border: "none",
+                      cursor: "pointer",
+                      backgroundColor: i === newsletterIndex ? "#fff" : "rgba(255,255,255,0.4)",
+                      padding: 0,
+                    }}
+                  />
+                ))}
+              </div>
+            </>
+          )}
         </div>
       )}
     </>

@@ -96,16 +96,16 @@ export default async function Home() {
         })}
       </section>
 
-      <section className="welcome-section" id="welcome">
-        <div>
+      <section className="welcome-section" id="welcome" style={{ gridTemplateColumns: "1fr", justifyItems: "center", textAlign: "center" }}>
+        <div style={{ maxWidth: "700px", width: "100%" }}>
           <span className="kicker" style={{ fontSize: "2em" }}>Welcome</span>
           <h2>Come and see what God is doing here.</h2>
-          <div className="check-list">
+          <div className="check-list" style={{ textAlign: "left", maxWidth: "540px", margin: "28px auto 0" }}>
             <p><CheckCircle2 size={20} /> Bible-centered preaching and teaching</p>
             <p><CheckCircle2 size={20} /> Ministries for children, teens, and adults</p>
             <p><CheckCircle2 size={20} /> We are a church family committed to gospel witness and discipleship</p>
           </div>
-          <div className="hero-actions">
+          <div className="hero-actions" style={{ justifyContent: "center" }}>
             <Link className="button primary" href="/about">
               About Our Church <ArrowRight size={18} />
             </Link>

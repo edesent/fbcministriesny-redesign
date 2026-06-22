@@ -98,8 +98,8 @@ export default async function Home() {
 
       <section className="welcome-section" id="welcome" style={{ gridTemplateColumns: "1fr", justifyItems: "center", textAlign: "center" }}>
         <div style={{ maxWidth: "700px", width: "100%" }}>
-          <span className="kicker" style={{ fontSize: "2em" }}>Welcome</span>
-          <h2>Come and see what God is doing here.</h2>
+          <span className="kicker" style={{ fontSize: "2em", display: "block", textAlign: "center" }}>Welcome</span>
+          <h2 style={{ textAlign: "center" }}>Come and see what God is doing here.</h2>
           <div className="check-list" style={{ textAlign: "center", maxWidth: "540px", margin: "28px auto 0" }}>
             <p><CheckCircle2 size={20} /> Bible-centered preaching and teaching</p>
             <p><CheckCircle2 size={20} /> Ministries for children, teens, and adults</p>

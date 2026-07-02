@@ -31,11 +31,11 @@ export default function EventsPage() {
         showCalendarLink={false}
       />
 
-      {/* ── JUNE MINISTRY SCHEDULE ── */}
+      {/* ── JULY MINISTRY SCHEDULE ── */}
       <section className="events-section" style={{ paddingTop: 0 }}>
         <div className="section-heading" style={{ textAlign: "center", margin: "0 auto 36px" }}>
-          <span className="kicker">Ministry Schedule · June</span>
-          <h2>June Ministry Assignments</h2>
+          <span className="kicker">Ministry Schedule · July</span>
+          <h2>July Ministry Assignments</h2>
           <p>Serving schedules for nursery, music, greeters, and more.</p>
         </div>
 
@@ -49,7 +49,7 @@ export default function EventsPage() {
               <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "#4A9CC7", marginBottom: 4 }}>Ministry Schedule</div>
               <div style={{ fontFamily: "Georgia, serif", fontSize: 22, color: "#fff", lineHeight: 1 }}>Serving Together</div>
             </div>
-            <div style={{ fontFamily: "Georgia, serif", fontStyle: "italic", fontSize: 32, color: "#E8C55A", lineHeight: 1 }}>June</div>
+            <div style={{ fontFamily: "Georgia, serif", fontStyle: "italic", fontSize: 32, color: "#E8C55A", lineHeight: 1 }}>July</div>
           </div>
 
           {/* Nursery */}
@@ -68,8 +68,8 @@ export default function EventsPage() {
             {/* AM / PM grid */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0, background: "#1A2E47", borderRadius: 3, overflow: "hidden", marginBottom: 10 }}>
               {[
-                { label: "AM Service", rows: [["6/7","Birdie & Kristen S"],["6/14","Sigrid & Rebecca T"],["6/21","Carolyn & Stephanie B"],["6/28","Jeannette & Sandy"]], italic: false },
-                { label: "PM Service", rows: [["6/7","Fellowship Dinner"],["6/14","As Needed"],["6/21","Kay"],["6/28","Vyanna"]], italic: true },
+                { label: "AM Service", rows: [["7/5","Carolyn B & Andrea L"],["7/12","Birdie S & Stephanie B"],["7/19","Sigrid G & Rebecca T"],["7/26","Jeannette T & Sandy B"]], italic: false },
+                { label: "PM Service", rows: [["7/5","Fellowship Dinner"],["7/12","Kathy K"],["7/19","Kay P"],["7/26","Vyanna W"]], italic: true },
               ].map(({ label, rows, italic }, ci) => (
                 <div key={label} style={{ padding: "10px 14px", borderLeft: ci > 0 ? "1px solid #243C5A" : undefined }}>
                   <div style={{ fontSize: 8.5, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#7A96B0", marginBottom: 7, paddingBottom: 5, borderBottom: "1px solid #243C5A" }}>{label}</div>
@@ -86,7 +86,7 @@ export default function EventsPage() {
             <div style={{ background: "#1A2E47", borderRadius: 3, padding: "10px 14px", marginBottom: 16 }}>
               <div style={{ fontSize: 8.5, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#7A96B0", marginBottom: 7, paddingBottom: 5, borderBottom: "1px solid #243C5A" }}>Wednesday Service</div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 16px" }}>
-                {[["6/10","Kristen S & Stefani E"],["6/17","Amy A"],["6/24","Amy A"],["7/1","Amy A"]].map(([d, n]) => (
+                {[["7/8","Kristen S & Stefani E"],["7/15","Amy A"],["7/22","Amy A"],["7/29","Kristen S"]].map(([d, n]) => (
                   <div key={d} style={{ display: "flex", alignItems: "center", gap: 8, padding: "4px 0", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
                     <span style={{ flexShrink: 0, width: 34, fontSize: 10, fontWeight: 700, color: "#E8C55A", textAlign: "center", background: "rgba(232,197,90,0.12)", borderRadius: 3, padding: "2px 0" }}>{d}</span>
                     <span style={{ fontSize: 12, color: "#C8D8E8" }}>{n}</span>
@@ -103,10 +103,10 @@ export default function EventsPage() {
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
               {[
-                { title: "Behind-the-Scenes", rows: [["6/6","Victoria S & Kay P"],["6/13","Birdie S & Nancy K"],["6/20","Bethann & The Kellys"],["6/27","Michelle T & Mark S"]] },
-                { title: "Special Music",     rows: [["6/7","Jesse N"],["6/14","The Watsons"],["6/21","Vyanna"],["6/28","Praise Team"]] },
-                { title: "Bible Challenge",   rows: [["6/14","Eric W"],["6/21","Jesse N"],["6/28","Casey W"]] },
-                { title: "Greeters",          rows: [["6/7","Bill & Kay"],["6/14","Laura"],["6/21","Roger & Sigrid"],["6/28","Mark S"]] },
+                { title: "Behind-the-Scenes", rows: [["7/4","April S & Becky T"],["7/11","JP, Amy W & Victoria S"],["7/18","Bethann D & Kay P"],["7/25","Birdie S & Nancy K"]] },
+                { title: "Special Music",     rows: [["7/5","Vyanna W"],["7/12","Victoria"],["7/19","Ally"],["7/26","Jessi L"]] },
+                { title: "Bible Challenge",   rows: [["7/12","Roger G"],["7/19","Jesse W"],["7/26","Dan U"]] },
+                { title: "Greeters",          rows: [["7/5","Marcia T"],["7/12","Jeff & JoAnn May"],["7/19","Victoria"],["7/26","Wendy"]] },
               ].map(({ title, rows }) => (
                 <div key={title} style={{ background: "#1A2E47", borderTop: "2px solid #4A9CC7", borderRadius: 3, padding: "10px 12px" }}>
                   <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#A8D4EC", marginBottom: 8, paddingBottom: 5, borderBottom: "1px solid #243C5A" }}>{title}</div>

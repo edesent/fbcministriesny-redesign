@@ -77,7 +77,7 @@ export type Missionary = {
 // `name`/`field` here are used only for alt text / SEO, not rendered as labels.
 export const missionaries: Missionary[] = [
   { name: "The Smith Family — Mark & Babe", field: "British Columbia", photo: "/missionaries/smith.avif" },
-  { name: "The Alves Family — Edson & Marly, Esdras, Eliaqim", field: "Petrolina, Brazil", photo: "/missionaries/alves.avif", facebookHref: "https://www.facebook.com/share/18HaHZvGGr/?mibextid=wwXIfr" },
+  { name: "The Alves Family — Edson & Marly, Esdras, Eliaqim", field: "Petrolina, Brazil", photo: "/missionaries/img-20260830-wa0010.jpeg", facebookHref: "https://www.facebook.com/share/18HaHZvGGr/?mibextid=wwXIfr" },
   { name: "The Timothy Project", field: "Dominican Republic", photo: "/missionaries/timothy-project.avif", newsletterImages: ["/missionaries/tp-letter/image.jpg", "/missionaries/tp-donkey/image.jpg", "/missionaries/tp-newsletter/image.jpg"] },
   { name: "The Lovestrand Family — Joel & Seiko, Akari, Leo", field: "Japan", photo: "/missionaries/lovestrand.avif", facebookHref: "https://landoftherisenson.com/?fbclid=IwVERDUASXY8xleHRuA2FlbQIxMABzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEekTHpA8-DSh_E8gWB3I1mu9IyvP0VwVn5T2tiAcb1uDhei6Zz2fRehkBM5LI_aem_fPrxi6NarQRe9xAqwvmCng" },
   { name: "The Carus Family — Tanner, Vivian & Arlo", field: "Ethnos 360", photo: "/missionaries/carus.avif" },

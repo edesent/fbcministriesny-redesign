@@ -34,12 +34,21 @@ type RawDate = {
   isUtc: boolean;
 };
 
+// A BYDAY token: plain "SA" (every Saturday) has ordinal null; "2SA" (the 2nd
+// Saturday of the month) or "-1TH" (the last Thursday) carries an ordinal —
+// only meaningful for MONTHLY/YEARLY recurrence.
+type ByDayEntry = { ordinal: number | null; day: number };
+
 type Rrule = {
   freq: string;
   interval: number;
   count?: number;
   untilMs?: number;
-  byDay?: number[];
+  byDay?: ByDayEntry[];
+  // FREQ=MONTHLY;BYDAY=SA;BYSETPOS=3 ("the 3rd Saturday of the month") — the
+  // form Google Calendar's UI actually writes for "nth weekday" recurrence,
+  // as opposed to the BYDAY=3SA shorthand handled by ByDayEntry.ordinal.
+  bySetPos?: number;
 };
 
 type ParsedEvent = {
@@ -132,6 +141,36 @@ function addYears(r: RawDate, years: number): RawDate {
   return { ...r, y: r.y + years };
 }
 
+// The calendar date of the ordinal-th weekday in a given month, RFC-5545
+// style: positive counts from the 1st (2 = "2nd Saturday"), negative counts
+// back from the end of the month (-1 = "last Thursday"). Returns null if that
+// ordinal doesn't exist in the month (e.g. a "5th Friday" some months lack).
+function nthWeekdayOfMonth(y: number, mo: number, weekday: number, ordinal: number): { d: number } | null {
+  const daysInMonth = new Date(Date.UTC(y, mo, 0)).getUTCDate();
+  if (ordinal > 0) {
+    const firstDow = new Date(Date.UTC(y, mo - 1, 1)).getUTCDay();
+    const d = 1 + ((weekday - firstDow + 7) % 7) + (ordinal - 1) * 7;
+    return d <= daysInMonth ? { d } : null;
+  }
+  if (ordinal < 0) {
+    const lastDow = new Date(Date.UTC(y, mo - 1, daysInMonth)).getUTCDay();
+    const d = daysInMonth - ((lastDow - weekday + 7) % 7) + (ordinal + 1) * 7;
+    return d >= 1 ? { d } : null;
+  }
+  return null;
+}
+
+// The sorted day-of-month numbers matching any of the given weekdays.
+function weekdayDatesInMonth(y: number, mo: number, weekdays: number[]): number[] {
+  const daysInMonth = new Date(Date.UTC(y, mo, 0)).getUTCDate();
+  const out: number[] = [];
+  for (let d = 1; d <= daysInMonth; d++) {
+    const wd = new Date(Date.UTC(y, mo - 1, d)).getUTCDay();
+    if (weekdays.includes(wd)) out.push(d);
+  }
+  return out;
+}
+
 function parseRrule(v: string): Rrule | null {
   const parts: Record<string, string> = {};
   v.split(";").forEach((kv) => {
@@ -144,6 +183,7 @@ function parseRrule(v: string): Rrule | null {
     interval: parts.INTERVAL ? Math.max(1, parseInt(parts.INTERVAL, 10)) : 1,
   };
   if (parts.COUNT) rule.count = parseInt(parts.COUNT, 10);
+  if (parts.BYSETPOS) rule.bySetPos = parseInt(parts.BYSETPOS.split(",")[0], 10);
   if (parts.UNTIL) {
     const ud = parseIcsDate(parts.UNTIL, false);
     if (ud) rule.untilMs = rawToMs(ud);
@@ -151,8 +191,12 @@ function parseRrule(v: string): Rrule | null {
   if (parts.BYDAY) {
     const map: Record<string, number> = { SU: 0, MO: 1, TU: 2, WE: 3, TH: 4, FR: 5, SA: 6 };
     rule.byDay = parts.BYDAY.split(",")
-      .map((x) => map[x.slice(-2)])
-      .filter((n) => n !== undefined);
+      .map((tok): ByDayEntry | null => {
+        const m = /^(-?\d{1,2})?(SU|MO|TU|WE|TH|FR|SA)$/.exec(tok.trim());
+        if (!m) return null;
+        return { ordinal: m[1] ? parseInt(m[1], 10) : null, day: map[m[2]] };
+      })
+      .filter((x): x is ByDayEntry => x !== null);
   }
   return rule;
 }
@@ -198,8 +242,8 @@ function expand(start: RawDate, rule: Rrule | null, horizonMs: number, nowMs: nu
     const startMs = rawToMs(start);
     for (let w = 0; w < MAX_STEPS; w++) {
       const baseWd = new Date(Date.UTC(week.y, week.mo - 1, week.d)).getUTCDay();
-      for (const wd of rule.byDay) {
-        const occ = addDays(week, wd - baseWd);
+      for (const bd of rule.byDay) {
+        const occ = addDays(week, bd.day - baseWd);
         const ms = rawToMs(occ);
         if (ms < startMs) continue;
         if (rule.untilMs && ms > rule.untilMs) continue;
@@ -208,6 +252,47 @@ function expand(start: RawDate, rule: Rrule | null, horizonMs: number, nowMs: nu
       week = addDays(week, 7 * rule.interval);
       if (rawToMs(week) > horizonMs) break;
     }
+    return out;
+  }
+
+  // "Nth weekday of the month" recurrence. Google Calendar's UI writes this as
+  // RRULE:FREQ=MONTHLY;BYDAY=SA;BYSETPOS=3 ("3rd Saturday"); the RFC 5545
+  // shorthand RRULE:FREQ=MONTHLY;BYDAY=2SA means the same thing for a single
+  // day. Either way this does NOT reduce to repeatedly adding a month to the
+  // start date — the day-of-month for a given weekday shifts month to month,
+  // so it must be recomputed each time.
+  if (rule.freq === "MONTHLY" && rule.byDay?.length && (rule.bySetPos != null || rule.byDay.some((bd) => bd.ordinal != null))) {
+    const startMs = rawToMs(start);
+    const anchor = fastForward(start, rule, nowMs);
+    let y = anchor.y;
+    let mo = anchor.mo;
+    for (let m = 0; m < MAX_STEPS; m++) {
+      const daysThisMonth = new Set<number>();
+      if (rule.bySetPos != null) {
+        const matches = weekdayDatesInMonth(y, mo, rule.byDay.map((bd) => bd.day));
+        const idx = rule.bySetPos > 0 ? rule.bySetPos - 1 : matches.length + rule.bySetPos;
+        const d = matches[idx];
+        if (d != null) daysThisMonth.add(d);
+      } else {
+        for (const bd of rule.byDay) {
+          if (bd.ordinal == null) continue;
+          const nth = nthWeekdayOfMonth(y, mo, bd.day, bd.ordinal);
+          if (nth) daysThisMonth.add(nth.d);
+        }
+      }
+      for (const d of daysThisMonth) {
+        const occ: RawDate = { ...start, y, mo, d };
+        const ms = rawToMs(occ);
+        if (ms < startMs) continue;
+        if (rule.untilMs && ms > rule.untilMs) continue;
+        if (ms <= horizonMs) out.push(occ);
+      }
+      const t = y * 12 + (mo - 1) + rule.interval;
+      y = Math.floor(t / 12);
+      mo = (t % 12) + 1;
+      if (rawToMs({ ...start, y, mo, d: 1 }) > horizonMs) break;
+    }
+    out.sort((a, b) => rawToMs(a) - rawToMs(b));
     return out;
   }
 

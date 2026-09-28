@@ -219,13 +219,13 @@ export const ministries: Ministry[] = [
     programs: [
       {
         name: "Faithful Men's Fellowship",
-        schedule: "Faithful Men's Fellowship · 3rd Thursday of each month from September through May · 7–8 PM",
+        schedule: "Faithful Men's Fellowship · 4th Thursday of each month from September through May · 7–8 PM",
         description:
           "Building strong friendships through encouragement, prayer, Bible reading, and accountability — a time of fellowship, Bible study, and prayer.",
       },
       {
         name: "Men's Prayer Breakfast",
-        schedule: "Men's/Boys Prayer Breakfast · 2nd Saturday of each month from September through May · 8:30–9:30 AM",
+        schedule: "Men's/Boys Prayer Breakfast · 3rd Saturday of each month from September through May · 8:30–9:30 AM",
         description:
           "Men and boys learning the power of Christian fellowship every month.",
       },

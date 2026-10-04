@@ -31,11 +31,11 @@ export default function EventsPage() {
         showCalendarLink={false}
       />
 
-      {/* ── SEPTEMBER MINISTRY SCHEDULE ── */}
+      {/* ── OCTOBER MINISTRY SCHEDULE ── */}
       <section className="events-section" style={{ paddingTop: 0 }}>
         <div className="section-heading" style={{ textAlign: "center", margin: "0 auto 36px" }}>
-          <span className="kicker">Ministry Schedule · September</span>
-          <h2>September Ministry Assignments</h2>
+          <span className="kicker">Ministry Schedule · October</span>
+          <h2>October Ministry Assignments</h2>
           <p>Serving schedules for nursery, music, greeters, and more.</p>
         </div>
 
@@ -49,7 +49,7 @@ export default function EventsPage() {
               <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "#4A9CC7", marginBottom: 4 }}>Ministry Schedule</div>
               <div style={{ fontFamily: "Georgia, serif", fontSize: 22, color: "#fff", lineHeight: 1 }}>Serving Together</div>
             </div>
-            <div style={{ fontFamily: "Georgia, serif", fontStyle: "italic", fontSize: 32, color: "#E8C55A", lineHeight: 1 }}>September</div>
+            <div style={{ fontFamily: "Georgia, serif", fontStyle: "italic", fontSize: 32, color: "#E8C55A", lineHeight: 1 }}>October</div>
           </div>
 
           {/* Nursery */}
@@ -68,7 +68,7 @@ export default function EventsPage() {
             {/* AM / PM grid */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0, background: "#1A2E47", borderRadius: 3, overflow: "hidden", marginBottom: 10 }}>
               {[
-                { label: "AM Service", rows: [["9/6","Birdie | Kirsten"],["9/13","Becky T | Wendy"],["9/20","Jeannette | Sandy B"],["9/27","Carolyn | Stephanie B"]], italic: false },
+                { label: "AM Service", rows: [["10/4","Birdie, Andrea, Sophia"],["10/11","Carolyn, Stephanie B, Ellen"],["10/18","Sigrid, BethAnn, Charlene"],["10/25","Jeannette, Sandy, Kyrie"]], italic: false },
                 { label: "PM Service", rows: [["9/6","Fellowship Dinner"],["9/13","Kathy K"],["9/20","Kay P"],["9/27","Vyanna"]], italic: true },
               ].map(({ label, rows, italic }, ci) => (
                 <div key={label} style={{ padding: "10px 14px", borderLeft: ci > 0 ? "1px solid #243C5A" : undefined }}>
@@ -103,10 +103,10 @@ export default function EventsPage() {
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
               {[
-                { title: "Behind-the-Scenes", rows: [["9/5","April S | Becky T"],["9/12","JP | Amy W | Victoria S"],["9/19","Bethann D | Kay P"],["9/26","Birdie S | Nancy K"]] },
-                { title: "Special Music",     rows: [["9/6","Jessi L"],["9/13","Victoria"],["9/20","Ally"],["9/27","Jesse N"]] },
-                { title: "Bible Challenge",   rows: [["9/13","Eric W"],["9/20","Pastor David W"],["9/27","Jesse N"]] },
-                { title: "Greeters",          rows: [["9/6","Bill / Kay"],["9/13","Laura"],["9/20","Roger / Sigrid"],["9/27","Mark S"]] },
+                { title: "Behind-the-Scenes", rows: [["10/3","Michelle T | Laura"],["10/10","Mark & Lisa S"],["10/17","Blaik H | Lori S"],["10/24","Kirsten | Wendy"],["10/31","Jessi L | Sue W"]] },
+                { title: "Special Music",     rows: [["10/4","Jesse N"],["10/11","Vyanna"],["10/18","The Watsons"],["10/25","Praise Team"]] },
+                { title: "Bible Challenge",   rows: [["10/11","Casey W"],["10/18","Jake E"],["10/25","Roger G"]] },
+                { title: "Greeters",          rows: [["10/4","Victoria"],["10/11","Wendy"],["10/18","Sylvia"],["10/25","Bill / Kay"]] },
               ].map(({ title, rows }) => (
                 <div key={title} style={{ background: "#1A2E47", borderTop: "2px solid #4A9CC7", borderRadius: 3, padding: "10px 12px" }}>
                   <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#A8D4EC", marginBottom: 8, paddingBottom: 5, borderBottom: "1px solid #243C5A" }}>{title}</div>
